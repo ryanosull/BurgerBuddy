@@ -8,7 +8,7 @@ import { Button, Modal, ModalHeader, ModalBody, ModalFooter, Form, Row, Col, Lab
 
 
 
-function Login (args) {
+function Signup (args) {
     const [modal, setModal] = useState(false);
 
     const toggle = () => setModal(!modal);
@@ -16,13 +16,43 @@ function Login (args) {
     return (
     <div>
       <Button color="success" onClick={toggle}>
-        Login
+        Signup
       </Button>
       <Modal isOpen={modal} toggle={toggle} {...args}>
-        <ModalHeader toggle={toggle}>Please enter your email and password below.</ModalHeader>
+        <ModalHeader toggle={toggle}>Enter your info below to signup!</ModalHeader>
         <ModalBody>
         <Form>
   <Row className="row-cols-lg-auto g-3 align-items-center">
+  <Col>
+      <Label
+        className="visually-hidden"
+        for="firstName"
+      >
+        First name
+      </Label>
+      <Input
+        id="firstName"
+        name="firstName"
+        placeholder="first name"
+        type="text"
+        required
+      />
+    </Col>
+    <Col>
+      <Label
+        className="visually-hidden"
+        for="lastName"
+      >
+        Last Name
+      </Label>
+      <Input
+        id="lastName"
+        name="lastName"
+        placeholder="last name"
+        type="text"
+        required
+      />
+    </Col>
     <Col>
       <Label
         className="visually-hidden"
@@ -35,6 +65,7 @@ function Login (args) {
         name="email"
         placeholder="email address"
         type="email"
+        required
       />
     </Col>
     <Col>
@@ -49,6 +80,9 @@ function Login (args) {
         name="password"
         placeholder="password"
         type="password"
+        maxlength="20"
+        minlength="8"
+        required
       />
     </Col>
     <Col>
@@ -60,7 +94,7 @@ function Login (args) {
         </ModalBody>
         <ModalFooter>
             <Button color="success" onClick={toggle}>
-            Login
+            Signup
             </Button>{' '}
             <Button color="warning" onClick={toggle}>
             Cancel
@@ -71,4 +105,4 @@ function Login (args) {
   );
 }
 
-export default Login;
+export default Signup;
