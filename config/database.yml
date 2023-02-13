@@ -81,6 +81,4 @@ test:
 #
 production:
   <<: *default
-  database: burger_buddy_production
-  username: burger_buddy
-  password: <%= ENV["BURGER_BUDDY_DATABASE_PASSWORD"] %>
+  url: <%= ENV['DATABASE_URL'] %>
