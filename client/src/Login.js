@@ -1,4 +1,5 @@
 import React, { useState } from 'react';
+import {useHistory} from 'react-router-dom'
 import { Button, Modal, ModalHeader, ModalBody, ModalFooter, Form, Row, Col, Label, Input } from 'reactstrap'; //FormGroup?
 
 
@@ -8,10 +9,54 @@ import { Button, Modal, ModalHeader, ModalBody, ModalFooter, Form, Row, Col, Lab
 
 
 
-function Login (args) {
+function Example(args) {
+
+    //**********
     const [modal, setModal] = useState(false);
 
     const toggle = () => setModal(!modal);
+    //**********
+
+    const [formData, setFormData] = useState({
+      email:'',
+      password:''
+  })
+  const [errors, setErrors] = useState([])
+  const history = useHistory()
+
+  const {email, password} = formData
+
+  function onSubmit(e){
+      e.preventDefault()
+      const user = {
+          email,
+          password
+      }
+    
+      fetch(`/login`,{
+        method:'POST',
+        headers:{'Content-Type': 'application/json'},
+        body:JSON.stringify(user)
+      })
+      .then(res => {
+          if(res.ok){
+              res.json().then(user => {
+                  history.push(`/users/${user.id}`)
+              })
+          }else {
+              res.json().then(json => setErrors(Object.entries(json.errors)))
+          }
+      })
+    
+  }
+
+  const handleChange = (e) => {
+      const { name, value } = e.target
+      setFormData({ ...formData, [name]: value })
+    }
+
+
+
 
     return (
     <div>
@@ -35,6 +80,8 @@ function Login (args) {
         name="email"
         placeholder="email address"
         type="email"
+        value={email}
+        onChange={handleChange}
       />
     </Col>
     <Col>
@@ -49,6 +96,8 @@ function Login (args) {
         name="password"
         placeholder="password"
         type="password"
+        value={password}
+        onChange={handleChange}
       />
     </Col>
     <Col>
@@ -57,6 +106,9 @@ function Login (args) {
 
   </Row>
 </Form>
+
+{errors?errors.map(e => <div>{e[0]+': ' + e[1]}</div>):null}
+
         </ModalBody>
         <ModalFooter>
             <Button color="success" onClick={toggle}>
@@ -71,4 +123,4 @@ function Login (args) {
   );
 }
 
-export default Login;
+export default Example;
