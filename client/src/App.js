@@ -11,7 +11,7 @@ function App() {
 
   return (
     <div className="App">
-      <h1>Page Count: {count}</h1>
+      <h1>Page Count: test {count}</h1>
     </div>
   );
 }
