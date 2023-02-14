@@ -2,3 +2,6 @@ class Restaurant < ApplicationRecord
   belongs_to :user
   belongs_to :burger
 end
+
+
+#burger has one rest
