@@ -1,6 +1,6 @@
 import React, { useState } from 'react';
 import {useHistory} from 'react-router-dom'
-import { Button, Modal, ModalHeader, ModalBody, ModalFooter, Form, Row, Col, Label, Input } from 'reactstrap'; //FormGroup?
+// import { Button, Modal, ModalHeader, ModalBody, ModalFooter, Form, Row, Col, Label, Input } from 'reactstrap'; //FormGroup?
 
 
 
@@ -12,9 +12,9 @@ import { Button, Modal, ModalHeader, ModalBody, ModalFooter, Form, Row, Col, Lab
 function Example(args) {
 
     //**********
-    const [modal, setModal] = useState(false);
+    // const [modal, setModal] = useState(false);
 
-    const toggle = () => setModal(!modal);
+    // const toggle = () => setModal(!modal);
     //**********
 
     const [formData, setFormData] = useState({
@@ -33,11 +33,12 @@ function Example(args) {
           password
       }
     
-      fetch(`/login`,{
+      fetch(`/login`, {
         method:'POST',
         headers:{'Content-Type': 'application/json'},
         body:JSON.stringify(user)
       })
+
       .then(res => {
           if(res.ok){
               res.json().then(user => {
@@ -59,68 +60,89 @@ function Example(args) {
 
 
     return (
+
     <div>
-      <Button color="success" onClick={toggle}>
-        Login
-      </Button>
-      <Modal isOpen={modal} toggle={toggle} {...args}>
-        <ModalHeader toggle={toggle}>Please enter your email and password below.</ModalHeader>
-        <ModalBody>
-        <Form>
-  <Row className="row-cols-lg-auto g-3 align-items-center">
-    <Col>
-      <Label
-        className="visually-hidden"
-        for="exampleEmail"
-      >
-        Email
-      </Label>
-      <Input
-        id="exampleEmail"
-        name="email"
-        placeholder="email address"
-        type="email"
-        value={email}
-        onChange={handleChange}
-      />
-    </Col>
-    <Col>
-      <Label
-        className="visually-hidden"
-        for="examplePassword"
-      >
-        Password
-      </Label>
-      <Input
-        id="examplePassword"
-        name="password"
-        placeholder="password"
-        type="password"
-        value={password}
-        onChange={handleChange}
-      />
-    </Col>
-    <Col>
+      <form onSubmit={onSubmit}>
+          <label>Email</label>
+          <input type='email' name='email' value={email} onChange={handleChange} required />
 
-    </Col>
+          <label>Password</label>
+          <input type='password' name='password' value={password} onChange={handleChange} required minlength="8" maxlength="20" />
 
-  </Row>
-</Form>
+            <input type='submit' value='Log in!' />
+      </form>
 
-{errors?errors.map(e => <div>{e[0]+': ' + e[1]}</div>):null}
+    {/* {errors ? errors.map(e => <div>{e[0]+': ' + e[1]}</div>):null} */}
 
-        </ModalBody>
-        <ModalFooter>
-            <Button color="success" onClick={toggle}>
-            Login
-            </Button>{' '}
-            <Button color="warning" onClick={toggle}>
-            Cancel
-            </Button>
-        </ModalFooter>
-        </Modal>
+    {errors&&<div>{errors}</div>}
+
     </div>
   );
 }
 
 export default Example;
+
+
+
+{/* <div>
+<Button color="success" onClick={toggle}>Login</Button>
+<Modal isOpen={modal} toggle={toggle} {...args}>
+  <ModalHeader toggle={toggle}>
+    Please enter your email and password below.
+  </ModalHeader>
+  <ModalBody>
+  <Form>
+  <Row className="row-cols-lg-auto g-3 align-items-center">
+  <Col>
+    <Label
+    className="visually-hidden"
+    for="exampleEmail"
+    >
+    Email
+    </Label>
+<Input
+  id="exampleEmail"
+  name="email"
+  placeholder="email address"
+  type="email"
+  value={email}
+  onChange={handleChange}
+/>
+</Col>
+<Col>
+<Label
+  className="visually-hidden"
+  for="examplePassword"
+>
+  Password
+</Label>
+<Input
+  id="examplePassword"
+  name="password"
+  placeholder="password"
+  type="password"
+  value={password}
+  onChange={handleChange}
+/>
+</Col>
+<Col>
+
+</Col>
+
+</Row>
+</Form>
+
+{errors?errors.map(e => <div>{e[0]+': ' + e[1]}</div>):null}
+
+  </ModalBody>
+  <ModalFooter>
+      <Button color="success" onClick={toggle}>
+      Login
+      </Button>{' '}
+      <Button color="warning" onClick={toggle}>
+      Cancel
+      </Button>
+  </ModalFooter>
+  </Modal>
+</div>
+); */}
