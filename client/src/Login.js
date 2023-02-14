@@ -9,7 +9,7 @@ import {useHistory} from 'react-router-dom'
 
 
 
-function Example(args) {
+function Login () {
 
     //**********
     // const [modal, setModal] = useState(false);
@@ -28,6 +28,7 @@ function Example(args) {
 
   function onSubmit(e){
       e.preventDefault()
+      setErrors([])
       const user = {
           email,
           password
@@ -45,7 +46,8 @@ function Example(args) {
                   history.push(`/users/${user.id}`)
               })
           }else {
-              res.json().then(json => setErrors(Object.entries(json.errors)))
+              // res.json().then(json => setErrors(Object.entries(json.errors)))
+              res.json().then(errors => setErrors(errors.errors))
           }
       })
     
@@ -67,20 +69,20 @@ function Example(args) {
           <input type='email' name='email' value={email} onChange={handleChange} required />
 
           <label>Password</label>
-          <input type='password' name='password' value={password} onChange={handleChange} required minlength="8" maxlength="20" />
+          <input type='password' name='password' value={password} onChange={handleChange} required minlength="5" maxlength="20" />
 
             <input type='submit' value='Log in!' />
       </form>
 
     {/* {errors ? errors.map(e => <div>{e[0]+': ' + e[1]}</div>):null} */}
 
-    {errors&&<div>{errors}</div>}
+    {errors && errors.map( e => <div>{e}</div>)}
 
     </div>
   );
 }
 
-export default Example;
+export default Login;
 
 
 
