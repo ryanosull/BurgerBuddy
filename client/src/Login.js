@@ -76,7 +76,7 @@ function Login () {
 
     {/* {errors ? errors.map(e => <div>{e[0]+': ' + e[1]}</div>):null} */}
 
-    {errors && errors.map( e => <div>{e}</div>)}
+    {errors ? errors.map( e => <div>{e}</div>) : <div>Welcome!</div>}
 
     </div>
   );
