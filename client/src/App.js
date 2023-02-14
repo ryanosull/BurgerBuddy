@@ -11,6 +11,27 @@ function App() {
       .then((r) => r.json())
       .then((data) => setCount(data.count));
   }, []);
+  //****************
+
+  const [user, setUser] = useState(null)
+
+  useEffect(() => {
+    fetch("/authorized")
+    .then(resp => {
+      if (resp.ok) {
+        resp.json().then(user => {setUser(user)})
+      } else {
+        resp.json().then(() => setUser(null))
+      }
+    })
+  }, [])
+
+  if (!user) return (
+    //jsx 47min in lecture
+    <>
+    <Login /> 
+    </>
+  )
 
   return (
     <BrowserRouter>
