@@ -40,24 +40,29 @@ function App() {
 
 
   return (
-    <BrowserRouter>
-      <div className="App">
-        <Switch>
-          <Route path="/testing">
-            <h1>Test Route</h1>
-          </Route>
-          <Route path="/">
-            <h1>Page Count: {count}</h1>
-          </Route>
-        </Switch>
-      </div>
-      <Navbar />
-      <Login />
-      <br />
-      <Signup />
-      
-    </BrowserRouter>
+
   );
 }
 
 export default App;
+
+
+
+
+{/* <BrowserRouter>
+    
+<div className="App">
+  <Switch>
+    <Route path="/testing">
+      <h1>Test Route</h1>
+    </Route>
+    <Navbar/>
+    <Route path="/">
+      <h1>Page Count: {count}</h1>
+    </Route>
+  </Switch>
+</div>
+<Login />
+<br />
+<Signup />
+</BrowserRouter> */}
