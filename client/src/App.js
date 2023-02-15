@@ -2,6 +2,7 @@ import { useState, useEffect } from "react";
 import { BrowserRouter, Switch, Route } from "react-router-dom";
 import Login from "./Login";
 import Signup from "./Signup";
+import Navbar from "./Navbar";
 
 function App() {
   const [count, setCount] = useState(0);
@@ -34,22 +35,31 @@ function App() {
   )
 
   return (
-    <BrowserRouter>
-      <div className="App">
-        <Switch>
-          <Route path="/testing">
-            <h1>Test Route</h1>
-          </Route>
-          <Route path="/">
-            <h1>Page Count: {count}</h1>
-          </Route>
-        </Switch>
-      </div>
-      <Login />
-      <br />
-      <Signup />
-    </BrowserRouter>
+    <div>
+      testasdfasdfasdfasdfafdadsfa
+    </div>
   );
 }
 
 export default App;
+
+
+
+
+{/* <BrowserRouter>
+    
+<div className="App">
+  <Switch>
+    <Route path="/testing">
+      <h1>Test Route</h1>
+    </Route>
+    <Navbar/>
+    <Route path="/">
+      <h1>Page Count: {count}</h1>
+    </Route>
+  </Switch>
+</div>
+<Login />
+<br />
+<Signup />
+</BrowserRouter> */}

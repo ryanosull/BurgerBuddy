@@ -2,7 +2,7 @@ import React from "react";
 
 
 
-function Navigation () {
+function Navbar () {
 
 
 
@@ -18,9 +18,9 @@ function Navigation () {
 
     return (
         <div>
-            navigation
+            navbarrrrrrrrrrrrrrrr
         </div>
     );
 };
 
-export default Navigation
+export default Navbar;
