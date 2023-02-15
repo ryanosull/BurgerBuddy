@@ -5,13 +5,7 @@ import Signup from "./Signup";
 import Navbar from "./Navbar";
 
 function App() {
-  const [count, setCount] = useState(0);
 
-  useEffect(() => {
-    fetch("/hello")
-      .then((r) => r.json())
-      .then((data) => setCount(data.count));
-  }, []);
   //****************
 
   const [user, setUser] = useState(null)
@@ -27,12 +21,12 @@ function App() {
     })
   }, [])
 
-  if (!user) return (
-    //jsx 47min in lecture
-    <>
-    <Login /> 
-    </>
-  )
+  // if (!user) return (
+  //   //jsx 47min in lecture
+  //   <>
+  //   <Login /> 
+  //   </>
+  // )
 
 
     console.log("test")
@@ -40,7 +34,9 @@ function App() {
 
 
   return (
-    <div>app</div>
+    <div>
+      <Navbar />
+    </div>
   );
 }
 

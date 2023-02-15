@@ -1,4 +1,5 @@
 import React from "react";
+import "./Navbar.css";
 
 
 
@@ -14,7 +15,9 @@ function Navbar () {
 
     return (
 
-        <div>navbar</div>
+        <h1 id="google">
+            Hey, buddy
+        </h1>
     );
 };
 
