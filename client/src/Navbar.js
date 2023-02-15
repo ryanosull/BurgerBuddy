@@ -17,8 +17,8 @@ function Navbar () {
 
 
     return (
-        <div>
-            navigation
+        <div id="google">
+            <h3>navigation</h3>
         </div>
     );
 };

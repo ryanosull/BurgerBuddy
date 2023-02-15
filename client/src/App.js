@@ -2,6 +2,7 @@ import { useState, useEffect } from "react";
 import { BrowserRouter, Switch, Route } from "react-router-dom";
 import Login from "./Login";
 import Signup from "./Signup";
+import Navbar from "./Navbar";
 
 function App() {
   const [count, setCount] = useState(0);
@@ -33,6 +34,11 @@ function App() {
     </>
   )
 
+
+    console.log("test")
+
+
+
   return (
     <BrowserRouter>
       <div className="App">
@@ -45,9 +51,11 @@ function App() {
           </Route>
         </Switch>
       </div>
+      <Navbar />
       <Login />
       <br />
       <Signup />
+      
     </BrowserRouter>
   );
 }
