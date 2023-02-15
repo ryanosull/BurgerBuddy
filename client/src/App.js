@@ -34,10 +34,13 @@ function App() {
     </>
   )
 
+
+    console.log("test")
+
+
+
   return (
-    <div>
-      testasdfasdfasdfasdfafdadsfa
-    </div>
+
   );
 }
 

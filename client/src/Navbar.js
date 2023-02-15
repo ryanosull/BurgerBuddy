@@ -6,19 +6,14 @@ function Navbar () {
 
 
 
-    function handleLogOut () {
-        fetch('/logout', {
-            method: 'DELETE'
-        })
-    }
+
 
 
 
 
 
     return (
-        <div>
-            navbarrrrrrrrrrrrrrrr
+
         </div>
     );
 };
