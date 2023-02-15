@@ -1,7 +1,7 @@
 Rails.application.routes.draw do
-  resources :restaurants
-  resources :reviews
-  resources :burgers
+  resources :restaurants, only: [:index, :show, :create, :update, :destroy]
+  resources :reviews, only: [:index, :show, :create, :update, :destroy]
+  resources :burgers, only: [:index, :show, :create, :update, :destroy] #index, show, create, update, 
   resources :users
   # Define your application routes per the DSL in https://guides.rubyonrails.org/routing.html
 
