@@ -14,7 +14,7 @@ function Navbar () {
 
     return (
 
-        </div>
+        <div>navbar</div>
     );
 };
 
