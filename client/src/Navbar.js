@@ -14,10 +14,13 @@ function Navbar () {
 
 
     return (
-
-        <h1 id="google">
-            Hey, buddy
-        </h1>
+        <div id="navbarCont">
+            <h1 className="heyBuddy">Hey, buddy</h1>
+            <h3 className="navButtons" >My Reviews</h3>
+            <h3 className="navButtons" >New Restaurant</h3>
+            <h3 className="navButtons" >New Burger</h3>
+            <h3 className="navButtons" >Logout</h3>
+        </div>
     );
 };
 
