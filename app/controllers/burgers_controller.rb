@@ -14,15 +14,10 @@ class BurgersController < ApplicationController
         end
     end
 
-    # def create
-    #     burger = Burger.new(burger_params)
-    #     if burger.valid? 
-    #         burger.save
-    #         render json: burger, except: [:created_at, :updated_at], status: :created
-    #     else
-    #         burger_not_created (burger)
-    #     end
-    # end
+    def create
+        burger = Burger.create!(burger_params)
+        render json: burger, status: :created
+    end
 
     # def update
     #     burger = Burger.find_by(:id params[:id])
