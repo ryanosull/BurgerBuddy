@@ -4,7 +4,7 @@ class Review < ApplicationRecord
 
   validates :content, presence: true
   validates :rating, presence: true
-  validates price:, presence: true
+  validates :price, presence: true
 
   
 end
