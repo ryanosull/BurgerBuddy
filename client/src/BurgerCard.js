@@ -14,7 +14,7 @@ function BurgerCard ({burger}) {
 
 
 
-    console.log(burger)
+    // console.log(burger)
 
 
 
