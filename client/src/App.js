@@ -47,8 +47,8 @@ function App() {
           <Burgers />
         </Route>
 
-        <Route>
-          <NewBurgerForm exact path="/newburger" />
+        <Route path="/newburger" >
+          <NewBurgerForm  />
         </Route>
 
         <Route path="*">
