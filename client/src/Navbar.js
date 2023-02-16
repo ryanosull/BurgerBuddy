@@ -20,10 +20,10 @@ function Navbar () {
 
             <NavLink to="/myburgers" className="navButtons" >My Burgers</NavLink>
 
-
-
             <h3 className="navButtons" >New Restaurant</h3>
-            <h3 className="navButtons" >New Burger</h3>
+
+            <NavLink to="/newburger" className="navButtons" >New Burger</NavLink>
+            
             <h3 className="navButtons" >Logout</h3>
         </div>
     );

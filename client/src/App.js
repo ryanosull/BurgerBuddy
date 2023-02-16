@@ -4,6 +4,7 @@ import { Switch, Route } from "react-router-dom";
 // import Signup from "./Signup";
 import Navbar from "./Navbar";
 import Burgers from "./Burgers";
+import NewBurgerForm from "./NewBurgerForm";
 
 
 
@@ -45,9 +46,11 @@ function App() {
         <Route path="/myburgers">
           <Burgers />
         </Route>
-        <br/>
-        <br/>
-        <br/>
+
+        <Route>
+          <NewBurgerForm exact path="/newburger" />
+        </Route>
+
         <Route path="*">
           <h1>404 not found</h1>
         </Route>
