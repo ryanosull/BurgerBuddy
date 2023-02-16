@@ -14,49 +14,49 @@ class BurgersController < ApplicationController
         end
     end
 
-    def create
-        burger = Burger.new(burger_params)
-        if burger.valid? 
-            burger.save
-            render json: burger, except: [:created_at, :updated_at], status: :created
-        else
-            burger_not_created (burger)
-        end
-    end
+    # def create
+    #     burger = Burger.new(burger_params)
+    #     if burger.valid? 
+    #         burger.save
+    #         render json: burger, except: [:created_at, :updated_at], status: :created
+    #     else
+    #         burger_not_created (burger)
+    #     end
+    # end
 
-    def update
-        burger = Burger.find_by(:id params[:id])
-        burger.update (burger_params)
-        if burger.valid?
-            render json: burger, status: :ok
-        end
-    end
+    # def update
+    #     burger = Burger.find_by(:id params[:id])
+    #     burger.update (burger_params)
+    #     if burger.valid?
+    #         render json: burger, status: :ok
+    #     end
+    # end
 
-    def destroy
-        burger = Burger.find_by(id: params[:id])
-        if burger
-            burger.destroy
-            render json: {messages: ["Burger #{burger.id} has been deleted!"]}
-        else 
-            render json: {errors: ["Burger not found, buddy!"]}
-        end
-    end
+    # def destroy
+    #     burger = Burger.find_by(id: params[:id])
+    #     if burger
+    #         burger.destroy
+    #         render json: {messages: ["Burger #{burger.id} has been deleted!"]}
+    #     else 
+    #         render json: {errors: ["Burger not found, buddy!"]}
+    #     end
+    # end
 
 
 
-    private
+    # private
 
-    def burger_not_found
-        render json: {errors: ['Oh no buddy, that burger is neither here nor there...🍽']}
-    end
+    # def burger_not_found
+    #     render json: {errors: ['Oh no buddy, that burger is neither here nor there...🍽']}
+    # end
 
-    def burger_params
-        params.require(:burger).permit(:bun, :protein, :cheese, :veggies, :condiments, :extras )
-    end
+    # def burger_params
+    #     params.require(:burger).permit(:bun, :protein, :cheese, :veggies, :condiments, :extras )
+    # end
 
-    def burger_not_created (burger)
-        render json: {errors: camper.errors.full_messages}, status: 422
-    end
+    # def burger_not_created (burger)
+    #     render json: {errors: camper.errors.full_messages}, status: 422
+    # end
 
 
 
