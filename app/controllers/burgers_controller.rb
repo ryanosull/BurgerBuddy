@@ -57,7 +57,7 @@ class BurgersController < ApplicationController
     end
 
     def burger_not_created (burger)
-        render json: {errors: camper.errors.full_messages}, status: 422
+        render json: {errors: burger.errors.full_messages}, status: 422
     end
 
 
