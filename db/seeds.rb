@@ -15,15 +15,27 @@ puts "seeding USERS..."
 
 puts "USERS SEEDED"
 
+puts "seeding RESTAURANTS..."
+
+    rt1 = Restaurant.create(name: "Burger Haus" , address: "1776 Ben Franklin Blvd.", city: "Philadelphia" , state_abbr: "PA", zip: "19050" )
+
+    rt2 = Restaurant.create(name: "Denver Dogs and Burgers", address: "16789 Park Ave W.", city: "Denver", state_abbr: "CO", zip: "80202" )
+
+    rt3 = Restaurant.create(name: "Vegan-Kitch" , address: "3254 S. Western Ave.", city: "Chicago" , state_abbr: "IL", zip: "60608" )
+
+puts "RESTAURANTS SEEDED"
+
 puts "seeding BURGERS..."
 
-    b1 = Burger.create(bun: "sesame seed", protein: "beef", cheese: "white American", veggies: "pickles and onions", condiments: "ketchup", extras: "bacon")
+    b1 = Burger.create(bun: "sesame seed", protein: "beef", cheese: "white American", veggies: "pickles and onions", condiments: "ketchup", extras: "bacon", restaurant_id: rt1.id)
 
-    b2 = Burger.create(bun: "pretzel", protein: "bison", cheese: "sharp cheddar", veggies: "sauteed mushrooms and onion", condiments: "garlic aioli", extras: nil)
+    b2 = Burger.create(bun: "pretzel", protein: "bison", cheese: "sharp cheddar", veggies: "sauteed mushrooms and onion", condiments: "garlic aioli", extras: nil, restaurant_id: rt2.id )
 
-    b3 = Burger.create(bun: "gluten free", protein: "black bean patty", cheese: "pepper jack", veggies: "arugala and tomatoe", condiments: "siracha ketchup", extras: "half avocado on the side" )
+    b3 = Burger.create(bun: "gluten free", protein: "black bean patty", cheese: "pepper jack", veggies: "arugala and tomatoe", condiments: "siracha ketchup", extras: "half avocado on the side", restaurant_id: rt3.id )
 
 puts "BURGERS SEEDED"
+
+
 
 puts "seeding REVIEWS..."
 
@@ -34,16 +46,6 @@ puts "seeding REVIEWS..."
     r3 = Review.create(user_id: u3.id, burger_id: b3.id, content: "Not going to beat around the bush here - I try a black bean patty every so often, but it never does the trick when I am craving a greasy burger. Overpriced, in my opinion", price: 11.25, rating: 5, image: "https://sallysbakingaddiction.com/wp-content/uploads/2018/07/best-black-bean-burgers.jpg" )
 
 puts "REVIEWS SEEDED"
-
-puts "seeding RESTAURANTS..."
-
-    rt1 = Restaurant.create(user_id: u1.id, burger_id: b1.id, name: "Burger Haus" , address: "1776 Ben Franklin Blvd.", city: "Philadelphia" , state_abbr: "PA", zip: "19050" )
-
-    rt2 = Restaurant.create(user_id: u2.id, burger_id: b2.id, name: "Denver Dogs and Burgers", address: "16789 Park Ave W.", city: "Denver", state_abbr: "CO", zip: "80202" )
-
-    rt3 = Restaurant.create(user_id: u3.id, burger_id: b3.id, name: "Vegan-Kitch" , address: "3254 S. Western Ave.", city: "Chicago" , state_abbr: "IL", zip: "60608" )
-
-puts "RESTAURANTS SEEDED"
 
 
 puts "🌱complete✨"
