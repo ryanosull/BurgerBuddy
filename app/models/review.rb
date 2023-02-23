@@ -6,5 +6,14 @@ class Review < ApplicationRecord
   validates :rating, presence: true
   validates :price, presence: true
 
-  
+
+
+
+
+
+
+
+
+
+  #
 end
