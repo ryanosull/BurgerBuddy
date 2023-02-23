@@ -1,8 +1,8 @@
 class User < ApplicationRecord
 
-    has_many :reviews
-    has_many :burgers, through: :reviews
-    has_many :restaurants, through: :burgers
+    has_many :reviews , dependent: :destroy
+    has_many :burgers, through: :reviews, dependent: :destroy
+    has_many :restaurants, through: :burgers, dependent: :destroy
 
     has_secure_password
 

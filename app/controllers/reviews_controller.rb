@@ -24,9 +24,15 @@ class ReviewsController < ApplicationController
         end
     end
 
-    # def update
-    
-    # end
+    def update
+        review = Review.find_by(id: params[:id])
+        if review
+            review.update(review_params)
+            render json: review
+        else
+            render json: {errors: ["Review does not exist!"]}
+        end
+    end
 
     def destroy
         review = Review.find_by(id: params[:id])
