@@ -1,6 +1,7 @@
 class Restaurant < ApplicationRecord
-  belongs_to :user
-  belongs_to :burger
+  has_many :burgers
+  has_many :reviews, through: :burgers
+  has_many :users, through: :reviews
 
   # validates :name, presence: :true
   # validates :city, presence: :true

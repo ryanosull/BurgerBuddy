@@ -1,9 +1,9 @@
 class RestaurantsController < ApplicationController
 
 
-    def index #except not working here, c/at and u/at not coming through, exception for :name will not work...
+    def index 
         restaurants = Restaurant.all
-        render json: restaurants, except: [:created_at, :updated_at, :user, :burger], status: :ok
+        render json: restaurants, status: :ok
     end
 
 
@@ -17,7 +17,7 @@ class RestaurantsController < ApplicationController
         end
     end
 
-    def create #no good - can't create even with u_id and b_id. relations wrong, but get/index is good as is (could do without "user")
+    def create
         restaurant = Restaurant.create!(restaurant_params)
         if restaurant
             render json: restaurant, status: :created

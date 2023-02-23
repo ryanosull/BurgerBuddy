@@ -47,7 +47,7 @@ class ReviewsController < ApplicationController
     end
 
     def review_params
-        params.require(:review).permit(:content, :rating, :price, :image)
+        params.require(:review).permit(:content, :rating, :price, :image, :burger_id, :user_id)
     end
 
     def review_not_created (review)

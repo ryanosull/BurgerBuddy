@@ -1,11 +1,11 @@
 class UsersController < ApplicationController
 
-    skip_before_action :authorized_user, only: [:create]
+    # skip_before_action :authorized_user, only: [:create]
 
     def show
         # user = User.find(session[:user_id])
-        # user = User.find(params[:id])
-        render json: current_user, status: :ok
+        user = User.find(params[:id])
+        render json: user, status: :ok #current_user
     end
 
     def create
