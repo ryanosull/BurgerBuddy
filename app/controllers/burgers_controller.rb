@@ -2,13 +2,13 @@ class BurgersController < ApplicationController
 
     def index #good
         burgers = Burger.all
-        render json: burgers, except: [:created_at, :updated_at], status: :ok
+        render json: burgers, status: :ok
     end
 
     def show #good
         burger = Burger.find_by(id: params[:id])
         if burger
-            render json: burger.to_json(except: [:created_at, :updated_at], include: [:restaurants => {except: [:created_at, :updated_at]}]), status: :ok
+            render json: burger.to_json(except: [:created_at, :updated_at]), status: :ok
         else
             burger_not_found
         end
@@ -53,7 +53,7 @@ class BurgersController < ApplicationController
     end
 
     def burger_params
-        params.require(:burger).permit(:bun, :protein, :cheese, :veggies, :condiments, :extras )
+        params.require(:burger).permit(:bun, :protein, :cheese, :veggies, :condiments, :extras, :restaurant_id )
     end
 
     def burger_not_created (burger)

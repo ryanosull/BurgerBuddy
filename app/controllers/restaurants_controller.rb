@@ -1,14 +1,14 @@
 class RestaurantsController < ApplicationController
 
 
-    def index 
+    def index #good
         restaurants = Restaurant.all
         render json: restaurants, status: :ok
     end
 
 
 
-    def show
+    def show #good
         restaurant = Restaurant.find_by(id: params[:id])
         if restaurant
             render json: restaurant.to_json(except: [:created_at, :updated_at]), status: :ok
@@ -17,7 +17,7 @@ class RestaurantsController < ApplicationController
         end
     end
 
-    def create
+    def create 
         restaurant = Restaurant.create!(restaurant_params)
         if restaurant
             render json: restaurant, status: :created
@@ -26,9 +26,15 @@ class RestaurantsController < ApplicationController
         end
     end
 
-    # def update
-
-    # end
+    def update
+        restaurant = Restaurant.find_by(id: params[:id])
+        if restaurant
+            restaurant.update(restaurant_params)
+            render json: restaurant
+        else
+            render json: {errors: ["Restaurant not found, buddy!"]}
+        end
+    end
 
     def destroy
         restaurant = Restaurant.find_by(id: params[:id])
