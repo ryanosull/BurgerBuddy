@@ -9,20 +9,13 @@ function Navbar () {
 
 
 
-
-
-
-
-
     return (
         <div id="navbarCont">
             <h1 className="heyBuddy">Hey, buddy</h1>
 
-            <NavLink to="/myburgers" className="navButtons" >My Reviews</NavLink>
+            <NavLink to="/myreviews" className="navButtons" >My Reviews</NavLink>
 
-            <NavLink to="/newrestaurant" className="navButtons" >New Restaurant</NavLink>
-
-            <NavLink to="/newburger" className="navButtons" >New Burger</NavLink>
+            <NavLink to="/newreview" className="navButtons" >New Review</NavLink>
             
             <NavLink to="/logout" className="navButtons" >Logout</NavLink>
         </div>

@@ -1,9 +1,9 @@
 import React from "react";
 import {useState} from "react";
-import "./NewBurgerForm.css";
+import "./NewReviewForm.css";
 
 
-function NewBurgerForm () {
+function NewReviewForm () {
 
     const [burgers, setBurgers] = useState([])
 
@@ -55,13 +55,17 @@ function NewBurgerForm () {
 
     return ( 
         <div>
-            <h2 id="newBurgFormHeader" >Burgers need buddies, too!</h2>
+
+
+
+            
+            <h2 id="newBurgFormHeader" >Describe your burger!</h2>
             <form onSubmit={handleSubmit} >
                 <input onChange={(e) => setBun(e.target.value)} type="text" name="bun" placeholder="what kind of bun?" value={bun} />
                 <input onChange={(e) => setProtein(e.target.value)} type="text" name="protein" placeholder="how about protein?" value={protein} />
                 <input onChange={(e) => setCheese(e.target.value)} type="text" name="cheese" placeholder="cheese, please" value={cheese} />
-                <input onChange={(e) => setVeggies(e.target.value)} type="text" name="veggies" placeholder="eat your veggies" value={veggies} />
-                <input onChange={(e) => setCondiments(e.target.value)} type="text" name="condiments" placeholder="ketchup or catsup?" value={condiments} />
+                <input onChange={(e) => setVeggies(e.target.value)} type="text" name="veggies" placeholder="hopefully some veggies" value={veggies} />
+                <input onChange={(e) => setCondiments(e.target.value)} type="text" name="condiments" placeholder="any condiments?" value={condiments} />
                 <input onChange={(e) => setExtras(e.target.value)} type="text" name="extras" placeholder="any extras?" value={extras} />
 
                 <button type="submit" >Add your burger! 🍔</button>
@@ -71,4 +75,4 @@ function NewBurgerForm () {
 };
 
 
-export default NewBurgerForm;
+export default NewReviewForm;

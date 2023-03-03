@@ -3,8 +3,8 @@ import { Switch, Route } from "react-router-dom";
 // import Login from "./Login";
 // import Signup from "./Signup";
 import Navbar from "./Navbar";
-import Burgers from "./Burgers";
-import NewBurgerForm from "./NewBurgerForm";
+import Reviews from "./Reviews";
+import NewReviewForm from "./NewReviewForm";
 
 
 
@@ -43,12 +43,12 @@ function App() {
       <Navbar />
       <Switch>
 
-        <Route path="/myburgers">
-          <Burgers />
+        <Route path="/myreviews">
+          <Reviews />
         </Route>
 
-        <Route path="/newburger" >
-          <NewBurgerForm  />
+        <Route path="/newreview" >
+          <NewReviewForm  />
         </Route>
 
         <Route path="*">

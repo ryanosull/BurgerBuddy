@@ -5,7 +5,7 @@ import ReviewCard from "./ReviewCard"
 
 
 
-function Burgers () {
+function MyReviews () {
 
     const [reviews, setReviews] = useState([])
 
@@ -34,4 +34,4 @@ function Burgers () {
 };
 
 
-export default Burgers;
+export default MyReviews;
