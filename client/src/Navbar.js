@@ -18,7 +18,7 @@ function Navbar () {
         <div id="navbarCont">
             <h1 className="heyBuddy">Hey, buddy</h1>
 
-            <NavLink to="/myburgers" className="navButtons" >My Burgers</NavLink>
+            <NavLink to="/myburgers" className="navButtons" >My Reviews</NavLink>
 
             <NavLink to="/newrestaurant" className="navButtons" >New Restaurant</NavLink>
 

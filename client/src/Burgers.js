@@ -1,26 +1,26 @@
 import React from "react";
 import {useState, useEffect} from "react"
-import BurgerCard from "./BurgerCard"
+import ReviewCard from "./ReviewCard"
 
 
 
 
 function Burgers () {
 
-    const [burgers, setBurgers] = useState([])
+    const [reviews, setReviews] = useState([])
 
-    useEffect(() => fetchBurgers(), [])
+    useEffect(() => fetchReviews(), [])
 
-    function fetchBurgers () {
-        fetch("/burgers")
+    function fetchReviews () {
+        fetch("/reviews")
         .then(r => r.json())
-        .then(setBurgers)
+        .then(setReviews)
     }
 
-    const renderBurgerCard = burgers.map (burger =>
-        <BurgerCard
-        burger={burger}
-        key={burger.id}
+    const renderReviewCard = reviews.map (review =>
+        <ReviewCard
+        review={review}
+        key={review.id}
         />
         )
 
@@ -28,7 +28,7 @@ function Burgers () {
 
     return (
         <div>
-            {renderBurgerCard}
+            {renderReviewCard}
         </div>
     );
 };
