@@ -1,8 +1,14 @@
-.burgerStuff {
-    /* color: rgb(216, 24, 219) */
+#reviewCard {
+    display: flex;
+    flex-direction: row;
+    justify-content: space-evenly;
+    max-width: 300px;
+    align-items: center;
+
 }
 
-#burgerCard {
-    /* display: flex; */
-    /* margin-top: 10%; */
-} 
+#reviewCardImg{
+    max-width: 250px;
+    max-height: 250px;
+
+}
