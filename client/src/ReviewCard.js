@@ -57,13 +57,13 @@ function ReviewCard ({review}) {
                     className="mb-2 text-muted"
                     tag="h6"
                     >
-                    Rating: {review.rating}
+                    Rating: {review.rating}/10
                     </CardSubtitle>
                     <CardSubtitle
                     className="mb-2 text-muted"
                     tag="h6"
                     >
-                    Protein: {review.burger.protein}
+                    Protein: {review.burger.protein.toUpperCase()}
                     </CardSubtitle>
                     <CardSubtitle
                     className="mb-2 text-muted"

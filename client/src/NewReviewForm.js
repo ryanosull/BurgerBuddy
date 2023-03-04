@@ -1,10 +1,23 @@
 import React from "react";
-import {useState} from "react";
+import {useState, useEffect} from "react";
 import "./NewReviewForm.css";
 
 
 function NewReviewForm () {
 
+    const [restaurants, setRestaurants] = useState([])
+
+    useEffect(() => fetchRestaurants(), [])
+
+    function fetchRestaurants() {
+        fetch("/restaurants")
+        .then(r => r.json())
+        .then(setRestaurants)
+    }
+
+
+
+/////////
     const [burgers, setBurgers] = useState([])
 
     const [bun, setBun] = useState("")
@@ -46,7 +59,7 @@ function NewReviewForm () {
         .then(newBurg => setBurgers([...burgers, newBurg]))
 
     }
-
+//////////////
 
 
 
@@ -56,10 +69,16 @@ function NewReviewForm () {
     return ( 
         <div>
 
+            <label for="restaurants" className="newBurgFormHeader" id="restaurants">Select a restaurant: </label>
+            <select name="restaurants" >
+                {restaurants.map (restaurant =>
+                    <option>{restaurant.name}</option>
+                    )}
+
+            </select>
 
 
-            
-            <h2 id="newBurgFormHeader" >Describe your burger!</h2>
+            <h2 className="newBurgFormHeader" >Describe your burger!</h2>
             <form onSubmit={handleSubmit} >
                 <input onChange={(e) => setBun(e.target.value)} type="text" name="bun" placeholder="what kind of bun?" value={bun} />
                 <input onChange={(e) => setProtein(e.target.value)} type="text" name="protein" placeholder="how about protein?" value={protein} />
