@@ -1,10 +1,11 @@
 // import { useState, useEffect } from "react";
 import { Switch, Route } from "react-router-dom";
-// import Login from "./Login";
+
 // import Signup from "./Signup";
 import Navbar from "./Navbar";
 import Reviews from "./Reviews";
 import NewReviewForm from "./NewReviewForm";
+import LandingPage from "./LandingPage";
 
 
 
@@ -43,6 +44,10 @@ function App() {
       <Navbar />
       <Switch>
 
+      <Route exact path='/'>
+        <LandingPage />
+      </Route>
+
         <Route path="/myreviews">
           <Reviews />
         </Route>
@@ -51,11 +56,14 @@ function App() {
           <NewReviewForm  />
         </Route>
 
-        <Route path="*">
+        <Route  path="*">
           <h1>404</h1>
         </Route>
 
       </Switch>
+
+      
+
     </div>
   );
 }

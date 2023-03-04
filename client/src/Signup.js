@@ -1,5 +1,6 @@
 import React, { useState } from 'react';
 import { Button, Modal, ModalHeader, ModalBody, ModalFooter, Form, Row, Col, Label, Input } from 'reactstrap'; //FormGroup?
+import "./Signup.css"
 
 
 
@@ -15,12 +16,12 @@ function Signup (args) {
 
     return (
     <div>
-      <Button color="success" onClick={toggle}>
+      <Button id="signupButton" color="success" onClick={toggle}>
         Signup
       </Button>
-      <Modal isOpen={modal} toggle={toggle} {...args}>
+      <Modal id="modal" isOpen={modal} toggle={toggle} {...args}>
         <ModalHeader toggle={toggle}>Enter your info below to signup!</ModalHeader>
-        <ModalBody>
+        <ModalBody  >
         <Form>
   <Row className="row-cols-lg-auto g-3 align-items-center">
   <Col>
