@@ -1,6 +1,7 @@
-// import React, { useState } from 'react';
-// import {useHistory} from 'react-router-dom'
-// // import { Button, Modal, ModalHeader, ModalBody, ModalFooter, Form, Row, Col, Label, Input } from 'reactstrap'; //FormGroup?
+import React, { useState } from 'react';
+import {useHistory} from 'react-router-dom'
+import "./Login.css"
+// import { Button, Modal, ModalHeader, ModalBody, ModalFooter, Form, Row, Col, Label, Input } from 'reactstrap'; //FormGroup?
 
 
 
@@ -9,80 +10,82 @@
 
 
 
-// function Login () {
+function Login () {
 
-//     //**********
-//     // const [modal, setModal] = useState(false);
+    //**********
+    // const [modal, setModal] = useState(false);
 
-//     // const toggle = () => setModal(!modal);
-//     //**********
+    // const toggle = () => setModal(!modal);
+    //**********
 
-//     const [formData, setFormData] = useState({
-//       email:'',
-//       password:''
-//   })
-//   const [errors, setErrors] = useState([])
-//   const history = useHistory()
+    const [formData, setFormData] = useState({
+      email:'',
+      password:''
+  })
+  const [errors, setErrors] = useState([])
+  const history = useHistory()
 
-//   const {email, password} = formData
+  const {email, password} = formData
 
-//   function onSubmit(e){
-//       e.preventDefault()
-//       setErrors([])
-//       const user = {
-//           email,
-//           password
-//       }
+  function onSubmit(e){
+      e.preventDefault()
+      setErrors([])
+      const user = {
+          email,
+          password
+      }
     
-//       fetch(`/login`, {
-//         method:'POST',
-//         headers:{'Content-Type': 'application/json'},
-//         body:JSON.stringify(user)
-//       })
+      fetch(`/login`, {
+        method:'POST',
+        headers:{'Content-Type': 'application/json'},
+        body:JSON.stringify(user)
+      })
 
-//       .then(res => {
-//           if(res.ok){
-//               res.json().then(user => {
-//                   history.push(`/users/${user.id}`)
-//               })
-//           }else {
-//               // res.json().then(json => setErrors(Object.entries(json.errors)))
-//               res.json().then(errors => setErrors(errors.errors))
-//           }
-//       })
+      .then(res => {
+          if(res.ok){
+              res.json().then(user => {
+                  history.push(`/users/${user.id}`)
+              })
+          }else {
+              // res.json().then(json => setErrors(Object.entries(json.errors)))
+              res.json().then(errors => setErrors(errors.errors))
+          }
+      })
     
-//   }
+  }
 
-//   const handleChange = (e) => {
-//       const { name, value } = e.target
-//       setFormData({ ...formData, [name]: value })
-//     }
-
-
+  const handleChange = (e) => {
+      const { name, value } = e.target
+      setFormData({ ...formData, [name]: value })
+    }
 
 
-//     return (
 
-//     <div>
-//       <form onSubmit={onSubmit}>
-//           <label>Email</label>
-//           <input type='email' name='email' value={email} onChange={handleChange} required />
 
-//           <label>Password</label>
-//           <input type='password' name='password' value={password} onChange={handleChange} required minlength="5" maxlength="20" />
+    return (
 
-//             <input type='submit' value='Log in!' />
-//       </form>
+    <div>
+      <form  onSubmit={onSubmit}>
+        <div >
+          <label id="email" >Email</label>
+          <input type='email' name='email' value={email} onChange={handleChange} required />
+          </div>
 
-//     {/* {errors ? errors.map(e => <div>{e[0]+': ' + e[1]}</div>):null} */}
+          <label id="password" >Password</label>
+          <input type='password' name='password' value={password} onChange={handleChange} required minlength="5" maxlength="20" />
 
-//     {errors ? errors.map( e => <div>{e}</div>) : <div>Welcome!</div>}
-//       {/* {errors && errors.map( e => <div>{e}</div>)} */}
-//     </div>
-//   );
-// }
+            <input type='submit' value='Log in!' />
+      </form>
 
-// export default Login;
+    {/* {errors ? errors.map(e => <div>{e[0]+': ' + e[1]}</div>):null} */}
+
+    {errors ? errors.map( e => <div>{e}</div>) : <div>Welcome!</div>}
+      {/* {errors && errors.map( e => <div>{e}</div>)} */}
+    </div>
+  );
+}
+
+export default Login;
 
 
 

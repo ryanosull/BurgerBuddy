@@ -1,0 +1,21 @@
+#spinBurger {
+max-width: 20%;
+
+/* opacity: .9; */
+
+}
+
+#burger {
+    display: flex;
+    justify-content: center;
+    margin-top: 9%;
+}
+
+
+#signup {
+    position: absolute;
+    left: 80%;
+    top: 50%;
+    
+
+}
