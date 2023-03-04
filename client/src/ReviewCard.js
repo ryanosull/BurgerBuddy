@@ -12,6 +12,8 @@ import { Card, CardBody, CardTitle, CardSubtitle, CardText, Button } from 'react
 
 function ReviewCard ({review}) {
 
+    //filter and sort: sortyby: hi to low price, high to low rating
+    //filter: 
 
     const [burgerInfo, setBurgerInfo] = useState(false)
 
@@ -76,8 +78,10 @@ function ReviewCard ({review}) {
                     </CardText>
                     <Button onClick={() => setBurgerInfo(!burgerInfo)}>
                         {burgerInfo && <BurgerInfo burgers={burgers}  />}
-                    View burger info
+                    View Burger Info
                     </Button>
+                    <Button>Edit Review</Button>
+                    <Button>Delete Review</Button>
                 </CardBody>
             </Card>
         </div>

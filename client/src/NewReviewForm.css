@@ -3,3 +3,12 @@
     font-family: 'Rubik Vinyl', cursive;
     font-size: 20px;
 }
+
+#restyDropdown {
+    margin-left: 15px;
+}
+
+/* #fontTest {
+    font-family: 'Rubik Vinyl', cursive;
+    this changes font on dropdown, but not in select element
+} */

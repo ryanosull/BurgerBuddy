@@ -36,7 +36,10 @@ function NewReviewForm () {
             cheese: cheese,
             veggies: veggies, 
             condiments: condiments,
-            extras: extras
+            extras: extras,
+            restaurant_id: "" //this is going to be the value field of selected resty. value={resty.id}
+            //at the selected of the restaurant:
+            //
         }
 
         setBun("")
@@ -69,13 +72,14 @@ function NewReviewForm () {
     return ( 
         <div>
 
-            <label for="restaurants" className="newBurgFormHeader" id="restaurants">Select a restaurant: </label>
-            <select name="restaurants" >
+            <label for="restaurants" className="newBurgFormHeader" id="restaurants">Select a restaurant:</label>
+            <select name="restaurants" id="restyDropdown" >
+                <option>Choose here</option>
                 {restaurants.map (restaurant =>
-                    <option>{restaurant.name}</option>
+                    <option id="fontTest" value={restaurant.id} >{restaurant.name}</option>
                     )}
-
             </select>
+            <h2 className="newBurgFormHeader" >Or add a new restaurant</h2>
 
 
             <h2 className="newBurgFormHeader" >Describe your burger!</h2>
@@ -95,3 +99,13 @@ function NewReviewForm () {
 
 
 export default NewReviewForm;
+
+// when a resty is selected we will use the value of resty.id to associate with burger, but when a new resty is created we must use the value of newresty.id 
+
+// review will be created last. the order shoul be:
+//first, choose or create a resty
+//next, describe your burger
+//finally, leave a review 
+// how to associate burger with resty, review with burger?
+//when selected we can use the resty.id ass the value, and then under the hood (not on frontend) we take the value of the selection add it to the post of burger
+//see dropdown option and newBurg object in POST
