@@ -19,44 +19,44 @@ function Login () {
     //**********
 
     const [formData, setFormData] = useState({
-      email:'',
-      password:''
-  })
-  const [errors, setErrors] = useState([])
-  const history = useHistory()
+        email:'',
+        password:''
+    })
+    const [errors, setErrors] = useState([])
+    const history = useHistory()
 
-  const {email, password} = formData
+    const {email, password} = formData
 
-  function onSubmit(e){
-      e.preventDefault()
-      setErrors([])
-      const user = {
-          email,
-          password
-      }
-    
-      fetch(`/login`, {
+    function onSubmit(e){
+        e.preventDefault()
+        setErrors([])
+        const user = {
+            email,
+            password
+        }
+        
+        fetch(`/login`, {
         method:'POST',
         headers:{'Content-Type': 'application/json'},
         body:JSON.stringify(user)
-      })
+        })
 
-      .then(res => {
-          if(res.ok){
-              res.json().then(user => {
-                  history.push(`/users/${user.id}`)
-              })
-          }else {
-              // res.json().then(json => setErrors(Object.entries(json.errors)))
-              res.json().then(errors => setErrors(errors.errors))
-          }
-      })
+        .then(res => {
+            if(res.ok){
+            res.json().then(user => {
+            history.push(`/users/${user.id}`)
+            })
+            }else {
+            // res.json().then(json => setErrors(Object.entries(json.errors)))
+            res.json().then(errors => setErrors(errors.errors))
+            }
+        })
     
-  }
+    }
 
-  const handleChange = (e) => {
-      const { name, value } = e.target
-      setFormData({ ...formData, [name]: value })
+    const handleChange = (e) => {
+        const { name, value } = e.target
+        setFormData({ ...formData, [name]: value })
     }
 
 
@@ -65,25 +65,25 @@ function Login () {
     return (
 
     <div>
-      <form  onSubmit={onSubmit}>
-        <div >
-          <label id="email" >Email</label>
-          <input type='email' name='email' value={email} onChange={handleChange} required />
-          </div>
+        <form  onSubmit={onSubmit}>
+            <div >
+                <label id="email" >Email</label>
+                <input type='email' name='email' value={email} onChange={handleChange} required />
+            </div>
 
-          <label id="password" >Password</label>
-          <input type='password' name='password' value={password} onChange={handleChange} required minlength="5" maxlength="20" />
-
+            <label id="password" >Password</label>
+            <input type='password' name='password' value={password} onChange={handleChange}
+            required minlength="5" maxlength="20" />
             <input type='submit' value='Log in!' />
-      </form>
+        </form>
 
-    {/* {errors ? errors.map(e => <div>{e[0]+': ' + e[1]}</div>):null} */}
-
-    {errors ? errors.map( e => <div>{e}</div>) : <div>Welcome!</div>}
-      {/* {errors && errors.map( e => <div>{e}</div>)} */}
+        {/* {errors ? errors.map(e => <div>{e[0]+': ' + e[1]}</div>):null} */}
+        {errors ? errors.map( e => <div>{e}</div>) : <div>Welcome!</div>}
+        {/* {errors && errors.map( e => <div>{e}</div>)} */}
     </div>
-  );
-}
+    );
+};
+
 
 export default Login;
 
