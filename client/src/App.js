@@ -1,4 +1,4 @@
-// import { useState, useEffect } from "react";
+import { useState, useEffect } from "react";
 import { Switch, Route } from "react-router-dom";
 
 // import Signup from "./Signup";
@@ -14,25 +14,23 @@ function App() {
 
   //****************
 
-  // const [user, setUser] = useState(null)
+  const [currentUser, setCurrentUser] = useState(null)
 
-  // useEffect(() => {
-  //   fetch("/authorized")
-  //   .then(resp => {
-  //     if (resp.ok) {
-  //       resp.json().then(user => {setUser(user)})
-  //     } else {
-  //       resp.json().then(() => setUser(null))
-  //     }
-  //   })
-  // }, [])
+  useEffect(() => {
+    fetch("/authorized")
+    .then(r => {
+      if (r.ok) {
+        r.json().then(user => setCurrentUser(user))
+      } else {
+        r.json().then(() => setCurrentUser(null))
+      }
+    })
+  }, [])
 
-  // if (!user) return (
-  //   //jsx 47min in lecture
-  //   <>
-  //   <Login /> 
-  //   </>
-  // )
+  if (!currentUser) return (
+    //jsx 47min in lecture
+    <LandingPage /> 
+  )
 
 
   //navbar needs to be conditionally rendered so that it only appears once a user is logged in. dont forget to change "buddy" to {user.first_name}.
@@ -41,7 +39,7 @@ function App() {
 
   return (
     <div className="app">
-      <Navbar />
+      <Navbar currentUser={currentUser} />
       <Switch>
 
       <Route exact path='/'>
