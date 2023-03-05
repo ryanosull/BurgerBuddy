@@ -17,10 +17,10 @@ function Signup (args) {
     return (
     <div>
       <Button id="signupButton" color="success" onClick={toggle}>
-        Signup
+        Sign Up
       </Button>
       <Modal id="modal" isOpen={modal} toggle={toggle} {...args}>
-        <ModalHeader toggle={toggle}>Enter your info below to signup!</ModalHeader>
+        <ModalHeader toggle={toggle}>To sign up, please enter your information below.</ModalHeader>
         <ModalBody  >
         <Form>
   <Row className="row-cols-lg-auto g-3 align-items-center">
@@ -82,7 +82,7 @@ function Signup (args) {
         placeholder="password"
         type="password"
         maxlength="20"
-        minlength="8"
+        minlength="5"
         required
       />
     </Col>
@@ -94,10 +94,10 @@ function Signup (args) {
 </Form>
         </ModalBody>
         <ModalFooter>
-            <Button color="success" onClick={toggle}>
-            Signup
+            <Button id="signupButtonModal"  onClick={toggle}>
+            Sign up
             </Button>{' '}
-            <Button color="warning" onClick={toggle}>
+            <Button id="cancelButtonModal" onClick={toggle}>
             Cancel
             </Button>
         </ModalFooter>

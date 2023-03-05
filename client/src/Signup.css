@@ -1,7 +1,30 @@
 #modal {
-    opacity: .85;
+    opacity: .8;
+    display: flex;
+    justify-content: center;
+    margin-top: 15%;
+    
 }
 
 #signupButton {
     font-size: 250%;
+    background-color: rgb(179, 9, 159);
+    font-family: 'Rubik Vinyl', cursive;
+    
+    
+}
+
+#signupButton:hover {
+
+background-color: rgb(228, 17, 251);
+opacity: .9;
+}
+
+#signupButtonModal {
+    background-color: rgb(179, 9, 159);
+    font-family: 'Rubik Vinyl', cursive;
+}
+
+#cancelButtonModal {
+    font-family: 'Rubik Vinyl', cursive;
 }

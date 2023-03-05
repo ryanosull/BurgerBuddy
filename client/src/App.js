@@ -35,7 +35,7 @@ function App() {
   // )
 
 
-
+  //navbar needs to be conditionally rendered so that it only appears once a user is logged in. dont forget to change "buddy" to {user.first_name}.
 
 
 
