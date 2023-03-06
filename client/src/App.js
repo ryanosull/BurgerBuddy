@@ -5,6 +5,7 @@ import Navbar from "./Navbar";
 import Reviews from "./Reviews";
 import NewReviewForm from "./NewReviewForm";
 import LandingPage from "./LandingPage";
+import "./App.css";
 
 
 
@@ -62,7 +63,10 @@ function App() {
         </Route>
 
         <Route  path="*">
-          <h1>404</h1>
+          <div id="four">
+            <h1 id="status">404</h1>
+            <p id="message">This page doesn't exist, buddy.</p>
+          </div>
         </Route>
 
       </Switch>
