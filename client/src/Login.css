@@ -1,11 +1,26 @@
-.emailPass{
-color: white;
+#modal {
+    opacity: .9;
+    display: flex;
+    justify-content: center;
+    margin-top: 15%;
 }
 
-#email {
-    color: white;
+#loginButton {
+    font-size: 250%;
+    background-color: rgb(179, 9, 159);
+    font-family: 'Rubik Vinyl', cursive;
 }
 
-#password {
-    color: white;
-}
+#loginButton:hover {
+    background-color: rgb(228, 17, 251);
+    opacity: .9;
+    }
+
+    #loginButtonModal {
+        background-color: rgb(179, 9, 159);
+        font-family: 'Rubik Vinyl', cursive;
+    }
+    
+    #cancelButtonModal {
+        font-family: 'Rubik Vinyl', cursive;
+    }

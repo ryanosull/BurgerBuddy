@@ -36,8 +36,8 @@ function Signup (args) {
 
 	const {first_name, last_name, email, password} = formData
 
-	function onSubmit(e) {
-		e.preventDefault()
+	function onSignup() {
+		
 		const user ={
 			first_name,
 			last_name,
@@ -59,10 +59,6 @@ function Signup (args) {
 				res.json().then(errors => setErrors(errors.errors))
 			}
 		})
-	}
-
-	function handleSubmit () {
-		onSubmit()
 		toggle()
 	}
 
@@ -82,7 +78,7 @@ function Signup (args) {
 			<ModalHeader toggle={toggle}>To sign up, please enter your information below.</ModalHeader>
 
 			<ModalBody  >
-			<Form>
+			<Form >
 				<Row className="row-cols-lg-auto g-3 align-items-center">
 					<Col>
 						<Label className="visually-hidden" for="firstName">First name</Label>
@@ -105,7 +101,7 @@ function Signup (args) {
 			</ModalBody>
 
 			<ModalFooter>
-				<Button id="signupButtonModal"  onClick={handleSubmit}>Sign up</Button>{' '}
+				<Button id="signupButtonModal"  onClick={onSignup}>Sign up</Button>{' '}
 				<Button id="cancelButtonModal" onClick={toggle}>Cancel</Button>
 			</ModalFooter>
 
