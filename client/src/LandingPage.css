@@ -1,14 +1,16 @@
 #spinBurger {
 max-width: 20%;
-margin-top: 15%;
+margin-top: 3.5%;
+margin-left: 40%;
 /* opacity: .9; */
+position: fixed;
 
 }
 
 #burger {
-    display: flex;
+    /* display: flex;
     justify-content: center;
-    /* margin-top: 9%; */
+    margin-top: 9%; */
 }
 
 
@@ -24,4 +26,11 @@ margin-top: 15%;
     position: absolute;
     top: 50%;
     right: 80%;
+}
+
+#header{
+    font-family: 'Rubik Vinyl', cursive;
+    color: white;
+    font-size: 150px;
+    justify-content: center;
 }
