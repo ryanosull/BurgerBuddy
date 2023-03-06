@@ -27,7 +27,7 @@ function App() {
 
   if (!currentUser) return (
     //jsx 47min in lecture
-    <LandingPage /> 
+    <LandingPage setCurrentUser={setCurrentUser} /> 
   )
 
   // if (currentUser) return (
@@ -51,11 +51,11 @@ function App() {
       <Switch>
 
       <Route exact path='/'>
-        <LandingPage />
+        <LandingPage setCurrentUser={setCurrentUser} />
       </Route>
 
         <Route path="/myreviews">
-          <Reviews />
+          <Reviews currentUser={currentUser} />
         </Route>
 
         <Route path="/newreview" >

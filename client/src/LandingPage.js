@@ -1,24 +1,10 @@
 import React from "react";
 import "./LandingPage.css";
-import Signup from "./Signup"
+import Signup from "./Signup";
 import Login from "./Login";
-import Login2 from "./Login2";
 
 
-
-
-
-
-
-
-function LandingPage() {
-
-
-
-
-
-
-
+function LandingPage({setCurrentUser}) {
 
 
     return (
@@ -31,7 +17,7 @@ function LandingPage() {
                 <Signup />
             </div>
             <div id="login">
-                <Login />
+                <Login setCurrentUser={setCurrentUser} />
             </div>
             
         </div>

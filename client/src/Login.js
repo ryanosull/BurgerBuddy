@@ -1,7 +1,7 @@
 import React, { useState } from 'react';
 import {useHistory} from 'react-router-dom'
 import "./Login.css"
-import { Button, Modal, ModalHeader, ModalBody, ModalFooter, Form, Row, Col, Label, Input } from 'reactstrap'; //FormGroup?
+import { Button, Modal, ModalHeader, ModalBody, ModalFooter, Form, Row, Col, Label, Input } from 'reactstrap';
 
 
 function Login (args) {
@@ -37,8 +37,10 @@ function Login (args) {
 
         .then(res => {
             if(res.ok){
-            res.json().then(user => {
-            history.push(`/users/${user.id}`)
+            res.json().then(userData => {
+                console.log(args.setCurrentUser)
+            args.setCurrentUser(userData)
+            history.push(`/myreviews`)
             })
             } else {
             // res.json().then(json => setErrors(Object.entries(json.errors)))

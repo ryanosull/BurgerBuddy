@@ -5,7 +5,7 @@ import ReviewCard from "./ReviewCard"
 
 
 
-function MyReviews () {
+function MyReviews ({currentUser}) {
 
     const [reviews, setReviews] = useState([])
 
@@ -17,7 +17,8 @@ function MyReviews () {
         .then(setReviews)
     }
 
-    const renderReviewCard = reviews.map (review =>
+
+    const renderReviewCard = reviews.filter(review => review.user.id === currentUser.id).map (review =>
         <ReviewCard
         review={review}
         key={review.id}

@@ -36,6 +36,8 @@ function ReviewCard ({review}) {
     //     alert("hello asshole")
     // }
 
+    console.log(review)
+
 
     return (
         <div id="reviewCard">
