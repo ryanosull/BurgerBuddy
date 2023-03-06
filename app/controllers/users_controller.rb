@@ -1,6 +1,7 @@
 class UsersController < ApplicationController
 
     skip_before_action :authorized_user, only: [:create]
+    wrap_parameters format: []
 
     # def index
     #     users = User.all
