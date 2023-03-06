@@ -46,7 +46,7 @@ function Login () {
             res.json().then(user => {
             history.push(`/users/${user.id}`)
             })
-            }else {
+            } else {
             // res.json().then(json => setErrors(Object.entries(json.errors)))
             res.json().then(errors => setErrors(errors.errors))
             }
