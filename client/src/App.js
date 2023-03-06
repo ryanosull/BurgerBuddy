@@ -1,7 +1,6 @@
 import { useState, useEffect } from "react";
 import { Switch, Route } from "react-router-dom";
 
-// import Signup from "./Signup";
 import Navbar from "./Navbar";
 import Reviews from "./Reviews";
 import NewReviewForm from "./NewReviewForm";
@@ -11,8 +10,6 @@ import LandingPage from "./LandingPage";
 
 
 function App() {
-
-  //****************
 
   const [currentUser, setCurrentUser] = useState(null)
 
@@ -31,6 +28,16 @@ function App() {
     //jsx 47min in lecture
     <LandingPage /> 
   )
+
+  // if (currentUser) return (
+  //   <Navbar />
+  // )
+
+  // if (!currentUser) {
+  //   <LandingPage />
+  // } else {
+  //   <Navbar />
+  // }
 
 
   //navbar needs to be conditionally rendered so that it only appears once a user is logged in. dont forget to change "buddy" to {user.first_name}.
