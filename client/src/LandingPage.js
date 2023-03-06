@@ -2,6 +2,7 @@ import React from "react";
 import "./LandingPage.css";
 import Signup from "./Signup"
 import Login from "./Login";
+import Login2 from "./Login2";
 
 
 
