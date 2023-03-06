@@ -27,7 +27,7 @@ function Login () {
 
     const {email, password} = formData
 
-    function onSubmit(e){
+    function onLogin(e){
         e.preventDefault()
         setErrors([])
         const user = {
@@ -46,7 +46,7 @@ function Login () {
             res.json().then(user => {
             history.push(`/users/${user.id}`)
             })
-            }else {
+            } else {
             // res.json().then(json => setErrors(Object.entries(json.errors)))
             res.json().then(errors => setErrors(errors.errors))
             }
@@ -65,7 +65,7 @@ function Login () {
     return (
 
     <div>
-        <form  onSubmit={onSubmit}>
+        <form  onSubmit={onLogin}>
             <div >
                 <label id="email" >Email</label>
                 <input type='email' name='email' value={email} onChange={handleChange} required />
@@ -89,65 +89,84 @@ export default Login;
 
 
 
-// // {/* <div>
-// // <Button color="success" onClick={toggle}>Login</Button>
-// // <Modal isOpen={modal} toggle={toggle} {...args}>
-// //   <ModalHeader toggle={toggle}>
-// //     Please enter your email and password below.
-// //   </ModalHeader>
-// //   <ModalBody>
-// //   <Form>
-// //   <Row className="row-cols-lg-auto g-3 align-items-center">
-// //   <Col>
-// //     <Label
-// //     className="visually-hidden"
-// //     for="exampleEmail"
-// //     >
-// //     Email
-// //     </Label>
-// // <Input
-// //   id="exampleEmail"
-// //   name="email"
-// //   placeholder="email address"
-// //   type="email"
-// //   value={email}
-// //   onChange={handleChange}
-// // />
-// // </Col>
-// // <Col>
-// // <Label
-// //   className="visually-hidden"
-// //   for="examplePassword"
-// // >
-// //   Password
-// // </Label>
-// // <Input
-// //   id="examplePassword"
-// //   name="password"
-// //   placeholder="password"
-// //   type="password"
-// //   value={password}
-// //   onChange={handleChange}
-// // />
-// // </Col>
-// // <Col>
+{<div>
+<Button color="success" onClick={toggle}>Login</Button>
+<Modal isOpen={modal} toggle={toggle} {...args}>
+  <ModalHeader toggle={toggle}>
+    Please enter your email and password below.
+  </ModalHeader>
+  <ModalBody>
+  <Form>
+  <Row className="row-cols-lg-auto g-3 align-items-center">
+  <Col>
+    <Label
+    className="visually-hidden"
+    for="exampleEmail"
+    >
+    Email
+    </Label>
+<Input
+  id="exampleEmail"
+  name="email"
+  placeholder="email address"
+  type="email"
+  value={email}
+  onChange={handleChange}
+/>
+</Col>
+<Col>
+<Label
+  className="visually-hidden"
+  for="examplePassword"
+>
+  Password
+</Label>
+<Input
+  id="examplePassword"
+  name="password"
+  placeholder="password"
+  type="password"
+  value={password}
+  onChange={handleChange}
+/>
+</Col>
+<Col>
 
-// // </Col>
+</Col>
 
-// // </Row>
-// // </Form>
+</Row>
+</Form>
 
-// // {errors?errors.map(e => <div>{e[0]+': ' + e[1]}</div>):null}
+{errors ? errors.map( e => <div>{e}</div>) : <div>Welcome!</div>}
 
-// //   </ModalBody>
-// //   <ModalFooter>
-// //       <Button color="success" onClick={toggle}>
-// //       Login
-// //       </Button>{' '}
-// //       <Button color="warning" onClick={toggle}>
-// //       Cancel
-// //       </Button>
-// //   </ModalFooter>
-// //   </Modal>
-// // </div>
-// // ); */}
+  </ModalBody>
+  <ModalFooter>
+      <Button color="success" onClick={toggle}>
+      Login
+      </Button>{' '}
+      <Button color="warning" onClick={toggle}>
+      Cancel
+      </Button>
+  </ModalFooter>
+  </Modal>
+</div>
+); */}
+
+
+<div>
+<form  onSubmit={onLogin}>
+    <div >
+        <label id="email" >Email</label>
+        <input type='email' name='email' value={email} onChange={handleChange} required />
+    </div>
+
+    <label id="password" >Password</label>
+    <input type='password' name='password' value={password} onChange={handleChange}
+    required minlength="5" maxlength="20" />
+    <input type='submit' value='Log in!' />
+</form>
+
+{/* {errors ? errors.map(e => <div>{e[0]+': ' + e[1]}</div>):null} */}
+{errors ? errors.map( e => <div>{e}</div>) : <div>Welcome!</div>}
+{/* {errors && errors.map( e => <div>{e}</div>)} */}
+</div>

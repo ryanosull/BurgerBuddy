@@ -61,7 +61,7 @@ function Signup (args) {
 		})
 	}
 
-	function handleClick () {
+	function handleSubmit () {
 		onSubmit()
 		toggle()
 	}
@@ -105,7 +105,7 @@ function Signup (args) {
 			</ModalBody>
 
 			<ModalFooter>
-				<Button id="signupButtonModal"  onSubmit={handleClick}>Sign up</Button>{' '}
+				<Button id="signupButtonModal"  onClick={handleSubmit}>Sign up</Button>{' '}
 				<Button id="cancelButtonModal" onClick={toggle}>Cancel</Button>
 			</ModalFooter>
 
@@ -116,3 +116,5 @@ function Signup (args) {
 }
 
 export default Signup;
+
+//need click event to close the modal. when onClick, modal closes but doesnt submit. Handler function not meeting functional expectations. 
