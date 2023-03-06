@@ -44,6 +44,15 @@ class ReviewsController < ApplicationController
         end
     end
 
+    def new_review
+        restaurant = Restaurant.create!(restaurant_params)
+        if restaurant
+            render json: restaurant, status: :created
+        else
+            restaurant_not_created (restaurant)
+        end
+    end
+
 
 
     private
