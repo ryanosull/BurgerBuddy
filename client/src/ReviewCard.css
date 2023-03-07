@@ -40,14 +40,27 @@
     
 }
 
+#info:hover {
+    background-color: rgb(80, 5, 88);
+}
+
 #edit {
     font-family: 'Rubik Vinyl', cursive;
     color: white;
 }
 
+#edit:hover {
+    background-color: rgb(4, 41, 120);
+}
+
 #delete {
     font-family: 'Rubik Vinyl', cursive;
     color: white;
+}
+
+#delete:hover {
+    background-color: rgb(164, 3, 3);
+    
 }
 
 #cardButtons {
