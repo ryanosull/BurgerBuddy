@@ -9,6 +9,13 @@ function Navbar ({currentUser}) {
 
 //need users passed down here. NavBar should read: Hey, {user.first_name}
 
+    function handleLogout () {
+        // window.alert("test")
+        fetch('/logout', {
+            method: 'DELETE'
+        })
+    }
+
     return (
         <div id="navbarCont">
             <h1 className="heyBuddy">Hey, &nbsp;{currentUser.first_name}</h1>
@@ -17,7 +24,7 @@ function Navbar ({currentUser}) {
 
             <NavLink to="/newreview" className="navButtons" >New Review</NavLink>
             
-            <NavLink to="/logout" className="navButtons" >Logout</NavLink>
+            <NavLink onClick={handleLogout} to="/" className="navButtons" >Logout</NavLink>
         </div>
     );
 };

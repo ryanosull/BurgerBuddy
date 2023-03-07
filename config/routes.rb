@@ -14,7 +14,6 @@ Rails.application.routes.draw do
   to: 'fallback#index',
   constraints: ->(req) { !req.xhr? && req.format.html? }
 
-
   get '/authorized', to: 'users#show'
   post '/login', to: 'sessions#create'
   delete '/logout', to: 'sessions#destroy' 
