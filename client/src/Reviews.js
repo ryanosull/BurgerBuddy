@@ -17,13 +17,18 @@ function MyReviews ({currentUser}) {
         .then(setReviews)
     }
 
+    const deleteReview = (id) => setReviews(current => current.filter(review => review.id !== id)) 
+
 
     const renderReviewCard = reviews.filter(review => review.user.id === currentUser.id).map (review =>
         <ReviewCard
         review={review}
         key={review.id}
+        deleteReview={deleteReview}
         />
         )
+
+
 
 
 

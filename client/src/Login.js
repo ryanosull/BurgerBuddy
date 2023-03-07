@@ -1,7 +1,7 @@
 import React, { useState } from 'react';
 import {useHistory} from 'react-router-dom'
 import "./Login.css"
-import { Button, Modal, ModalHeader, ModalBody, ModalFooter, Form, Row, Col, Label, Input } from 'reactstrap';
+import { Button, Modal, ModalHeader, ModalBody, ModalFooter, Form, Row, Col, Label, Input, Alert } from 'reactstrap';
 
 
 function Login (args) {
@@ -46,7 +46,7 @@ function Login (args) {
             res.json().then(errors => setErrors(errors.errors))
             }
         })
-        toggle()
+        // toggle() - removed this for error handling; modal would close before errors could be displayed. 
     }
 
     const handleChange = (e) => {
@@ -78,13 +78,14 @@ function Login (args) {
             </Row>
         </Form>
 
-        {errors ? errors.map( e => window.alert(e)) : null}
+        
 
         </ModalBody>
 
         <ModalFooter>
             <Button id="loginButtonModal" type='submit' onClick={onLogin}>Log in!</Button>{' '}
             <Button id="cancelButtonModal" onClick={toggle}>Cancel</Button>
+            {errors ? errors.map( e => (<Alert color="danger">{e}</Alert>)) : null}
         </ModalFooter>
         </Modal>
     </div>
@@ -92,7 +93,7 @@ function Login (args) {
     );
 };
 
-
+// {errors ? errors.map( e => window.alert(e)) : null}
 export default Login;
 
 
