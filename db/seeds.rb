@@ -41,9 +41,9 @@ puts "seeding REVIEWS..."
 
     r1 = Review.create(user_id: u1.id, burger_id: b1.id, content: "Hard to beat this classic burger with bacon. Really great, love the melty white American cheese.", price: 8.99, rating: 8, image: "https://wtop.com/wp-content/uploads/2017/02/The-Standard_double-beef-patty-white-american-cheese-shaved-onion-special-sauch-1880x1251.jpg" )
 
-    r2 = Review.create(user_id: u2.id, burger_id: b2.id, content: "Bison is seriously the best meat on a burger - it just tastes so clean.", price: 12.50, rating: 9, image: "https://preview.redd.it/0yqdsnbeqbp81.jpg?auto=webp&s=b3c67075b4bb5c9cfb8acd20627d7067f50865ba" )
+    r2 = Review.create(user_id: u1.id, burger_id: b2.id, content: "Bison is seriously the best meat on a burger - it just tastes so clean.", price: 12.50, rating: 9, image: "https://preview.redd.it/0yqdsnbeqbp81.jpg?auto=webp&s=b3c67075b4bb5c9cfb8acd20627d7067f50865ba" )
 
-    r3 = Review.create(user_id: u3.id, burger_id: b3.id, content: "Not going to beat around the bush here - I try a black bean patty every so often, but it never does the trick when I am craving a greasy burger. Overpriced, in my opinion", price: 11.25, rating: 5, image: "https://sallysbakingaddiction.com/wp-content/uploads/2018/07/best-black-bean-burgers.jpg" )
+    r3 = Review.create(user_id: u1.id, burger_id: b3.id, content: "Not going to beat around the bush here - I try a black bean patty every so often, but it never does the trick when I am craving a greasy burger. Overpriced, in my opinion", price: 11.25, rating: 5, image: "https://sallysbakingaddiction.com/wp-content/uploads/2018/07/best-black-bean-burgers.jpg" )
 
 puts "REVIEWS SEEDED"
 
