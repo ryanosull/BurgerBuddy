@@ -38,7 +38,6 @@ function Login (args) {
         .then(res => {
             if(res.ok){
             res.json().then(userData => {
-                console.log(args.setCurrentUser)
             args.setCurrentUser(userData)
             history.push(`/myreviews`)
             })

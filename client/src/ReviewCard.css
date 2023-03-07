@@ -1,14 +1,58 @@
 #reviewCard {
-    display: flex;
+    /* display: flex;
     flex-direction: row;
     justify-content: space-evenly;
-    max-width: 300px;
-    align-items: center;
+    max-width: 350px;
+    align-items: center; */
+    max-width: 400px;
+    display: flex;
+    /* flex-direction: column;
+    justify-content: center; */
+    flex-direction: row;
+    
+
+}
+
+#card {
+    opacity: .88;
+    background-color: rgb(217, 68, 202);
+
+    display: flex;
+
 
 }
 
 #reviewCardImg{
     max-width: 250px;
     max-height: 250px;
-
+    margin: auto;
 }
+
+#content {
+    font-family: 'Rubik', sans-serif;
+    color: rgb(255, 255, 255);
+    font: italic;
+}
+
+#info {
+    font-family: 'Rubik Vinyl', cursive;
+    color: white;
+    
+}
+
+#edit {
+    font-family: 'Rubik Vinyl', cursive;
+    color: white;
+}
+
+#delete {
+    font-family: 'Rubik Vinyl', cursive;
+    color: white;
+}
+
+#cardButtons {
+    display: flex;
+    justify-content: space-evenly;
+    gap: 10px;
+}
+
