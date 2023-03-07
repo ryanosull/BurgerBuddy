@@ -1,13 +1,7 @@
-import React, {useState, useEffect} from "react";
+import React, {useState} from "react";
 import "./ReviewCard.css";
 import BurgerInfo from "./BurgerInfo";
 import { Card, CardBody, CardTitle, CardSubtitle, CardText, Button } from 'reactstrap'; 
-
-
-
-
-
-
 
 
 function ReviewCard ({review}) {
@@ -17,15 +11,17 @@ function ReviewCard ({review}) {
 
     const [burgerInfo, setBurgerInfo] = useState(false)
 
-    const [burgers, setBurgers] = useState([])
+    // const [burgers, setBurgers] = useState([])
 
-    useEffect(() => fetchBurgers(), [])
+    // useEffect(() => fetchBurgers(), [])
 
-    function fetchBurgers () {
-        fetch("/burgers")
-        .then(r => r.json())
-        .then(setBurgers)
-    }
+    // function fetchBurgers () {
+    //     fetch("/burgers")
+    //     .then(r => r.json())
+    //     .then(setBurgers)
+    // }
+////// ^ not even using
+
 
     // const review = {reviews.image}
 
@@ -36,54 +32,26 @@ function ReviewCard ({review}) {
     //     alert("hello asshole")
     // }
 
-    console.log(review)
-
+    // className="mb-2 text-muted"
 
     return (
         <div id="reviewCard">
-            <Card
-                body
-                color="warning"
-                style={{
-                    width: '18rem'
-                }}
-                >
-                <img
-                    id="reviewCardImg"
-                    alt="Sample"
-                    src={review.image}
-                />
+            <Card id="card" body>
+                <img id="reviewCardImg" alt="dude where's my burger?"src={review.image}/>
                 <CardBody>
-                    <CardTitle tag="h5">
-                    Restaurant: {review.burger.restaurant_id}
-                    </CardTitle>
-                    <CardSubtitle
-                    className="mb-2 text-muted"
-                    tag="h6"
-                    >
-                    Rating: {review.rating}/10
-                    </CardSubtitle>
-                    <CardSubtitle
-                    className="mb-2 text-muted"
-                    tag="h6"
-                    >
-                    Protein: {review.burger.protein.toUpperCase()}
-                    </CardSubtitle>
-                    <CardSubtitle
-                    className="mb-2 text-muted"
-                    tag="h6"
-                    >
-                    Price: ${review.price}
-                    </CardSubtitle>
-                    <CardText>
-                    {review.content}
-                    </CardText>
-                    <Button onClick={() => setBurgerInfo(!burgerInfo)}>
-                        {burgerInfo && <BurgerInfo burgers={burgers}  />}
-                    View Burger Info
-                    </Button>
-                    <Button>Edit Review</Button>
-                    <Button>Delete Review</Button>
+                    <div>
+                        <CardTitle className="test" tag="h5">Restaurant: {review.burger.restaurant_id}</CardTitle>
+                        <CardSubtitle className="test mb-2" tag="h6" >Rating:&nbsp; {review.rating}/10</CardSubtitle>
+                        <CardSubtitle className="test mb-2" tag="h6" >Protein:&nbsp; {review.burger.protein.toUpperCase()}</CardSubtitle>
+                        <CardSubtitle className="test mb-2" tag="h6" > Price:&nbsp; ${review.price} </CardSubtitle>
+                    </div>
+                    <CardText id="content">{review.content}</CardText>
+                    <div id="cardButtons" >
+                        <Button onClick={() => setBurgerInfo(!burgerInfo)} id="info" >{burgerInfo && <BurgerInfo review={review}  />}View Burger Info</Button>
+                        <Button id="edit" >Edit Review</Button>
+                        <Button id="delete" >Delete Review</Button>
+                    </div>
+
                 </CardBody>
             </Card>
         </div>
