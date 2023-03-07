@@ -41,7 +41,6 @@ function ReviewCard ({review, deleteReview}) {
     function handleDelete() {
         fetch(`/reviews/${params.id}`, {
             method: 'DELETE',
-            headers: {'Content-Type': 'application/json'}
         })
         .then (res => {
             if(res.ok){
