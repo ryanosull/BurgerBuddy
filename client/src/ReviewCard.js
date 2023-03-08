@@ -2,18 +2,18 @@ import React, {useState} from "react";
 import "./ReviewCard.css";
 import BurgerInfo from "./BurgerInfo";
 import { Card, CardBody, CardTitle, CardSubtitle, CardText, Button } from 'reactstrap'; 
-import  { useHistory, useParams } from 'react-router-dom'
+// import  { useHistory, useParams } from 'react-router-dom'
 
 
-function ReviewCard ({review, deleteReview}) {
+function ReviewCard ({review, handleDelete}) {
 
     //filter and sort: sortyby: hi to low price, high to low rating
     //filter: 
 
     const [burgerInfo, setBurgerInfo] = useState(false)
-    const [errors, setErrors] = useState(null)
-    const history = useHistory()
-    const params = useParams()
+    // const [errors, setErrors] = useState(null)
+    // const history = useHistory()
+    // const params = useParams()
 
     // const [burgers, setBurgers] = useState([])
 
@@ -38,19 +38,13 @@ function ReviewCard ({review, deleteReview}) {
 
     // className="mb-2 text-muted"
 
-    function handleDelete() {
-        fetch(`/reviews/${params.id}`, {
-            method: 'DELETE',
+    function handleDeleteClick() {
+        fetch(`/reviews/${review.id}`, {
+            method: 'DELETE'
         })
-        .then (res => {
-            if(res.ok){
-            deleteReview(review.id)
-            // history.push('/')
-            } else {
-                res.json().then(e => setErrors(e.errors))
-            }
-        })
+        handleDelete(review.id)
     }
+
 
     return (
         <div id="reviewCard">
@@ -67,7 +61,7 @@ function ReviewCard ({review, deleteReview}) {
                     <div id="cardButtons" >
                         <Button onClick={() => setBurgerInfo(!burgerInfo)} id="info" >{burgerInfo && <BurgerInfo review={review}  />}View Burger Info</Button>
                         <Button id="edit" >Edit Review</Button>
-                        <Button id="delete" onClick={handleDelete} >Delete Review</Button>
+                        <Button id="delete" onClick={handleDeleteClick} >Delete Review</Button>
                     </div>
 
                 </CardBody>

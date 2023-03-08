@@ -16,6 +16,8 @@ function Navbar ({currentUser}) {
         })
     }
 
+    
+
     return (
         <div id="navbarCont">
             <h1 className="heyBuddy">Hey, &nbsp;{currentUser.first_name}</h1>
