@@ -1,22 +1,31 @@
 import React from "react";
 import "./Navbar.css";
-import {NavLink} from "react-router-dom";
+import {NavLink, useHistory} from "react-router-dom";
 
 
 
-function Navbar ({currentUser}) {
+function Navbar ({currentUser, setCurrentUser}) {
 //pass in {curentUser} ^
 
 //need users passed down here. NavBar should read: Hey, {user.first_name}
+
+    const history = useHistory()
 
     function handleLogout () {
         // window.alert("test")
         fetch('/logout', {
             method: 'DELETE'
         })
+        .then((res) => {
+            if (res.ok){
+                setCurrentUser(null)
+                history.push("/")
+                
+            }
+        })
     }
 
-    
+
 
     return (
         <div id="navbarCont">
