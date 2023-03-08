@@ -83,6 +83,14 @@ function NewReviewForm () {
             </select>
             <h2 className="newBurgFormHeader" >Or add a new restaurant</h2>
 
+            <form>
+                <input onChange={""} type="text" name="name" placeholder="" value={""}  />
+                <input onChange={""} type="text" name="address" placeholder="" value={""}  />
+                <input onChange={""} type="text" name="city" placeholder="" value={""}  />
+                <input onChange={""} type="text" name="state_abbr" placeholder="" value={""}  />
+                <input onChange={""} type="text" name="zip" placeholder="" value={""}  />
+            </form>
+
 
             <h2 className="newBurgFormHeader" >Describe your burger!</h2>
             <form onSubmit={handleSubmit} >

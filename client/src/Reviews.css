@@ -1,5 +1,12 @@
 
 
+#reviewContainer {
+    display: flex;
+    flex-direction: row;
+    justify-content: space-evenly;
+    margin-top: 35px;
+}
+
 #noBurger {
     font-family: 'Rubik Vinyl', cursive;
     color: white;

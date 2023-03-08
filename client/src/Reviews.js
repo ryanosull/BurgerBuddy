@@ -34,15 +34,16 @@ function MyReviews ({currentUser}) {
 
         // if (reviews.filter( review => review.user.id !== currentUser.id)) return (
         //     <h1 id="noBurger">Go get yourself a burger, {currentUser.first_name}.</h1>
-        // )
+        // ) 
 
         //conditional not working here
 
+        
 
     return (
 
-        <div>
-            {renderReviewCard}
+        <div id="reviewContainer" >
+            {currentUser.reviews.length > 0 ? renderReviewCard : <h1 id="noBurger">Go get yourself a burger, {currentUser.first_name}.</h1>}
         </div>
     
     );
