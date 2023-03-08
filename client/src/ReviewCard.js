@@ -43,7 +43,7 @@ function ReviewCard ({review, handleDelete}) {
             method: 'DELETE'
         })
         handleDelete(review.id)
-    }
+    };
 
 
     return (
