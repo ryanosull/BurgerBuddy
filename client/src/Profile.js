@@ -29,8 +29,8 @@ function Profile(args) {
 			email,
 			password
 		}
-		fetch("/users", {
-			method: "POST",
+		fetch(`/users/${args.currentUser.id}`, {
+			method: "PATCH",
 			headers: {'Content-Type': 'application/json'},
 			body: JSON.stringify(user)
 		})
