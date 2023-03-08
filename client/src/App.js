@@ -47,7 +47,7 @@ function App() {
 
   return (
     <div className="app">
-      <Navbar currentUser={currentUser} />
+      <Navbar currentUser={currentUser} setCurrentUser={setCurrentUser} />
       <Switch>
 
       <Route exact path='/'>
@@ -63,10 +63,12 @@ function App() {
         </Route>
 
         <Route  path="*">
+          <center>
           <div id="four">
-            <h1 id="status">404</h1>
+            <p id="status">404</p>
             <p id="message">This page doesn't exist, buddy.</p>
           </div>
+          </center>
         </Route>
 
       </Switch>

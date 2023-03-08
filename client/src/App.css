@@ -40,11 +40,13 @@
 #status {
   font-family: 'Rubik Vinyl', cursive;
   color: white;
+  font-size: 200px;
 }
 
 #message {
   font-family: 'Rubik Vinyl', cursive;
   color: white;
+  font-size: 100px;
 }
 
 #four {
