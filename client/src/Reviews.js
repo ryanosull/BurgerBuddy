@@ -19,8 +19,7 @@ function MyReviews ({currentUser}) {
 
     const modifiedArray = (id) => setReviews(current => current.filter(review => review.id !== id)) 
 
-    function handleDelete(reviewId){
-        
+    function handleDelete(){
         setReviews(modifiedArray)
     }
 
@@ -29,23 +28,17 @@ function MyReviews ({currentUser}) {
         <ReviewCard
         review={review}
         key={review.id}
-        // deleteReview={deleteReview}
-        
         handleDelete={handleDelete}
         />
         )
 
 
-
-
-
     return (
 
-        
         <div>
             {renderReviewCard}
         </div>
-        
+    
     );
 };
 

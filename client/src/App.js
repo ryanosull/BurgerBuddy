@@ -31,20 +31,8 @@ function App() {
     <LandingPage setCurrentUser={setCurrentUser} /> 
   )
 
-  // if (currentUser) return (
-  //   <Navbar />
-  // )
-
-  // if (!currentUser) {
-  //   <LandingPage />
-  // } else {
-  //   <Navbar />
-  // }
 
 
-  //navbar needs to be conditionally rendered so that it only appears once a user is logged in. dont forget to change "buddy" to {user.first_name}.
-
-    console.log(currentUser)
 
   return (
     <div className="app">
@@ -77,8 +65,6 @@ function App() {
         </Route>
 
       </Switch>
-
-      
 
     </div>
   );

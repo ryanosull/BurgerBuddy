@@ -52,10 +52,9 @@ function Signup (args) {
 		.then(res => {
 			if(res.ok){
 				res.json().then(user => {
-					history.push(`/users/${user.id}`)
+					history.push('/myreviews')
 				})
 			} else {
-				// r.json().then(e => setErrors(Object.entries(e.errors).flat()))
 				res.json().then(errors => setErrors(errors.errors))
 			}
 		})
@@ -112,5 +111,3 @@ function Signup (args) {
 }
 
 export default Signup;
-
-//need click event to close the modal. when onClick, modal closes but doesnt submit. Handler function not meeting functional expectations. 
