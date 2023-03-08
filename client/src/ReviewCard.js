@@ -1,4 +1,4 @@
-import React, {useState} from "react";
+import React, {useState, useEffect} from "react";
 import "./ReviewCard.css";
 import BurgerInfo from "./BurgerInfo";
 import { Card, CardBody, CardTitle, CardSubtitle, CardText, Button } from 'reactstrap'; 
@@ -15,28 +15,17 @@ function ReviewCard ({review, handleDelete}) {
     // const history = useHistory()
     // const params = useParams()
 
-    // const [burgers, setBurgers] = useState([])
+    const [restaurants, setRestaurants] = useState([])
 
-    // useEffect(() => fetchBurgers(), [])
+    useEffect(() => fetchRestaurants(), [])
 
-    // function fetchBurgers () {
-    //     fetch("/burgers")
-    //     .then(r => r.json())
-    //     .then(setBurgers)
-    // }
-////// ^ not even using
+    function fetchRestaurants () {
+        fetch("/restaurants")
+        .then(r => r.json())
+        .then(setRestaurants)
+    }
 
-
-    // const review = {reviews.image}
-
-    // console.log(burger)
-    // console.log(burger)
-    
-    // function handleClick () {
-    //     alert("hello asshole")
-    // }
-
-    // className="mb-2 text-muted"
+    //if restaurant
 
     function handleDeleteClick() {
         fetch(`/reviews/${review.id}`, {
