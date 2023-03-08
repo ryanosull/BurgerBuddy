@@ -51,7 +51,8 @@ function Signup (args) {
 		})
 		.then(res => {
 			if(res.ok){
-				res.json().then(user => {
+				res.json().then(userData => {
+					args.setCurrentUser(userData)
 					history.push('/myreviews')
 				})
 			} else {

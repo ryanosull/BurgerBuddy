@@ -1,10 +1,11 @@
 import React from "react";
-import {useState, useEffect} from "react";
+import {useState, useEffect, useContext} from "react";
 import "./NewReviewForm.css";
-
+import { UserContext } from "./context/user";
 
 function NewReviewForm () {
 
+    const {user, setUser} = useContext(UserContext);
     const [restaurants, setRestaurants] = useState([])
 
     useEffect(() => fetchRestaurants(), [])
