@@ -1,0 +1,21 @@
+#cardDiv {
+    position: absolute;
+    top: 30%;
+    right: 40%;
+    opacity: .95;
+    background-color: rgb(217, 68, 202);
+    font-family: 'Rubik Vinyl', cursive;
+    color: white;
+    border-radius: 5%;
+    
+}
+
+
+.card {
+    justify-content: center;
+    border-radius: 5%;
+}
+
+.edit {
+
+}

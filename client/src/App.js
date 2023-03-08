@@ -5,6 +5,7 @@ import Navbar from "./Navbar";
 import Reviews from "./Reviews";
 import NewReviewForm from "./NewReviewForm";
 import LandingPage from "./LandingPage";
+import Profile from "./Profile";
 import "./App.css";
 
 
@@ -30,18 +31,6 @@ function App() {
     <LandingPage setCurrentUser={setCurrentUser} /> 
   )
 
-  // if (currentUser) return (
-  //   <Navbar />
-  // )
-
-  // if (!currentUser) {
-  //   <LandingPage />
-  // } else {
-  //   <Navbar />
-  // }
-
-
-  //navbar needs to be conditionally rendered so that it only appears once a user is logged in. dont forget to change "buddy" to {user.first_name}.
 
 
 
@@ -62,18 +51,20 @@ function App() {
           <NewReviewForm  />
         </Route>
 
+        <Route path="/myprofile" >
+          <Profile currentUser={currentUser}  />
+        </Route>
+
         <Route  path="*">
           <center>
-          <div id="four">
-            <p id="status">404</p>
-            <p id="message">This page doesn't exist, buddy.</p>
-          </div>
+            <div id="four">
+              <p id="status">404</p>
+              <p id="message">This page doesn't exist, buddy.</p>
+            </div>
           </center>
         </Route>
 
       </Switch>
-
-      
 
     </div>
   );

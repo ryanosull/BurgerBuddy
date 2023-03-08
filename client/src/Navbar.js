@@ -34,6 +34,8 @@ function Navbar ({currentUser, setCurrentUser}) {
             <NavLink to="/myreviews" className="navButtons" >My Reviews</NavLink>
 
             <NavLink to="/newreview" className="navButtons" >New Review</NavLink>
+
+            <NavLink to="/myprofile" className="navButtons" >Profile</NavLink>
             
             <NavLink onClick={handleLogout} to="/" className="navButtons" >Logout</NavLink>
         </div>
