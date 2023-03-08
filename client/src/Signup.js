@@ -74,7 +74,7 @@ function Signup (args) {
 		<Button id="signupButton" color="success" onClick={toggle}>Sign Up</Button>
 
 		<Modal id="modal" isOpen={modal} toggle={toggle} {...args}>
-			<ModalHeader toggle={toggle}>To sign up, please enter your information below.</ModalHeader>
+			<ModalHeader id="signupModalHeader" toggle={toggle}>To sign up, please enter your information below.</ModalHeader>
 
 			<ModalBody  >
 			<Form >

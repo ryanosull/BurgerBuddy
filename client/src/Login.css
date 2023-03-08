@@ -5,6 +5,10 @@
     margin-top: 15%;
 }
 
+#loginModalHeader {
+    font-family: 'Rubik', sans-serif;
+}
+
 #loginButton {
     font-size: 250%;
     background-color: rgb(179, 9, 159);

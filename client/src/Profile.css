@@ -19,3 +19,28 @@
 .edit {
 
 }
+
+#editModal {
+    opacity: .9;
+    display: flex;
+    justify-content: center;
+    margin-top: 15%;
+}
+
+#modalHeader {
+    font-family: 'Rubik', sans-serif;
+}
+
+#submitButton {
+    background-color: rgb(179, 9, 159);
+    font-family: 'Rubik Vinyl', cursive;
+}
+
+#submitButton:hover {
+    background-color: rgb(228, 17, 251);
+    opacity: .9;
+}
+
+#cancelButton {
+    font-family: 'Rubik Vinyl', cursive;
+}
