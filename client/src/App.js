@@ -26,12 +26,15 @@ function App() {
     })
   }, [])
 
+  function editUserInfo (userData) {
+    setCurrentUser(userData)
+  }
+
+
   if (!currentUser) return (
     //jsx 47min in lecture
     <LandingPage setCurrentUser={setCurrentUser} /> 
   )
-
-
 
 
   return (
@@ -52,7 +55,7 @@ function App() {
         </Route>
 
         <Route path="/myprofile" >
-          <Profile currentUser={currentUser}  />
+          <Profile currentUser={currentUser} editUserInfo={editUserInfo}  />
         </Route>
 
         <Route  path="*">

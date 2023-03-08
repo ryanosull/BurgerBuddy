@@ -8,8 +8,8 @@
     display: flex;
     /* flex-direction: column;
     justify-content: center; */
-    /* flex-direction: row; */
-    z-index: 1;
+    flex-direction: row;
+    /* z-index: 1; */
 
 }
 

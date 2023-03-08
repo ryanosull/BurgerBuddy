@@ -25,7 +25,7 @@ function ReviewCard ({review, handleDelete}) {
         .then(setRestaurants)
     }
 
-    //if restaurant
+    
 
     function handleDeleteClick() {
         fetch(`/reviews/${review.id}`, {

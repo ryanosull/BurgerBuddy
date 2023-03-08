@@ -36,7 +36,9 @@ function Profile(args) {
 		})
 		.then(res => {
 			if(res.ok){
-				res.json().then(user => {
+				res.json().then(userData => {
+                    // userData [...args.currentUser, userData]
+                    args.editUserInfo(userData)
 					history.push('/myreviews')
 				})
 			} else {
@@ -62,6 +64,7 @@ function Profile(args) {
         })
         history.push(`/`)
     }
+
 
     return (
         <div id="cardDiv">
