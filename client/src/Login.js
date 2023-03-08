@@ -62,7 +62,7 @@ function Login (args) {
     <div>
         <Button id="loginButton" color="success" onClick={toggle}>Log In</Button>
         <Modal id="modal" isOpen={modal} toggle={toggle} {...args}>
-        <ModalHeader toggle={toggle}>Please enter your email and password below.</ModalHeader>
+        <ModalHeader id="loginModalHeader" toggle={toggle}>Please enter your email and password below.</ModalHeader>
         <ModalBody>
 
         <Form >

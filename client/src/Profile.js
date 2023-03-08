@@ -78,8 +78,8 @@ function Profile(args) {
 
                 <div>
                 <Button id="edit" onClick={toggle}>Edit Account Info</Button>
-                <Modal isOpen={modal} toggle={toggle} {...args}>
-                <ModalHeader toggle={toggle}>Make changes to your account information below.</ModalHeader>
+                <Modal id="editModal" isOpen={modal} toggle={toggle} {...args}>
+                <ModalHeader id="modalHeader" toggle={toggle}>Make changes to your account information below.</ModalHeader>
                 <ModalBody>
                 
 
@@ -110,8 +110,8 @@ function Profile(args) {
 
                 </ModalBody>
                 <ModalFooter>
-                <Button color="primary" onClick={onEdit}>Submit Changes</Button>{' '}
-                <Button color="secondary" onClick={toggle}>Cancel</Button>
+                <Button id="submitButton"  onClick={onEdit}>Submit Changes</Button>{' '}
+                <Button id="cancelButton" color="secondary" onClick={toggle}>Cancel</Button>
                 </ModalFooter>
             </Modal>
     </div>

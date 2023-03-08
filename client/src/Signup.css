@@ -6,6 +6,10 @@
     
 }
 
+#signupModalHeader {
+    font-family: 'Rubik', sans-serif;
+}
+
 #signupButton {
     font-size: 250%;
     background-color: rgb(179, 9, 159);
