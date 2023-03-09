@@ -47,10 +47,6 @@ class RestaurantsController < ApplicationController
     end
 
 
-
-
-
-
     private
 
     def restaurant_not_found
@@ -58,7 +54,7 @@ class RestaurantsController < ApplicationController
     end
 
     def restaurant_params 
-        params.require(:restaurant).permit(:name, :address, :city, :state_abbr, :zip)
+        params.require(:restaurant).permit(:name, :address, :city, :state_abbr, :zip, :burger_id)
     end
 
     def restaurant_not_created (restaurant)

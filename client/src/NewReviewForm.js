@@ -7,6 +7,7 @@ function NewReviewForm () {
 
     const {user, setUser} = useContext(UserContext);
     const [restaurants, setRestaurants] = useState([])
+    
 
     useEffect(() => fetchRestaurants(), [])
 
@@ -16,9 +17,46 @@ function NewReviewForm () {
         .then(setRestaurants)
     }
 
+///////////////////////////restaurants
 
 
-/////////
+    const [name, setName] = useState("")
+    const [address, setAddress] = useState("")
+    const [city, setCity] = useState("")
+    const [state_abbr, setState_abbr] = useState("")
+    const [zip, setZip] = useState("")
+
+    function handleSubmitRestaurant (e) {
+        e.preventDefault()
+
+        let newResty = {
+            name: name,
+            address: address,
+            city: city, 
+            state_abbr: state_abbr,
+            zip: zip
+        }
+
+        setName("")
+        setAddress("")
+        setCity("")
+        setState_abbr("")
+        setZip("")
+
+        let restyPost = {
+            method: "POST",
+            headers: {
+                'Content-Type': 'application/json'
+            },
+            body: JSON.stringify(newResty)
+        }
+
+        fetch("/restaurants", restyPost)
+        .then(r => r.json())
+        .then(newResty => setRestaurants([...restaurants, newResty]))
+    }
+
+///////////////////////////burgers
     const [burgers, setBurgers] = useState([])
 
     const [bun, setBun] = useState("")
@@ -28,7 +66,9 @@ function NewReviewForm () {
     const [condiments, setCondiments] = useState("")
     const [extras, setExtras] = useState("")
 
-    function handleSubmit(e) {
+    const [bur, setBur] = useState([])
+
+    function handleSubmitBurger(e) {
         e.preventDefault()
 
         let newBurg = {
@@ -38,10 +78,13 @@ function NewReviewForm () {
             veggies: veggies, 
             condiments: condiments,
             extras: extras,
-            restaurant_id: "" //this is going to be the value field of selected resty. value={resty.id}
-            //at the selected of the restaurant:
-            //
+            restaurant_id: bur
+            // restaurant_id: "" //this is going to be the value field of selected resty. value={resty.id}
+            // //at the selected of the restaurant:
+            // //
         }
+
+
 
         setBun("")
         setProtein("")
@@ -58,18 +101,59 @@ function NewReviewForm () {
             body: JSON.stringify(newBurg)
         } //in video, fetch ends before first .then. how is this working?
 
+        function burID(e) {
+            setBur(e.target.value)
+        }
+
         fetch("/burgers", postRequest)
         .then(r => r.json())
         .then(newBurg => setBurgers([...burgers, newBurg]))
 
 
     }
-//////////////
+////////////////////////////reviews
+
+    const [reviews, setReviews] = useState("") 
+
+    const [content, setContent] = useState("")
+    const [rating, setRating] = useState("")
+    const [price, setPrice] = useState("")
+    const [image, setImage] = useState("")
+
+    function handleSubmitReview(e) {
+        e.preventDefault()
+
+        let newReview = {
+            content: content, 
+            rating: rating,
+            price: price, 
+            image: image
+        }
+
+        setContent("")
+        setRating("")
+        setPrice("")
+        setImage("")
+
+        let reviewPost = {
+            method: "POST",
+            headers: {
+                'Content-Type': 'application/json'
+            },
+            body: JSON.stringify(newReview)
+        }
+
+        fetch("/reviews", reviewPost)
+        .then(r => r.json())
+        .then(newReview => console.log([...reviews, newReview]))
+
+
+    }
 
 
 
 
-
+//////////////////////////////
 
     return ( 
         <div>
@@ -83,17 +167,18 @@ function NewReviewForm () {
             </select>
             <h2 className="newBurgFormHeader" >Or add a new restaurant</h2>
 
-            <form>
-                <input onChange={""} type="text" name="name" placeholder="" value={""}  />
-                <input onChange={""} type="text" name="address" placeholder="" value={""}  />
-                <input onChange={""} type="text" name="city" placeholder="" value={""}  />
-                <input onChange={""} type="text" name="state_abbr" placeholder="" value={""}  />
-                <input onChange={""} type="text" name="zip" placeholder="" value={""}  />
+            <form onSubmit={handleSubmitRestaurant} >
+            <input onChange={(e) => setName(e.target.value)} type="text" name="name" placeholder="restaurant name" value={name}  />
+                <input onChange={(e) => setAddress(e.target.value)} type="text" name="address" placeholder="address" value={address}  />
+                <input onChange={(e) => setCity(e.target.value)} type="text" name="city" placeholder="city" value={city}  />
+                <input onChange={(e) => setState_abbr(e.target.value)} type="text" name="state_abbr" placeholder="state (CA, TX, NY, etc.)" value={state_abbr}  />
+                <input onChange={(e) => setZip(e.target.value)} type="text" name="zip" placeholder="zip code" value={zip}  />
+                <button type="submit" >Add your restaurant! 🍴</button>
             </form>
 
 
             <h2 className="newBurgFormHeader" >Describe your burger!</h2>
-            <form onSubmit={handleSubmit} >
+            <form onSubmit={handleSubmitBurger} >
                 <input onChange={(e) => setBun(e.target.value)} type="text" name="bun" placeholder="what kind of bun?" value={bun} />
                 <input onChange={(e) => setProtein(e.target.value)} type="text" name="protein" placeholder="how about protein?" value={protein} />
                 <input onChange={(e) => setCheese(e.target.value)} type="text" name="cheese" placeholder="cheese, please" value={cheese} />
@@ -103,6 +188,21 @@ function NewReviewForm () {
 
                 <button type="submit" >Add your burger! 🍔</button>
             </form>
+
+            <form onSubmit={handleSubmitReview}>
+                <h2 className="newBurgFormHeader" >Leave your review!</h2>
+                
+                <input onChange={(e) => setContent(e.target.value)} type="text" name="content" placeholder="content" value={content} />
+
+                <input onChange={(e) => setRating(e.target.value)} type="number" name="rating" placeholder="rating (1-10)" value={rating} min="0" />
+
+                <input onChange={(e) => setPrice(e.target.value)} type="number" name="price" placeholder="price" step="0.01" min="0" value={price} />
+
+                <input onChange={(e) => setImage(e.target.value)} type="text" name="image" placeholder="imageURL" value={image} />
+
+                <button type="submit" >Add your review! 🍔</button>
+            </form>
+
         </div>
     );
 };
