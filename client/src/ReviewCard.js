@@ -34,6 +34,11 @@ function ReviewCard ({review, handleDelete}) {
         handleDelete(review.id)
     };
 
+    const resty = restaurants.map(restaurant => restaurant.id === review.burger.restaurant_id ? restaurant.name : null)
+
+    //if restaurant.id === review.burger.restaurant_id, then display restaurant.name
+
+    // (restaurant.id === review.burger.restaurant_id ? restaurant.name : null)
 
     return (
         <div id="reviewCard">
@@ -41,7 +46,7 @@ function ReviewCard ({review, handleDelete}) {
                 <img id="reviewCardImg" alt="dude where's my burger?"src={review.image}/>
                 <CardBody>
                     <div>
-                        <CardTitle className="test" tag="h5">Restaurant: {review.burger.restaurant_id}</CardTitle>
+                        <CardTitle className="test" tag="h5">Restaurant: {resty}</CardTitle>
                         <CardSubtitle className="test mb-2" tag="h6" >Rating:&nbsp; {review.rating}/10</CardSubtitle>
                         <CardSubtitle className="test mb-2" tag="h6" >Protein:&nbsp; {review.burger.protein.toUpperCase()}</CardSubtitle>
                         <CardSubtitle className="test mb-2" tag="h6" > Price:&nbsp; ${review.price} </CardSubtitle>
