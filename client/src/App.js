@@ -26,6 +26,8 @@ function App() {
     })
   }, [])
 
+  console.log(currentUser)
+
   function editUserInfo (userData) {
     setCurrentUser(userData)
   }

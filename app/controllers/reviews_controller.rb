@@ -30,7 +30,7 @@ class ReviewsController < ApplicationController
             review.update(review_params)
             render json: review
         else
-            render json: {errors: ["Review does not exist!"]}
+            render json: {errors: ["Update unsuccessful"]}
         end
     end
 
