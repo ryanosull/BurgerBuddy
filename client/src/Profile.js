@@ -55,9 +55,6 @@ function Profile(args) {
 
 
 
-
-
-
     function handleDeleteAcct() {
         fetch(`/users/${args.currentUser.id}`, {
             method: 'DELETE'
