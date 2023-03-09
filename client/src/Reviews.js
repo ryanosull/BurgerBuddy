@@ -5,7 +5,7 @@ import "./Reviews.css"
 
 
 
-function MyReviews ({currentUser}) {
+function MyReviews ({currentUser, setCurrentUser}) {
 
     const [reviews, setReviews] = useState([])
 
@@ -17,10 +17,12 @@ function MyReviews ({currentUser}) {
         .then(setReviews)
     }
 
+    
+
     const modifiedArray = (id) => setReviews(current => current.filter(review => review.id !== id)) 
 
     function handleDelete(){
-        setReviews(modifiedArray)
+        setReviews(modifiedArray) //setCurrentUser
     }
 
 
@@ -29,6 +31,8 @@ function MyReviews ({currentUser}) {
         review={review}
         key={review.id}
         handleDelete={handleDelete}
+        modifiedArray={modifiedArray}
+        setReviews={setReviews}
         />
         )
 

@@ -5,7 +5,7 @@ import { Card, CardBody, CardTitle, CardSubtitle, CardText, Button } from 'react
 // import  { useHistory, useParams } from 'react-router-dom'
 
 
-function ReviewCard ({review, handleDelete}) {
+function ReviewCard ({review, handleDeleteClick, setReviews, handleDelete, modifiedArray}) {
 
     //filter and sort: sortyby: hi to low price, high to low rating
     //filter: 
@@ -32,13 +32,13 @@ function ReviewCard ({review, handleDelete}) {
             method: 'DELETE'
         })
         handleDelete(review.id)
+        setReviews(modifiedArray)
+
     };
 
     const restyName = restaurants.map(restaurant => restaurant.id === review.burger.restaurant_id ? restaurant.name : null)
 
-    //if restaurant.id === review.burger.restaurant_id, then display restaurant.name
 
-    // (restaurant.id === review.burger.restaurant_id ? restaurant.name : null)
 
     return (
         <div id="reviewCard">

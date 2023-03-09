@@ -47,7 +47,7 @@ function App() {
       </Route>
 
         <Route path="/myreviews">
-          <Reviews currentUser={currentUser} />
+          <Reviews currentUser={currentUser} setCurrentUser={setCurrentUser} />
         </Route>
 
         <Route path="/newreview" >
