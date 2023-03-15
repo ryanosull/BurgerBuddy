@@ -82,19 +82,23 @@ function Signup (args) {
 				<Row className="row-cols-lg-auto g-3 align-items-center">
 					<Col>
 						<Label className="visually-hidden" for="firstName">First name</Label>
+						<h6>First name</h6>
 						<Input id="firstName" name="first_name" value={first_name} onChange={handleChange} placeholder="first name" type="text" required/>
 					</Col>
 					<Col>
 						<Label className="visually-hidden" for="lastName"> Last Name</Label>
+						<h6>Last name</h6>
 						<Input id="lastName"name="last_name" value={last_name} onChange={handleChange} placeholder="last name" type="text" required/>
 					</Col>
 					<Col>
 						<Label className="visually-hidden" for="exampleEmail">Email</Label>
+						<h6>Email</h6>
 						<Input id="exampleEmail" name="email" value={email} onChange={handleChange} placeholder="email address" type="email" required/>
 					</Col>
 					<Col>
 						<Label className="visually-hidden" for="examplePassword">Password</Label>
-						<Input id="examplePassword" name="password" value={password} onChange={handleChange} placeholder="password" type="password" maxlength="20" minlength="5" required/>
+						<h6>Password</h6>
+						<Input id="examplePassword" name="password" value={password} onChange={handleChange} placeholder="password" type="password" maxLength="20" minLength="5" required/>
 					</Col>
 				</Row>
 			</Form>
