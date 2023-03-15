@@ -69,10 +69,12 @@ function Login (args) {
             <Row className="row-cols-lg-auto g-3 align-items-center">
             <Col>
                 <Label className="visually-hidden"for="exampleEmail">Email</Label>
+                <h6>Email</h6>
                 <Input type='email' name='email' value={email} onChange={handleChange} required placeholder="email" />
             </Col>
             <Col>
-                <Label className="visually-hidden"for="examplePassword">Password</Label>
+                {/* <Label className="visually-hidden"for="examplePassword">Password</Label> */}
+                <h6>Password</h6>
                 <Input type='password' name='password' value={password} onChange={handleChange} required minlength="5" maxlength="20" placeholder="password"/>
             </Col>
             </Row>
