@@ -29,14 +29,14 @@ class UsersController < ApplicationController
         render json: user, status: :created
     end
 
-    def login
-        user = User.find_by(email: params[:email])
-        if user && user.authenticate(params[:password])
-            render json: user, status: :ok
-        else
-            render json: {errors: ['Incorrect email or password.']}, status: :unauthorized
-        end
-    end
+    # def login
+    #     user = User.find_by(email: params[:email])
+    #     if user && user.authenticate(params[:password])
+    #         render json: user, status: :ok
+    #     else
+    #         render json: {errors: ['Incorrect email or password.']}, status: :unauthorized
+    #     end
+    # end
 
     def update
         user = User.find_by(id: params[:id])

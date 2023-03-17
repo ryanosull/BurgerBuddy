@@ -80,9 +80,9 @@ function Profile(args) {
                 <Button id="edit" onClick={toggle}>Edit Account Info</Button>
                 <Modal id="editModal" isOpen={modal} toggle={toggle} {...args}>
                 <ModalHeader id="modalHeader" toggle={toggle}>Make changes to your account information below.</ModalHeader>
+
                 <ModalBody>
                 
-
                 <Form >
 				<Row className="row-cols-lg-auto g-3 align-items-center">
 					<Col>
@@ -101,14 +101,11 @@ function Profile(args) {
 						<Label className="visually-hidden" for="examplePassword">Password</Label>
 						<Input id="examplePassword" name="password" value={password} onChange={handleChange} placeholder="password" type="password" maxlength="20" minlength="5" required/>
 					</Col>
-				</Row>
-			</Form>
-
-
-
-
+			    </Row>
+			    </Form>
 
                 </ModalBody>
+
                 <ModalFooter>
                 <Button id="submitButton"  onClick={onEdit}>Submit Changes</Button>{' '}
                 <Button id="cancelButton" color="secondary" onClick={toggle}>Cancel</Button>

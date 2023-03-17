@@ -98,7 +98,7 @@ function Signup (args) {
 					<Col>
 						<Label className="visually-hidden" for="examplePassword">Password</Label>
 						<h6>Password</h6>
-						<Input id="examplePassword" name="password" value={password} onChange={handleChange} placeholder="password" type="password" maxLength="20" minLength="5" required/>
+						<Input id="examplePassword" name="password" value={password} onChange={handleChange} placeholder="password" type="password"  minLength="5" maxLength="12" required/>
 					</Col>
 				</Row>
 			</Form>
