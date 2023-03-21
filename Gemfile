@@ -49,7 +49,7 @@ end
 
 gem "active_model_serializers", "~> 0.10.13"
 
-# from pdawg full stack review - allows fetch requests
+# from pdawg full stack review 1 - allows fetch requests (revisited in pdaw FS 2 @ 17min)
 gem 'rest-client'
 gem 'json'
 
