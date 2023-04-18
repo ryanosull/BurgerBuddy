@@ -145,7 +145,7 @@ function NewReviewForm () {
 
         fetch("/reviews", reviewPost)
         .then(r => r.json())
-        .then(newReview => console.log([...reviews, newReview]))
+        .then(newReview => console.log([...reviews, newReview])) //setReviews
 
 
     }
@@ -157,7 +157,7 @@ function NewReviewForm () {
 
     return ( 
         <div>
-
+                {/* form should probably start here  <form onSubmit={handleSubmitRestaurant} > */}
             <label for="restaurants" className="newBurgFormHeader" id="restaurants">Select a restaurant:</label>
             <select name="restaurants" id="restyDropdown" >
                 <option>Choose here</option>
