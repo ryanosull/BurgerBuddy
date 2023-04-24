@@ -39,7 +39,7 @@ function Profile(args) {
 				res.json().then(userData => {
                     // userData [...args.currentUser, userData]
                     args.editUserInfo(userData)
-					history.push('/myreviews')
+					history.push('/myreviews') //should probably be history.push('/myprofile')
 				})
 			} else {
 				res.json().then(errors => setErrors(errors.errors))
