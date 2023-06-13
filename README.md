@@ -4,9 +4,20 @@ Welcome to BurgerBuddy, the ultimate app for hamburger enthusiasts! Experience a
 
 &nbsp;
 
+
+## Screenshots
+
+![a screenshot](./assets/burgerbuddy_screenshot.png)
+Error handling in login attempt.
+
+![a screenshot](./assets/burgerbuddy_screenshot2.png)
+Bob's reviews viewed upon login.
+
+&nbsp;
+
 ## Installation
 
-Follow these simple steps to get BurgerBuddy up and running:
+Follow these steps to get BurgerBuddy up and running:
 
 1. Clone the repository to your local machine.
 2. In a new terminal window, run `bundle install` to install the necessary dependencies.
@@ -20,19 +31,22 @@ Follow these simple steps to get BurgerBuddy up and running:
 ## Technologies Used 
 ### Client-side:
 
-**React:** The foundation of our app, providing a lightning-fast and dynamic user interface.
+**React:** The foundation of our app, providing a lightning-fast and dynamic user interface. This project was bootstrapped using [Create React App](https://github.com/facebook/create-react-app), allowing for a streamlined development setup.
 
-**ReactStrap:** Leveraging the power of Bootstrap, we ensure a polished and responsive design.
+**ReactStrap:** [Reactstrap](https://github.com/reactstrap/reactstrap) is a Bootstrap-based CSS library used to ensure a polished and responsive design
+
+
+**Vanta.js:** [Vanta.js](https://github.com/tengbao/vanta) is a JavaScript library that provides WebGL animations, allowing developers to create animated backgrounds, particle systems, and 3D visuals. Vanta.js is used for the background effects.
 
 ### Server-side:
 
-**Ruby on Rails:** Our choice of an object-oriented backend language, enabling robust functionality and scalability.
+**Ruby on Rails:** An object-oriented backend language, enabling robust functionality and scalability.
 
 **Active Record:** An exceptional ORM tool that simplifies database management and enhances data handling.
 
-**PostgreSQL:** Our reliable and efficient object-relational database for seamless data storage and retrieval.
+**PostgreSQL:** Reliable and efficient object-relational database for seamless data storage and retrieval.
 
-**BCrypt:** Employed for top-notch password protection and authentication, ensuring the security of our users' information.
+**BCrypt:** Employed for top-notch password protection and authentication, ensuring the security of user information.
 
 &nbsp;
 
