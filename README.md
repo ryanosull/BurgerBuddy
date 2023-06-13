@@ -1,6 +1,6 @@
 # BurgerBuddy
 
-Welcome to BurgerBuddy, the ultimate app for burger enthusiasts! Experience a delightful journey as you explore and review the finest cheeseburgers at local restaurants. Inspired by my quest to uncover hidden gems in Kansas City, the heartland of exceptional beef patties, BurgerBuddy was born.
+Welcome to BurgerBuddy, the ultimate app for hamburger enthusiasts! Experience a delightful journey as you explore and review the finest cheeseburgers at local restaurants. Inspired by my quest to uncover hidden gems in Kansas City, the heartland of exceptional beef patties, BurgerBuddy was born.
 
 &nbsp;
 
