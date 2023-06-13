@@ -12,6 +12,9 @@ Error handling in login attempt.
 
 ![a screenshot](./assets/burgerbuddy_screenshot2.png)
 Bob's reviews viewed upon login.
+
+&nbsp;
+
 ## Installation
 
 Follow these steps to get BurgerBuddy up and running:
