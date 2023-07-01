@@ -32,10 +32,11 @@ function Signup (args) {
         first_name:'',
 		last_name: '',
         email:'',
-        password:''
+        password:'',
+		password_confirmation: ''
     })
 
-	const {first_name, last_name, email, password} = formData
+	const {first_name, last_name, email, password, password_confirmation} = formData
 
 	function onSignup() {
 		
@@ -43,7 +44,8 @@ function Signup (args) {
 			first_name,
 			last_name,
 			email,
-			password
+			password,
+			password_confirmation
 		}
 		fetch("/users", {
 			method: "POST",
@@ -100,6 +102,11 @@ function Signup (args) {
 						<Label className="visually-hidden" for="examplePassword">Password</Label>
 						<h6>Password</h6>
 						<Input id="examplePassword" name="password" value={password} onChange={handleChange} placeholder="password" type="password"  minLength="5" maxLength="12" required/>
+					</Col>
+					<Col>
+						<Label className="visually-hidden" for="examplePasswordConfirmation">Confirm Password</Label>
+						<h6>Confirm Password</h6>
+						<Input id="examplePasswordConfirmation" name="password_confirmation" value={password_confirmation} onChange={handleChange} placeholder="password" type="password"  minLength="8" maxLength="16" required/>
 					</Col>
 				</Row>
 			</Form>
