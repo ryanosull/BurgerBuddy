@@ -11,6 +11,8 @@ function Navbar ({currentUser, setCurrentUser}) {
 
     const history = useHistory()
 
+
+    // 07/01 on logout, clear local storage - see pdawg rev. 1 2:05
     function handleLogout () {
         // window.alert("test")
         fetch('/logout', {
