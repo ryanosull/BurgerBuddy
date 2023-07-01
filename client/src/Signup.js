@@ -71,7 +71,6 @@ function Signup (args) {
     }
 
 
-
 	return (
 	<div>
 
@@ -81,7 +80,7 @@ function Signup (args) {
 			<ModalHeader id="signupModalHeader" toggle={toggle}>To sign up, please enter your information below.</ModalHeader>
 
 			<ModalBody  >
-			<Form >
+			<Form id='signupForm'>
 				<Row className="row-cols-lg-auto g-3 align-items-center">
 					<Col>
 						<Label className="visually-hidden" for="firstName">First name</Label>
@@ -106,7 +105,7 @@ function Signup (args) {
 					<Col>
 						<Label className="visually-hidden" for="examplePasswordConfirmation">Confirm Password</Label>
 						<h6>Confirm Password</h6>
-						<Input id="examplePasswordConfirmation" name="password_confirmation" value={password_confirmation} onChange={handleChange} placeholder="password" type="password"  minLength="8" maxLength="16" required/>
+						<Input  id="examplePasswordConfirmation" name="password_confirmation" value={password_confirmation} onChange={handleChange} placeholder="password" type="password"  minLength="8" maxLength="16" required/>
 					</Col>
 				</Row>
 			</Form>
