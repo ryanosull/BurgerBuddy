@@ -27,6 +27,8 @@ function App() {
   }, [])
 
   console.log(currentUser)
+  // comment the c.log above out when you come back to this. 
+
 
   function editUserInfo (userData) {
     setCurrentUser(userData)
