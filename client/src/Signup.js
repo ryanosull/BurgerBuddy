@@ -5,7 +5,8 @@ import "./Signup.css"
 
 
 
-
+// 07/01 need to add password confirmation input field, etc. 
+//		and note case sensitivity, length
 
 
 
