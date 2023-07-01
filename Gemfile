@@ -51,7 +51,8 @@ gem "active_model_serializers", "~> 0.10.13"
 
 # from pdawg full stack review 1 - allows fetch requests (revisited in pdaw FS 2 @ 17min)
 gem 'rest-client'
-gem 'json'
+
+gem 'json', '~> 2.6', '>= 2.6.3'
 
 # allows encoding and decoding data
 gem 'jwt'
