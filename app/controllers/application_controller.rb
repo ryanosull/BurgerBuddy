@@ -14,12 +14,12 @@ class ApplicationController < ActionController::API
     # end
 
     def current_user
-        auth_token = request.headers['auth_token']
-        if auth_token
+        auth_token = request.headers['auth-token'] #do not use underscore @ 'auth-token'
+        if !auth_token
+            return nil
+        else
             token = JWT.decode(auth_token, ENV['JWT_TOKEN'])[0] #pull out array
             return User.find_by( id: token['user'])
-        else
-            return nil
         end
     end
 
