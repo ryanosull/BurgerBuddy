@@ -53,8 +53,12 @@ gem "active_model_serializers", "~> 0.10.13"
 gem 'rest-client'
 gem 'json'
 
-# allows endcoding and decoding data
+# allows encoding and decoding data
 gem 'jwt'
 
 # to keep data secure
 gem 'dotenv-rails'
+
+
+#testing to deal with render errors
+gem 'net-protocol', '~> 0.2.1'
