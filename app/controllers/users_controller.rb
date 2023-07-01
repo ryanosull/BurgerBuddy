@@ -1,5 +1,6 @@
 class UsersController < ApplicationController
 
+    before_action :authorized_user, only: [:update]
     skip_before_action :authorized_user, only: [:create]
     wrap_parameters format: []
 
@@ -66,7 +67,7 @@ class UsersController < ApplicationController
     end
 
     def user_not_found
-        render json: {errors: ["User doesn't exist!"]}
+        render json: {errors: ["User does not exist!"]}
     end
 
 
