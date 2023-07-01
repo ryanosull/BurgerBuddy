@@ -15,7 +15,9 @@ Bob's reviews viewed upon login.
 
 &nbsp;
 
-## Installation
+<!-- edit for Render deployment!!! -->
+
+<!-- ## Installation
 
 Follow these steps to get BurgerBuddy up and running:
 
@@ -24,12 +26,12 @@ Follow these steps to get BurgerBuddy up and running:
 3. Run `bundle exec rake server` to initiate the backend magic.
 4. Switch to a new terminal window, navigate to the client directory, and run `npm install` to install the required packages.
 5. In a separate terminal window, use `npm start` to start the development server.
-6. Finally, open your favorite browser and visit http://localhost:3000 to access the app and embark on your cheeseburger adventure!
+6. Finally, open your favorite browser and visit http://localhost:3000 to access the app and embark on your cheeseburger adventure! -->
 
 &nbsp;
 
 ## Technologies Used 
-### Client-side:
+### **Client-side:**
 
 **React:** The foundation of our app, providing a lightning-fast and dynamic user interface. This project was bootstrapped using [Create React App](https://github.com/facebook/create-react-app), allowing for a streamlined development setup.
 
@@ -38,7 +40,7 @@ Follow these steps to get BurgerBuddy up and running:
 
 **Vanta.js:** [Vanta.js](https://github.com/tengbao/vanta) is a JavaScript library that provides WebGL animations, allowing developers to create animated backgrounds, particle systems, and 3D visuals. Vanta.js is used for the background effects.
 
-### Server-side:
+### **Server-side:**
 
 **Ruby on Rails:** An object-oriented backend language, enabling robust functionality and scalability.
 
@@ -53,3 +55,6 @@ Follow these steps to get BurgerBuddy up and running:
 ## License
 
 [MIT](https://choosealicense.com/licenses/mit/)
+
+sudo service postgresql start
+rails server

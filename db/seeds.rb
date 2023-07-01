@@ -9,9 +9,9 @@ puts "DESTROYED"
 
 puts "seeding USERS..."
 
-    u1 = User.create(first_name: "Bob", last_name: "Bobson", email: "bob@example.com", password: "12345")
-    u2 = User.create(first_name: "Alice", last_name: "Allison", email: "alice@example.com", password: "12345")
-    u3 = User.create(first_name: "Satoshi", last_name: "Nakamoto", email: "craig@example.com", password: "12345")
+    u1 = User.create(first_name: "Bob", last_name: "Robertson", email: "bob@example.com", password: "Bob12345!", password_confirmation: "Bob12345!")
+    u2 = User.create(first_name: "Alice", last_name: "Allison", email: "alice@example.com", password: "Alice12345$", password_confirmation: "Alice12345$")
+    u3 = User.create(first_name: "Satoshi", last_name: "Nakamoto", email: "craig@example.com", password: "Craig12345?", password_confirmation: "Craig12345?")
 
 puts "USERS SEEDED"
 

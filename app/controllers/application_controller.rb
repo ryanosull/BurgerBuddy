@@ -8,13 +8,25 @@ class ApplicationController < ActionController::API
 
     before_action :authorized_user
 
+    # def current_user
+    #     user = User.find_by(id: session[:user_id])
+    #     user
+    # end
+
     def current_user
-        user = User.find_by(id: session[:user_id])
-        user
+        auth_token = request.headers['auth-token'] #do not use underscore @ 'auth-token'
+        if auth_token
+            token = JWT.decode(auth_token, ENV['JWT_TOKEN'])[0] #pull out array
+            return User.find_by( id: token['user'])
+        else
+            return nil
+        end
     end
 
     def authorized_user
-        render json: {errors: ["Not authorized (yes, you)!"]}, status: :unauthorized unless current_user
+        unless current_user
+            render json: {errors: ["🛑 You must be logged in to do that! 🚫"]}, status: :unauthorized
+        end
     end
 
 

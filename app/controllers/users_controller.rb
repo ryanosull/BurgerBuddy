@@ -1,5 +1,6 @@
 class UsersController < ApplicationController
 
+    before_action :authorized_user, only: [:update]
     skip_before_action :authorized_user, only: [:create]
     wrap_parameters format: []
 
@@ -62,11 +63,11 @@ class UsersController < ApplicationController
     private
     
     def user_params #come back!
-        params.permit(:first_name, :last_name, :email, :password, :id)
+        params.permit(:first_name, :last_name, :email, :password) # :password_confirmation ?
     end
 
     def user_not_found
-        render json: {errors: ["User doesn't exist!"]}
+        render json: {errors: ["User does not exist!"]}
     end
 
 
