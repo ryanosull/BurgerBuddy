@@ -60,7 +60,7 @@ function Login (args) {
     const onLogin = (e) => {
         e.preventDefault()
 
-        fetch("/auto_login", {
+        fetch("/login", { //"/auto_login"
             method: 'POST',
             headers: {
                 'content-type': 'application/json',
@@ -73,6 +73,7 @@ function Login (args) {
             if (!user.errors) {
                 localStorage.uid = user.id
                 args.setCurrentUser(user.id)
+                history.push(`/myreviews`)
             } else {
                 user.errors.forEach(e => alert(e))
                 // user.json().then(errors => setErrors(errors.errors))
