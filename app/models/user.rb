@@ -12,7 +12,7 @@ class User < ApplicationRecord
     validates :email, presence: true, format: { with: URI::MailTo::EMAIL_REGEXP }, uniqueness: true
 
     PASSWORD_REQUIREMENTS = /\A 
-        (?=.{8, 16}) #at least 8 characters length
+        (?=.{8, 16}) #at least 8 characters length, 16char max
         (?=.*\d) #must contain at least one number
         (?=.*[a-z]) #must contain at least one lower case letter
         (?=.*[A-Z]) #must contain at least one upper case letter
