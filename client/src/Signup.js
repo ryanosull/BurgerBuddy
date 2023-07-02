@@ -132,6 +132,7 @@ function Signup (args) {
 						<li>Contain at least one upper case letter</li>
 						<li>Contain at least one lower case letter</li>
 						<li>Contain at least one symbol</li>
+						<li>Passwords are case sensitive!</li>
 					</Col>
 				</Row>
 	

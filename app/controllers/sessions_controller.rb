@@ -16,7 +16,7 @@ class SessionsController < ApplicationController
     def create 
         @user = User.find_by(email: params[:email])
         if @user and @user.authenticate(params[:password])
-            logged_user = JWT.encode({user: @user.id}, ENV['JWT_TOKEN'])
+            logged_user = JWT.encode({user: @user.id}, ENV['JWT_TOKEN']) # 'user' for app_controller/#current_user
             render json: {uid: logged_user}, status: :ok #200
         else
             cannot_login
