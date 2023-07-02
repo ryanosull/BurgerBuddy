@@ -16,13 +16,11 @@ class SessionsController < ApplicationController
     def create 
         @user = User.find_by(email: params[:email])
         if @user and @user.authenticate(params[:password])
-            debugger
+            logged_user = JWT.encode({user: @user.id}, ENV['JWT_TOKEN'])
+            render json: {uid: logged_user}, status: :ok #200
+        else
+            cannot_login
         end
-        #     logged_user = JWT.encode({user: @user.id}, ENV['JWT_TOKEN'])
-        #     render json: {uid: logged_user}, status: :ok
-        # else
-        #     cannot_login
-        # end
     end
 
     # def auto_login
@@ -43,11 +41,11 @@ class SessionsController < ApplicationController
 
 
 
-    # private
+    private
 
-    # def cannot_login
-    #     render json: {errors: ["You have entered an invalid username or password"]}, status: :unauthorized
-    # end
+    def cannot_login
+        render json: {errors: ["You have entered an invalid username and/or password!"]}, status: :unauthorized #401
+    end
 
 
 
