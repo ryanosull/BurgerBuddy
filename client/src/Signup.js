@@ -92,7 +92,9 @@ function Signup (args) {
 
 		<Modal id="modal" isOpen={modal} toggle={toggle} {...args}>
 
-		<ModalHeader id="signupModalHeader" toggle={toggle}>To sign up, please enter your information below.</ModalHeader>
+		<ModalHeader id="signupModalHeader" toggle={toggle}>
+			To sign up, please enter your information below.
+		</ModalHeader>
 
 		<ModalBody  >
 

@@ -26,35 +26,60 @@ function Login (args) {
     const history = useHistory();
 
     const {email, password} = formData;
+    const loginInfo = {email, password}
 
-    function onLogin(e){
+    // function onLogin(e){
 
-        e.preventDefault();
-        setErrors([]);
+    //     e.preventDefault();
+    //     setErrors([]);
 
-        const loginInfo = {
-            email,
-            password
-        };
+    //     const loginInfo = {
+    //         email,
+    //         password
+    //     };
         
-        fetch(`/login`, {
-        method:'POST',
-        headers:{'Content-Type': 'application/json'},
-        body:JSON.stringify(loginInfo)
+    //     fetch(`/login`, {
+    //     method:'POST',
+    //     headers:{'Content-Type': 'application/json'},
+    //     body:JSON.stringify(loginInfo)
+    //     })
+    //     .then(res => {
+    //         if(res.ok){
+    //         res.json().then(userData => {
+    //         args.setCurrentUser(userData)
+    //         history.push(`/myreviews`)
+    //         })
+    //         } else {
+    //         // res.json().then(json => setErrors(Object.entries(json.errors)))
+    //         res.json().then(errors => setErrors(errors.errors))
+    //         }
+    //     })
+    //     // toggle() - removed this for error handling; modal would close before errors could be displayed. 
+    // };
+
+    const onLogin = (e) => {
+        e.preventDefault()
+
+        fetch("/auto_login", {
+            method: 'POST',
+            headers: {
+                'content-type': 'application/json',
+                Accept: 'application/json'
+            },
+            body: JSON.stringify(loginInfo)
         })
-        .then(res => {
-            if(res.ok){
-            res.json().then(userData => {
-            args.setCurrentUser(userData)
-            history.push(`/myreviews`)
-            })
+        .then(r => r.json())
+        .then(user => {
+            if (!user.errors) {
+                localStorage.uid = user.id
+                args.setCurrentUser(user.id)
             } else {
-            // res.json().then(json => setErrors(Object.entries(json.errors)))
-            res.json().then(errors => setErrors(errors.errors))
+                // user.errors.forEach(e => alert(e))
+                user.json().then(errors => setErrors(errors.errors))
+                setFormData("")
             }
         })
-        // toggle() - removed this for error handling; modal would close before errors could be displayed. 
-    };
+    }
 
     const handleChange = (e) => {
         const { name, value } = e.target
@@ -77,29 +102,32 @@ function Login (args) {
         </ModalHeader>
 
         <ModalBody>
-            <Form >
+            <Form onSubmit={onLogin} >
                 <Row className="row-cols-lg-auto g-3 align-items-center">
                 <Col>
                     <Label className="visually-hidden"for="exampleEmail">Email</Label>
-                    <h6>Email</h6>
+                    <h6>Email:</h6>
                     <Input type='email' name='email' value={email} onChange={handleChange} required placeholder="email" />
                 </Col>
                 <Col>
                     {/* <Label className="visually-hidden"for="examplePassword">Password</Label> */}
-                    <h6>Password</h6>
+                    <h6>Password:</h6>
                     <Input type='password' name='password' value={password} onChange={handleChange} required minlength="8" maxlength="16" placeholder="password"/>
                 </Col>
                 </Row>
-            </Form>
-        </ModalBody>
 
-            <ModalFooter>
-                <Button id="loginButtonModal" type='submit' onClick={onLogin}>Log in!</Button>{' '}
+                <ModalFooter>
+                <Button id="loginButtonModal" type='submit' >Log in!</Button>{' '}
 
                 <Button id="cancelButtonModal" onClick={toggle}>Cancel</Button>
 
                 {errors ? errors.map( e => (<Alert color="danger">{e}</Alert>)) : null}
             </ModalFooter>
+
+            </Form>
+        </ModalBody>
+
+
 
         </Modal>
     </div>

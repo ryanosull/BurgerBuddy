@@ -15,16 +15,28 @@ function App() {
 
   const [currentUser, setCurrentUser] = useState(null)
 
-  useEffect(() => {
-    fetch("/authorized")
-    .then(r => {
-      if (r.ok) {
-        r.json().then(user => setCurrentUser(user))
-      } else {
-        r.json().then(() => setCurrentUser(null))
-      }
-    })
-  }, [])
+  // useEffect(() => {
+  //   fetch("/authorized")
+  //   .then(r => {
+  //     if (r.ok) {
+  //       r.json().then(user => setCurrentUser(user))
+  //     } else {
+  //       r.json().then(() => setCurrentUser(null))
+  //     }
+  //   })
+  // }, [])
+
+    useEffect( () => {
+      if (localStorage.uid)
+        fetch( "/auto_login", { headers: {
+          'content/type': 'application/json',
+          'auth-token': localStorage.uid
+        } } )
+        .then(r => r.json())
+        .then(setCurrentUser)
+      else
+        console.log("No user info found.", "useEffect in App" )
+    }, []);
 
   console.log(currentUser, "currentUser, App")
   // comment the c.log above out when you come back to this. 
