@@ -30,7 +30,8 @@ function Login (args) {
     function onLogin(e){
         e.preventDefault()
         setErrors([])
-        const user = {
+
+        const loginInfo = {
             email,
             password
         }
@@ -38,7 +39,7 @@ function Login (args) {
         fetch(`/login`, {
         method:'POST',
         headers:{'Content-Type': 'application/json'},
-        body:JSON.stringify(user)
+        body:JSON.stringify(loginInfo)
         })
 
         .then(res => {
@@ -69,34 +70,38 @@ function Login (args) {
 
     <div>
         <Button id="loginButton" color="success" onClick={toggle}>Log In</Button>
+
         <Modal id="modal" isOpen={modal} toggle={toggle} {...args}>
-        <ModalHeader id="loginModalHeader" toggle={toggle}>Please enter your email and password below.</ModalHeader>
+
+        <ModalHeader id="loginModalHeader" toggle={toggle}>
+            Please enter your email and password below.
+        </ModalHeader>
+
         <ModalBody>
-
-        <Form >
-            <Row className="row-cols-lg-auto g-3 align-items-center">
-            <Col>
-                <Label className="visually-hidden"for="exampleEmail">Email</Label>
-                <h6>Email</h6>
-                <Input type='email' name='email' value={email} onChange={handleChange} required placeholder="email" />
-            </Col>
-            <Col>
-                {/* <Label className="visually-hidden"for="examplePassword">Password</Label> */}
-                <h6>Password</h6>
-                <Input type='password' name='password' value={password} onChange={handleChange} required minlength="8" maxlength="16" placeholder="password"/>
-            </Col>
-            </Row>
-        </Form>
-
-        
-
+            <Form >
+                <Row className="row-cols-lg-auto g-3 align-items-center">
+                <Col>
+                    <Label className="visually-hidden"for="exampleEmail">Email</Label>
+                    <h6>Email</h6>
+                    <Input type='email' name='email' value={email} onChange={handleChange} required placeholder="email" />
+                </Col>
+                <Col>
+                    {/* <Label className="visually-hidden"for="examplePassword">Password</Label> */}
+                    <h6>Password</h6>
+                    <Input type='password' name='password' value={password} onChange={handleChange} required minlength="8" maxlength="16" placeholder="password"/>
+                </Col>
+                </Row>
+            </Form>
         </ModalBody>
 
-        <ModalFooter>
-            <Button id="loginButtonModal" type='submit' onClick={onLogin}>Log in!</Button>{' '}
-            <Button id="cancelButtonModal" onClick={toggle}>Cancel</Button>
-            {errors ? errors.map( e => (<Alert color="danger">{e}</Alert>)) : null}
-        </ModalFooter>
+            <ModalFooter>
+                <Button id="loginButtonModal" type='submit' onClick={onLogin}>Log in!</Button>{' '}
+
+                <Button id="cancelButtonModal" onClick={toggle}>Cancel</Button>
+
+                {errors ? errors.map( e => (<Alert color="danger">{e}</Alert>)) : null}
+            </ModalFooter>
+
         </Modal>
     </div>
 

@@ -43,11 +43,14 @@ function Signup (args) {
 		password_confirmation: ''
     })
 
+	
+
 	const {first_name, last_name, email, password, password_confirmation} = formData
+	
 
 	function onSignup() {
 		
-		const user ={
+		const signupInfo ={
 			first_name,
 			last_name,
 			email,
@@ -57,7 +60,7 @@ function Signup (args) {
 		fetch("/users", {
 			method: "POST",
 			headers: {'Content-Type': 'application/json'},
-			body: JSON.stringify(user)
+			body: JSON.stringify(signupInfo)
 		})
 		.then(res => {
 			if(res.ok){
@@ -84,9 +87,11 @@ function Signup (args) {
 		<Button id="signupButton" color="success" onClick={toggle}>Sign Up</Button>
 
 		<Modal id="modal" isOpen={modal} toggle={toggle} {...args}>
-			<ModalHeader id="signupModalHeader" toggle={toggle}>To sign up, please enter your information below.</ModalHeader>
 
-			<ModalBody  >
+		<ModalHeader id="signupModalHeader" toggle={toggle}>To sign up, please enter your information below.</ModalHeader>
+
+		<ModalBody  >
+
 			<Form id='signupForm'>
 				<Row className="row-cols-lg-auto g-3 align-items-center">
 					<Col>
@@ -124,7 +129,8 @@ function Signup (args) {
 					</Col>
 				</Row>
 			</Form>
-			</ModalBody>
+
+		</ModalBody>
 
 			<ModalFooter>
 				<Button id="signupButtonModal"  onClick={onSignup}>Sign up</Button>{' '}
