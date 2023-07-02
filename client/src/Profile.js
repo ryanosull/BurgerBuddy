@@ -4,7 +4,7 @@ import "./Profile.css";
 import { Card, CardBody, CardTitle, CardSubtitle, Button, Modal, ModalHeader, ModalBody, ModalFooter, Form, Row, Col, Label, Input } from 'reactstrap';
 
 //07/01 password confirmation - need to add this here: input, etc.
-
+// 07/05 not certain delete acct is working...
 function Profile(args) {
 
     const [modal, setModal] = useState(false);
@@ -55,7 +55,7 @@ function Profile(args) {
     }
 
 
-
+    //hmmmm
     function handleDeleteAcct() {
         fetch(`/users/${args.currentUser.id}`, {
             method: 'DELETE'
