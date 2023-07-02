@@ -3,7 +3,7 @@ import {useHistory} from 'react-router-dom'
 import "./Profile.css";
 import { Card, CardBody, CardTitle, CardSubtitle, Button, Modal, ModalHeader, ModalBody, ModalFooter, Form, Row, Col, Label, Input } from 'reactstrap';
 
-//07/01 password confirmation
+//07/01 password confirmation - need to add this here: input, etc.
 
 function Profile(args) {
 

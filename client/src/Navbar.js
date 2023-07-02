@@ -22,7 +22,7 @@ function Navbar ({currentUser, setCurrentUser}) {
             if (res.ok){
                 setCurrentUser(null)
                 history.push("/")
-                
+                //clear local storage
             }
         })
     }
