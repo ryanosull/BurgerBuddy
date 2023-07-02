@@ -74,8 +74,8 @@ function Login (args) {
                 localStorage.uid = user.id
                 args.setCurrentUser(user.id)
             } else {
-                // user.errors.forEach(e => alert(e))
-                user.json().then(errors => setErrors(errors.errors))
+                user.errors.forEach(e => alert(e))
+                // user.json().then(errors => setErrors(errors.errors))
                 setFormData("")
             }
         })
@@ -117,12 +117,15 @@ function Login (args) {
                 </Row>
 
                 <ModalFooter>
-                <Button id="loginButtonModal" type='submit' >Log in!</Button>{' '}
+                    <Button id="loginButtonModal" type='submit' >Log in!</Button>{' '}
 
-                <Button id="cancelButtonModal" onClick={toggle}>Cancel</Button>
+                    <Button id="cancelButtonModal" onClick={toggle}>Cancel</Button>
 
-                {errors ? errors.map( e => (<Alert color="danger">{e}</Alert>)) : null}
-            </ModalFooter>
+                    {errors ? errors.map( e => 
+                        console.log(e)) //(<Alert color="danger">{e}</Alert>)) 
+                        : 
+                        null}
+                </ModalFooter>
 
             </Form>
         </ModalBody>

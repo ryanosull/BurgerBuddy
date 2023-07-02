@@ -1,7 +1,7 @@
 class SessionsController < ApplicationController
 
-    skip_before_action :authorized_user, only: [:create] 
-    #keep this one ^
+    #keep this one ↓
+    # skip_before_action :authorized_user, only: [:create] 
 
     # def create
     #     user = User.find_by(email: params[:email])
@@ -26,7 +26,7 @@ class SessionsController < ApplicationController
     def auto_login
         auth_token = request.headers['auth-token'] #do not use underscore @ 'auth-token'
         if auth_token and auth_token != 'undefined'
-            token = JWT.decode(auth_token, ENV['JWT_TOKEN'])[0] #pull out array
+            token = JWT.decode(auth_token, ENV['JWT_TOKEN'])[0] #pull out from array
             user = User.find_by( id: token['user'])
             render json: user.id, status: :ok
         else
@@ -42,7 +42,6 @@ class SessionsController < ApplicationController
 
 
     private
-
 
     def cannot_login
         render json: {errors: ["You have entered an invalid username or password"]}, status: :unauthorized
