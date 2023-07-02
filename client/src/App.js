@@ -26,7 +26,7 @@ function App() {
     })
   }, [])
 
-  console.log(currentUser)
+  console.log(currentUser, "currentUser, App")
   // comment the c.log above out when you come back to this. 
 
 
@@ -35,7 +35,7 @@ function App() {
   }
 
 
-  if (!currentUser) return (
+  if (!currentUser) return ( // interesting behavior: (!currentUser || currentUser === null)
     //jsx 47min in lecture
     <LandingPage setCurrentUser={setCurrentUser} /> 
   )

@@ -28,20 +28,20 @@ function Login (args) {
     const {email, password} = formData;
 
     function onLogin(e){
-        e.preventDefault()
-        setErrors([])
+
+        e.preventDefault();
+        setErrors([]);
 
         const loginInfo = {
             email,
             password
-        }
+        };
         
         fetch(`/login`, {
         method:'POST',
         headers:{'Content-Type': 'application/json'},
         body:JSON.stringify(loginInfo)
         })
-
         .then(res => {
             if(res.ok){
             res.json().then(userData => {
@@ -54,7 +54,7 @@ function Login (args) {
             }
         })
         // toggle() - removed this for error handling; modal would close before errors could be displayed. 
-    }
+    };
 
     const handleChange = (e) => {
         const { name, value } = e.target
@@ -67,7 +67,6 @@ function Login (args) {
 
 
     return (
-
     <div>
         <Button id="loginButton" color="success" onClick={toggle}>Log In</Button>
 

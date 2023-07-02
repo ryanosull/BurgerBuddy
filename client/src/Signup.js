@@ -45,10 +45,13 @@ function Signup (args) {
 
 	
 
-	const {first_name, last_name, email, password, password_confirmation} = formData
+	const {first_name, last_name, email, password, password_confirmation} = formData //sanke_case for backend
 	
 
-	function onSignup() {
+	function onSignup(e) {
+
+		e.preventDefault();
+        setErrors([]);
 		
 		const signupInfo ={
 			first_name,
@@ -56,7 +59,8 @@ function Signup (args) {
 			email,
 			password,
 			password_confirmation
-		}
+		};
+
 		fetch("/users", {
 			method: "POST",
 			headers: {'Content-Type': 'application/json'},
@@ -72,13 +76,13 @@ function Signup (args) {
 				res.json().then(errors => setErrors(errors.errors))
 			}
 		})
-		toggle()
+		toggle();
 	}
 
 	const handleChange = (e) => {
         const { name, value } = e.target
         setFormData({ ...formData, [name]: value })
-    }
+    };
 
 
 	return (
@@ -141,6 +145,6 @@ function Signup (args) {
 
 	</div>
 	);
-}
+};
 
 export default Signup;
