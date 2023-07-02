@@ -1,12 +1,7 @@
 class ApplicationController < ActionController::API
     include ActionController::Cookies
 
-    # def hello_world
-    #     session[:count] = (session[:count] || 0) + 1
-    #     render json: { count: session[:count] }
-    # end
-
-    before_action :authorized_user
+    # before_action :authorized_user
 
     # def current_user
     #     user = User.find_by(id: session[:user_id])
@@ -23,11 +18,11 @@ class ApplicationController < ActionController::API
         end
     end
 
-    def authorized_user
-        unless current_user
-            render json: {errors: ["🛑 You must be logged in to do that! 🚫"]}, status: :unauthorized
-        end
-    end
+    # def authorized_user
+    #     unless current_user
+    #         render json: {errors: ["🛑 You must be logged in to do that! 🚫"]}, status: :unauthorized
+    #     end
+    # end
 
 
 
