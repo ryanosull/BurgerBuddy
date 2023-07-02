@@ -9,17 +9,23 @@ function Login (args) {
     //**********
     const [modal, setModal] = useState(false);
 
-    const toggle = () => setModal(!modal);
+    // const toggle = () => setModal(!modal); if any issues with login/signup, see if setFormData("") below had anything to do with it...
+
+    const toggle = () => {
+        setModal(!modal)
+        setFormData("")
+    };
     //**********
 
     const [formData, setFormData] = useState({
         email:'',
         password:''
-    })
-    const [errors, setErrors] = useState([])
-    const history = useHistory()
+    });
 
-    const {email, password} = formData
+    const [errors, setErrors] = useState([]);
+    const history = useHistory();
+
+    const {email, password} = formData;
 
     function onLogin(e){
         e.preventDefault()
@@ -52,9 +58,11 @@ function Login (args) {
     const handleChange = (e) => {
         const { name, value } = e.target
         setFormData({ ...formData, [name]: value })
-    }
+    };
 
-
+    // const resetForm = () => {
+    //     setFormData("")
+    // }
 
 
     return (

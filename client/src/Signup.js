@@ -12,10 +12,17 @@ import "./Signup.css"
 
 
 function Signup (args) {
-	//
+
+
+	//**********
 	const [modal, setModal] = useState(false)
-	const toggle = () => setModal(!modal)
-	//
+	// const toggle = () => setModal(!modal);  if any issues with login/signup, see if setFormData("") below had anything to do with it...
+
+	const toggle = () => {
+        setModal(!modal)
+        setFormData("")
+    };
+	//**********
 
 	// const [firstName, setFirstName] = useState("")
 	// const [lastName, setLastName] = useState("")
