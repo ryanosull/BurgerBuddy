@@ -19,7 +19,18 @@ class SessionsController < ApplicationController
             logged_user = JWT.encode({user: @user.id}, ENV['JWT_TOKEN'])
             render json: {uid: logged_user}, status: :ok
         else
-            render json: {errors: ["Incorrect email and/or password!"]}, status: :unauthorized
+            cannot_login
+        end
+    end
+
+    def auto_login
+        auth_token = request.headers['auth-token'] #do not use underscore @ 'auth-token'
+        if auth_token and auth_token != 'undefined'
+            token = JWT.decode(auth_token, ENV['JWT_TOKEN'])[0] #pull out array
+            user = User.find_by( id: token['user'])
+            render json: user.id, status: :ok
+        else
+            cannot_login
         end
     end
 
@@ -30,9 +41,12 @@ class SessionsController < ApplicationController
 
 
 
+    private
 
 
-
+    def cannot_login
+        render json: {errors: ["Incorrect email and/or password!"]}, status: :unauthorized
+    end
 
 
 

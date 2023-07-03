@@ -15,6 +15,7 @@ Rails.application.routes.draw do
 
   get '/authorized', to: 'users#show'
   post '/login', to: 'sessions#create'
+  get '/auto_login', to: 'sessions#auto_login'
   delete '/logout', to: 'sessions#destroy' 
 
 
