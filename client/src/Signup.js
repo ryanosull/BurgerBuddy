@@ -71,7 +71,6 @@ function Signup (args) {
     }
 
 
-
 	return (
 	<div>
 
@@ -81,32 +80,40 @@ function Signup (args) {
 			<ModalHeader id="signupModalHeader" toggle={toggle}>To sign up, please enter your information below.</ModalHeader>
 
 			<ModalBody  >
-			<Form >
+			<Form id='signupForm'>
 				<Row className="row-cols-lg-auto g-3 align-items-center">
 					<Col>
 						<Label className="visually-hidden" for="firstName">First name</Label>
-						<h6>First name</h6>
+						<h6>First name:</h6>
 						<Input id="firstName" name="first_name" value={first_name} onChange={handleChange} placeholder="first name" type="text" required/>
 					</Col>
 					<Col>
 						<Label className="visually-hidden" for="lastName"> Last Name</Label>
-						<h6>Last name</h6>
+						<h6>Last name:</h6>
 						<Input id="lastName"name="last_name" value={last_name} onChange={handleChange} placeholder="last name" type="text" required/>
 					</Col>
 					<Col>
 						<Label className="visually-hidden" for="exampleEmail">Email</Label>
-						<h6>Email</h6>
+						<h6>Email:</h6>
 						<Input id="exampleEmail" name="email" value={email} onChange={handleChange} placeholder="email address" type="email" required/>
 					</Col>
 					<Col>
 						<Label className="visually-hidden" for="examplePassword">Password</Label>
-						<h6>Password</h6>
+						<h6>Password:</h6>
 						<Input id="examplePassword" name="password" value={password} onChange={handleChange} placeholder="password" type="password"  minLength="5" maxLength="12" required/>
 					</Col>
 					<Col>
 						<Label className="visually-hidden" for="examplePasswordConfirmation">Confirm Password</Label>
-						<h6>Confirm Password</h6>
-						<Input id="examplePasswordConfirmation" name="password_confirmation" value={password_confirmation} onChange={handleChange} placeholder="password" type="password"  minLength="8" maxLength="16" required/>
+						<h6>Confirm Password:</h6>
+						<Input  id="examplePasswordConfirmation" name="password_confirmation" value={password_confirmation} onChange={handleChange} placeholder="re-enter password" type="password"  minLength="8" maxLength="16" required/>
+					</Col>
+					<Col>
+						<h6>Password must:</h6>
+						<li>Be between 8 and 16 characters</li>
+						<li>Contain at least one number</li>
+						<li>Contain at least one upper case letter</li>
+						<li>Contain at least one lower case letter</li>
+						<li>Contain at least one symbol</li>
 					</Col>
 				</Row>
 			</Form>
