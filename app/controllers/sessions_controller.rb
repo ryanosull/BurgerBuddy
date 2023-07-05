@@ -45,7 +45,7 @@ class SessionsController < ApplicationController
 
 
     def cannot_login
-        render json: {errors: ["Incorrect email and/or password!"]}, status: :unauthorized
+        render json: {errors: ["You have entered an invalid username or password"]}, status: :unauthorized
     end
 
 

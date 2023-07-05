@@ -12,10 +12,17 @@ import "./Signup.css"
 
 
 function Signup (args) {
-	//
+
+
+	//**********
 	const [modal, setModal] = useState(false)
-	const toggle = () => setModal(!modal)
-	//
+	// const toggle = () => setModal(!modal);  if any issues with login/signup, see if setFormData("") below had anything to do with it...
+
+	const toggle = () => {
+        setModal(!modal)
+        setFormData("")
+    };
+	//**********
 
 	// const [firstName, setFirstName] = useState("")
 	// const [lastName, setLastName] = useState("")
@@ -36,21 +43,28 @@ function Signup (args) {
 		password_confirmation: ''
     })
 
-	const {first_name, last_name, email, password, password_confirmation} = formData
+	
 
-	function onSignup() {
+	const {first_name, last_name, email, password, password_confirmation} = formData //sanke_case for backend
+	
+
+	function onSignup(e) {
+
+		e.preventDefault();
+        setErrors([]);
 		
-		const user ={
+		const signupInfo ={
 			first_name,
 			last_name,
 			email,
 			password,
 			password_confirmation
-		}
+		};
+
 		fetch("/users", {
 			method: "POST",
 			headers: {'Content-Type': 'application/json'},
-			body: JSON.stringify(user)
+			body: JSON.stringify(signupInfo)
 		})
 		.then(res => {
 			if(res.ok){
@@ -62,13 +76,13 @@ function Signup (args) {
 				res.json().then(errors => setErrors(errors.errors))
 			}
 		})
-		toggle()
+		toggle();
 	}
 
 	const handleChange = (e) => {
         const { name, value } = e.target
         setFormData({ ...formData, [name]: value })
-    }
+    };
 
 
 	return (
@@ -77,9 +91,13 @@ function Signup (args) {
 		<Button id="signupButton" color="success" onClick={toggle}>Sign Up</Button>
 
 		<Modal id="modal" isOpen={modal} toggle={toggle} {...args}>
-			<ModalHeader id="signupModalHeader" toggle={toggle}>To sign up, please enter your information below.</ModalHeader>
 
-			<ModalBody  >
+		<ModalHeader id="signupModalHeader" toggle={toggle}>
+			To sign up, please enter your information below.
+		</ModalHeader>
+
+		<ModalBody  >
+
 			<Form id='signupForm'>
 				<Row className="row-cols-lg-auto g-3 align-items-center">
 					<Col>
@@ -117,7 +135,8 @@ function Signup (args) {
 					</Col>
 				</Row>
 			</Form>
-			</ModalBody>
+
+		</ModalBody>
 
 			<ModalFooter>
 				<Button id="signupButtonModal"  onClick={onSignup}>Sign up</Button>{' '}
@@ -128,6 +147,6 @@ function Signup (args) {
 
 	</div>
 	);
-}
+};
 
 export default Signup;
