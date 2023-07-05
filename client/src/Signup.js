@@ -98,7 +98,7 @@ function Signup (args) {
 
 		<ModalBody  >
 
-			<Form id='signupForm'>
+			<Form id='signupForm' onSubmit={onSignup}>
 				<Row className="row-cols-lg-auto g-3 align-items-center">
 					<Col>
 						<Label className="visually-hidden" for="firstName">First name</Label>
@@ -132,16 +132,20 @@ function Signup (args) {
 						<li>Contain at least one upper case letter</li>
 						<li>Contain at least one lower case letter</li>
 						<li>Contain at least one symbol</li>
+						<li>Passwords are case sensitive!</li>
 					</Col>
 				</Row>
+	
+				<ModalFooter>
+					<Button id="signupButtonModal" type="submit">Sign up</Button>{' '}
+
+					<Button id="cancelButtonModal" onClick={toggle}>Cancel</Button>
+				</ModalFooter>
+
 			</Form>
 
 		</ModalBody>
 
-			<ModalFooter>
-				<Button id="signupButtonModal"  onClick={onSignup}>Sign up</Button>{' '}
-				<Button id="cancelButtonModal" onClick={toggle}>Cancel</Button>
-			</ModalFooter>
 
 		</Modal>
 

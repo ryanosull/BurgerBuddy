@@ -26,17 +26,43 @@ function App() {
   //   })
   // }, [])
 
-    useEffect( () => {
-      if (localStorage.uid)
-        fetch( "/auto_login", { headers: {
-          'content/type': 'application/json',
-          'auth-token': localStorage.uid
-        } } )
-        .then(r => r.json())
-        .then(setCurrentUser)
-      else
-        console.log("No user info found.", "useEffect in App" )
-    }, []);
+    // useEffect( () => {
+    //   if (localStorage.uid)
+    //     fetch( "/auto_login", { headers: {
+    //       'content/type': 'application/json',
+    //       'auth-token': localStorage.uid
+    //     } } )
+    //     .then(r => r.json())
+    //     .then(setCurrentUser)
+    //   else
+    //     console.log("No user info found.", "useEffect in App" )
+    // }, []);
+
+
+  useEffect( () => {
+    if (localStorage.uid)
+      console.log("User found:", localStorage.uid)
+    else
+      console.log("No user info found")
+    }, [])
+
+    fetch ("/login", {
+      method: 'POST',
+      headers: {
+        'Content-type': 'application/json',
+        Accept: 'application/json'
+      },
+      body: JSON.stringify({
+        email: "bob@example.com",
+        password: "Bob12345!"
+      })
+    } )
+      .then(resp => resp.json())
+      .then(user => localStorage.uid = user.uid)
+
+
+
+
 
   console.log(currentUser, "currentUser, App")
   // comment the c.log above out when you come back to this. 

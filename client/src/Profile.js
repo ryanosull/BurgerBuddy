@@ -3,7 +3,7 @@ import {useHistory} from 'react-router-dom'
 import "./Profile.css";
 import { Card, CardBody, CardTitle, CardSubtitle, Button, Modal, ModalHeader, ModalBody, ModalFooter, Form, Row, Col, Label, Input } from 'reactstrap';
 
-//07/01 password confirmation
+//07/01 password confirmation - need to add this here: input, etc.
 
 function Profile(args) {
 
@@ -85,24 +85,24 @@ function Profile(args) {
                 <ModalBody>
                 
                 <Form >
-				<Row className="row-cols-lg-auto g-3 align-items-center">
-					<Col>
-						<Label className="visually-hidden" for="firstName">First name</Label>
-						<Input id="firstName" name="first_name" value={first_name} onChange={handleChange} placeholder="first name" type="text" required/>
-					</Col>
-					<Col>
-						<Label className="visually-hidden" for="lastName"> Last Name</Label>
-						<Input id="lastName"name="last_name" value={last_name} onChange={handleChange} placeholder="last name" type="text" required/>
-					</Col>
-					<Col>
-						<Label className="visually-hidden" for="exampleEmail">Email</Label>
-						<Input id="exampleEmail" name="email" value={email} onChange={handleChange} placeholder="email address" type="email" required/>
-					</Col>
-					<Col>
-						<Label className="visually-hidden" for="examplePassword">Password</Label>
-						<Input id="examplePassword" name="password" value={password} onChange={handleChange} placeholder="password" type="password" maxlength="20" minlength="5" required/>
-					</Col>
-			    </Row>
+                    <Row className="row-cols-lg-auto g-3 align-items-center">
+                        <Col>
+                            <Label className="visually-hidden" for="firstName">First name</Label>
+                            <Input id="firstName" name="first_name" value={first_name} onChange={handleChange} placeholder="first name" type="text" required/>
+                        </Col>
+                        <Col>
+                            <Label className="visually-hidden" for="lastName"> Last Name</Label>
+                            <Input id="lastName"name="last_name" value={last_name} onChange={handleChange} placeholder="last name" type="text" required/>
+                        </Col>
+                        <Col>
+                            <Label className="visually-hidden" for="exampleEmail">Email</Label>
+                            <Input id="exampleEmail" name="email" value={email} onChange={handleChange} placeholder="email address" type="email" required/>
+                        </Col>
+                        <Col>
+                            <Label className="visually-hidden" for="examplePassword">Password</Label>
+                            <Input id="examplePassword" name="password" value={password} onChange={handleChange} placeholder="password" type="password" maxlength="20" minlength="5" required/>
+                        </Col>
+                    </Row>
 			    </Form>
 
                 </ModalBody>
