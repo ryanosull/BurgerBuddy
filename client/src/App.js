@@ -26,25 +26,25 @@ function App() {
   //   })
   // }, [])
 
-    // useEffect( () => {
-    //   if (localStorage.uid)
-    //     fetch( "/auto_login", { headers: {
-    //       'content/type': 'application/json',
-    //       'auth-token': localStorage.uid
-    //     } } )
-    //     .then(r => r.json())
-    //     .then(setCurrentUser)
-    //   else
-    //     console.log("No user info found.", "useEffect in App" )
-    // }, []);
+    useEffect( () => {
+      if (localStorage.uid)
+        fetch( "/auto_login", {headers: {
+          'content/type': 'application/json',
+          'auth-token': localStorage.uid
+        } } )
+        .then(resp => resp.json())
+        .then(setCurrentUser)
+      else
+        console.log("No user info found.", "useEffect in App" )
+    }, []);
 
 
-  useEffect( () => {
-    if (localStorage.uid)
-      console.log("User found:", localStorage.uid)
-    else
-      console.log("No user info found")
-    }, [])
+  // useEffect( () => {
+  //   if (localStorage.uid)
+  //     fetch("/auto_login")
+  //   else
+  //     console.log("No user info found")
+  //   }, [])
 
     fetch ("/login", {
       method: 'POST',

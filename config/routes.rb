@@ -17,9 +17,9 @@ Rails.application.routes.draw do
   constraints: ->(req) { !req.xhr? && req.format.html? }
 
   post '/login', to: 'sessions#create'
+  get '/auto_login', to: 'sessions#auto_login'
 
   # get '/authorized', to: 'users#show'
-  # post '/auto_login', to: 'sessions#auto_login'
   # delete '/logout', to: 'sessions#destroy' 
 
 
