@@ -1,4 +1,4 @@
-import React, { useState, useEffect } from "react";
+import { useState, useEffect } from "react";
 import { Switch, Route } from "react-router-dom";
 
 import Navbar from "./Navbar";
@@ -13,7 +13,7 @@ import "./App.css";
 
 function App() {
 
-  const [currentUser, setCurrentUser] = useState(null) //set to null so currentUser is falsey before truthy
+  const [currentUser, setCurrentUser] = useState(null)
 
   // useEffect(() => {
   //   fetch("/authorized")
@@ -58,10 +58,7 @@ function App() {
       })
     } )
       .then(resp => resp.json())
-      .then(user => {
-        localStorage.uid = user.uid
-        setCurrentUser(user.id)
-      })
+      .then(user => localStorage.uid = user.uid)
 
 
 
