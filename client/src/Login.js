@@ -81,7 +81,6 @@ function Login (args) {
                 setFormData("")
             }
         })
-    }
 
     // const onLogin = () => {
 
@@ -167,7 +166,7 @@ function Login (args) {
         </Modal>
     </div>
 
-    );
+    )
 };
 
 // {errors ? errors.map( e => window.alert(e)) : null}
