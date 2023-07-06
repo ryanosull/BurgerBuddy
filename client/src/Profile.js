@@ -100,7 +100,7 @@ function Profile(args) {
                         </Col>
                         <Col>
                             <Label className="visually-hidden" for="examplePassword">Password</Label>
-                            <Input id="examplePassword" name="password" value={password} onChange={handleChange} placeholder="password" type="password" maxlength="20" minlength="5" required/>
+                            <Input id="examplePassword" name="password" value={password} onChange={handleChange} placeholder="password" type="password" maxLength="16" minLength="6" required/>
                         </Col>
                     </Row>
 			    </Form>

@@ -26,7 +26,7 @@ function Login (args) {
     const history = useHistory();
 
     const {email, password} = formData;
-    const loginInfo = {email, password}
+    // const loginInfo = {email, password}
 
     // function onLogin(e){
 
@@ -57,34 +57,34 @@ function Login (args) {
     //     // toggle() - removed this for error handling; modal would close before errors could be displayed. 
     // };
 
-    // const onLogin = (e) => {
-    //     e.preventDefault()
+    const onLogin = (e) => {
+        e.preventDefault()
 
-    //     fetch("/login", { //"/auto_login"
-    //         method: 'POST',
-    //         headers: {
-    //             'content-type': 'application/json',
-    //             Accept: 'application/json'
-    //         },
-    //         body: JSON.stringify(loginInfo)
-    //     })
-    //     .then(r => r.json())
-    //     .then(user => {
-    //         if (!user.errors) {
-    //             localStorage.uid = user.id
-    //             args.setCurrentUser(user.id)
-    //             history.push(`/myreviews`)
-    //         } else {
-    //             user.errors.forEach(e => alert(e))
-    //             // user.json().then(errors => setErrors(errors.errors))
-    //             setFormData("")
-    //         }
-    //     })
-    // }
-
-    const onLogin = () => {
-
+        fetch("/login", { //"/auto_login"
+            method: 'POST',
+            headers: {
+                'content-Type': 'application/json',
+                Accept: 'application/json'
+            },
+            body: JSON.stringify(formData)
+        })
+        .then(r => r.json())
+        .then(user => {
+            if (!user.errors) {
+                localStorage.uid = user.id
+                args.setCurrentUser(user.id)
+                history.push(`/myreviews`)
+            } else {
+                user.errors.forEach(e => alert(e))
+                // user.json().then(errors => setErrors(errors.errors))
+                setFormData("")
+            }
+        })
     }
+
+    // const onLogin = () => {
+
+    // }
 
     const handleChange = (e) => {
         const { name, value } = e.target
