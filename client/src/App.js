@@ -39,6 +39,31 @@ function App() {
     }, []);
 
 
+
+  useEffect( () => {
+    if (localStorage.uid)
+      fetch("/auto_login")
+    else
+      console.log("No user info found")
+    }, [])
+
+    // fetch ("/login", {
+    //   method: 'POST',
+    //   headers: {
+    //     'Content-type': 'application/json',
+    //     Accept: 'application/json'
+    //   },
+    //   body: JSON.stringify({
+    //     email: "bob@example.com",
+    //     password: "Bob12345!"
+    //   })
+    // } )
+    //   .then(resp => resp.json())
+    //   .then(user => {
+    //     localStorage.uid = user.uid
+    //     setCurrentUser(user.id)
+    //   })
+
   // useEffect( () => {
   //   if (localStorage.uid)
   //     fetch("/auto_login")
@@ -59,6 +84,7 @@ function App() {
     } )
       .then(resp => resp.json())
       .then(user => localStorage.uid = user.uid)
+
 
 
 
