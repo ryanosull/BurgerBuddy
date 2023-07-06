@@ -3,7 +3,7 @@ class UsersController < ApplicationController
 
     before_action :authorize!, only: [:update, :destroy]
     skip_before_action :authorize!, only: [:create]
-    wrap_parameters format: []
+    wrap_parameters format: [] #should this belong in ApplicationController?
 
     # def index
     #     users = User.all
@@ -57,6 +57,12 @@ class UsersController < ApplicationController
     def user_params #come back!
         params.permit(:first_name, :last_name, :email, :password, :password_confirmation)
     end
+
+    #why not this?:
+    # def user_params
+    #     params.require(:user).permit(:first_name, :last_name, :email, :password, :password_confirmation)
+    #   end
+
 
     def user_not_found
         render json: {errors: ["User does not exist!"]}

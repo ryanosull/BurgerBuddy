@@ -29,14 +29,14 @@ function App() {
     useEffect( () => {
       if (localStorage.uid)
         fetch( "/auto_login", {headers: {
-          'content/type': 'application/json',
+          'Content-Type': 'application/json',
           'auth-token': localStorage.uid
         } } )
         .then(resp => resp.json())
         .then(setCurrentUser)
       else
         console.log("No user info found.", "useEffect in App" )
-    }, []);
+    }, []); //maybe [localStorage.uid] in array?
 
 
 
@@ -50,7 +50,7 @@ function App() {
     // fetch ("/login", {
     //   method: 'POST',
     //   headers: {
-    //     'Content-type': 'application/json',
+    //     'Content-Type': 'application/json',
     //     Accept: 'application/json'
     //   },
     //   body: JSON.stringify({

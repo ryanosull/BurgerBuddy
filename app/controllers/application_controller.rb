@@ -14,7 +14,7 @@ class ApplicationController < ActionController::API
             token = JWT.decode(auth_token, ENV['JWT_TOKEN'])[0] #pull out array
             return User.find_by( id: token['user']) #'user' from sessions_controller/#create
         else
-            return nil
+            return nil #maybe raise an error here
         end
     end
 
