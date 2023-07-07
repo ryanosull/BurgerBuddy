@@ -88,7 +88,7 @@ function Login (args) {
                 <Col>
                     {/* <Label className="visually-hidden"for="examplePassword">Password</Label> */}
                     <h6>Password:</h6>
-                    <Input type='password' name='password' value={password} onChange={handleChange} required minlength="8" maxlength="16" placeholder="password"/>
+                    <Input type='password' name='password' value={password} onChange={handleChange} required minLength="8" maxLength="16" placeholder="password"/>
                 </Col>
                 </Row>
 
