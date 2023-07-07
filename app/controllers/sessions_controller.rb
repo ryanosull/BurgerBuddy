@@ -17,6 +17,8 @@ class SessionsController < ApplicationController
         if @user and @user.authenticate(params[:password])
             logged_user = JWT.encode({user: @user.id}, ENV['JWT_TOKEN'])
             render json: {uid: logged_user}, status: :ok #200
+        else
+            cannot_login
         end
     end
     
