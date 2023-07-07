@@ -1,13 +1,6 @@
 class ApplicationController < ActionController::API
     include ActionController::Cookies
 
-    # before_action :authorized_user
-
-    # def current_user
-    #     user = User.find_by(id: session[:user_id])
-    #     user
-    # end
-
     def current_user
         auth_token = request.headers['auth-token'] #do not use underscore @ 'auth-token'
         if auth_token and auth_token != 'undefined'
