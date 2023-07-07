@@ -1,5 +1,5 @@
 class ApplicationController < ActionController::API
-    include ActionController::Cookies
+    # include ActionController::Cookies
 
     def current_user
         auth_token = request.headers['auth-token'] #do not use underscore @ 'auth-token'

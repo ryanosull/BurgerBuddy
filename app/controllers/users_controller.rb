@@ -1,8 +1,8 @@
 class UsersController < ApplicationController
 
 
-    before_action :authorize!, only: [:update, :destroy]
-    skip_before_action :authorize!, only: [:create]
+    before_action :authorize!, only: [:update, :destroy]  #keep me here! OK
+    # skip_before_action :authorize!, only: [:create]
     wrap_parameters format: [] #should this belong in ApplicationController?
 
     # def index
