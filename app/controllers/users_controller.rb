@@ -12,7 +12,7 @@ class UsersController < ApplicationController
 
     def show
         current_user = User.find(session[:user_id])
-        # user = User.find(params[:id])
+        user = User.find(params[:id])
         render json: current_user, status: :ok #user
     end
 
@@ -55,13 +55,13 @@ class UsersController < ApplicationController
     private
     
     def user_params #come back!
-        params.permit(:id, :first_name, :last_name, :email, :password, :password_confirmation)
+        params.permit(:first_name, :last_name, :email, :password, :password_confirmation)
     end
 
     #why not this?:
     # def user_params
     #     params.require(:user).permit(:first_name, :last_name, :email, :password, :password_confirmation)
-    #   end
+    # end
 
 
     def user_not_found
