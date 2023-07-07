@@ -1,7 +1,5 @@
 class SessionsController < ApplicationController
 
-    #keep this one ↓
-    # skip_before_action :authorized_user, only: [:create] 
 
     # def create
     #     user = User.find_by(email: params[:email])
