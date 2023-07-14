@@ -42,8 +42,8 @@ function Login (args) {
             body: JSON.stringify(formData)
         })
         .then(r => r.json())
-        .then(user => {
-            if (!user.errors) {
+        .then(user => {           //here is your fucking problem: localStorage.uid = user.id should be USER.UID you dunce.
+            if (!user.errors) { 
                 localStorage.uid = user.id
                 args.setCurrentUser(user.id)
                 history.push(`/myreviews`)
