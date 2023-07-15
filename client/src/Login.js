@@ -15,7 +15,7 @@ function Login (args) {
 
     const toggle = () => {
         setModal(!modal)
-        setFormData({}) // reset formData with empty object
+        // setFormData({}) // reset formData with empty object
     };
     //**********
 

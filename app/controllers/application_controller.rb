@@ -11,7 +11,7 @@ class ApplicationController < ActionController::API
         end
     end
 
-    def authorize! #this was called authorized_user previously
+    def authorize! 
         unless current_user
             render json: {errors: ["🛑 You must be logged in to do that! 🚫"]}, status: :unauthorized #401
         end
