@@ -16,8 +16,6 @@ function App() {
   const [currentUser, setCurrentUser] = useState(null)
 
 
-
-
   console.log(currentUser, "currentUser, App")
   // comment the c.log above out when you come back to this. 
 

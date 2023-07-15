@@ -37,7 +37,7 @@ class UsersController < ApplicationController
             user.update(user_params)
             render json: user
         else
-            render json: {errors: ["User does not exist!"]}
+            render json: {errors: ["User does not exist!"]} #should render authorize!
         end
     end
 
