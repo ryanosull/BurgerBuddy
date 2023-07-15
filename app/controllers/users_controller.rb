@@ -2,7 +2,7 @@ class UsersController < ApplicationController
 
 
     before_action :authorize!, only: [:update, :destroy]  #keep me here! OK
-    # skip_before_action :authorize!, only: [:create]
+    # skip_before_action :authorize!, only: [:create] - probably ok
     wrap_parameters format: [] #should this belong in ApplicationController?
 
     # def index
@@ -25,11 +25,11 @@ class UsersController < ApplicationController
     #     end
     # end
 
-    # def create ###good to go
-    #     user = User.create!(user_params)
-    #     session[:user_id] = user.id
-    #     render json: user, status: :created #201
-    # end
+    def create ###good to go
+        user = User.create!(user_params)
+        session[:user_id] = user.id
+        render json: user, status: :created #201
+    end
 
     def update
         user = User.find_by(id: params[:id])
@@ -55,7 +55,7 @@ class UsersController < ApplicationController
     private
     
     def user_params #come back!
-        params.permit(:first_name, :last_name, :email, :password, :password_confirmation)
+        params.permit(:first_name, :last_name, :email, :password_digest, :password_confirmation)
     end
 
     #why not this?:

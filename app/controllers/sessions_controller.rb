@@ -12,16 +12,16 @@ class SessionsController < ApplicationController
     end
     
 
-    # def auto_login
-    #     auth_token = request.headers['auth-token'] #do not use underscore @ 'auth-token'
-    #     if auth_token and auth_token != 'undefined'
-    #         token = JWT.decode(auth_token, ENV['JWT_TOKEN'])[0] #pull out array
-    #         user = User.find_by( id: token['user']) #'user' from sessions_controller/#create
-    #         render json: user.id, status: :ok #200
-    #     else
-    #         cannot_login
-    #     end
-    # end
+    def auto_login
+        auth_token = request.headers['auth-token'] #DO NOT use 'auth_token' - NO UNDERSCORE
+        if auth_token and auth_token != 'undefined'
+            token = JWT.decode(auth_token, ENV['JWT_TOKEN'])[0] #pull first item from array
+            user = User.find_by(id: token['user'])
+            render json: user.id, status: :ok #200
+        else
+            cannot_login
+        end
+    end
 
     # def destroy
     #     session.delete :user_id

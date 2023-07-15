@@ -2,12 +2,12 @@ class ApplicationController < ActionController::API
     # include ActionController::Cookies
 
     def current_user
-        auth_token = request.headers['auth-token'] #do not use underscore @ 'auth-token'
+        auth_token = request.headers['auth-token'] #DO NOT use 'auth_token' - NO UNDERSCORE
         if auth_token and auth_token != 'undefined'
-            token = JWT.decode(auth_token, ENV['JWT_TOKEN'])[0] #pull out array
-            return User.find_by( id: token['user']) #'user' from sessions_controller/#create
+            token = JWT.decode(auth_token, ENV['JWT_TOKEN'])[0] #pull first item from array
+            return User.find_by(id: token['user'])
         else
-            return nil #maybe raise an error here
+            return nil
         end
     end
 
