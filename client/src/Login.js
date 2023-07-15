@@ -11,6 +11,8 @@ function Login (args) {
 
     // const toggle = () => setModal(!modal); if any issues with login/signup, see if setFormData("") below had anything to do with it...
 
+    // 07/18 yes this is fucked - see JWT project to reset form on close without affecting POST
+
     const toggle = () => {
         setModal(!modal)
         setFormData({}) // reset formData with empty object
