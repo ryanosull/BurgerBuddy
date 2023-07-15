@@ -54,8 +54,9 @@ gem 'rest-client'
 
 gem 'json', '~> 2.6', '>= 2.6.3'
 
-# allows encoding and decoding data
-gem 'jwt'
+# # allows encoding and decoding data
+# gem 'jwt'
+gem 'jwt', '~> 1.5', '>= 1.5.4'
 
 # to keep data secure
 gem 'dotenv-rails'

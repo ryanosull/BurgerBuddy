@@ -25,11 +25,11 @@ class UsersController < ApplicationController
     #     end
     # end
 
-    def create ###good to go
-        user = User.create!(user_params)
-        session[:user_id] = user.id
-        render json: user, status: :created #201
-    end
+    # def create ###good to go
+    #     user = User.create!(user_params)
+    #     session[:user_id] = user.id
+    #     render json: user, status: :created #201
+    # end
 
     def update
         user = User.find_by(id: params[:id])
