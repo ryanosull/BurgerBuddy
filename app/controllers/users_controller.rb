@@ -1,7 +1,7 @@
 class UsersController < ApplicationController
 
 
-    before_action :authorize!, only: [:update, :destroy]  #keep me here! OK
+    before_action :authorize!, only: [:update, :destroy]  #keep me here! OK // 7/20 - delete now works that i have taken :destroy out of here - why is this?
     # skip_before_action :authorize!, only: [:create] - probably ok
     wrap_parameters format: [] #should this belong in ApplicationController?
 
@@ -11,7 +11,7 @@ class UsersController < ApplicationController
     # end
 
     def show
-        current_user = User.find(session[:user_id])
+        current_user = User.find(params[:id]) #(session[:user_id]) 7/20
         user = User.find(params[:id])
         render json: current_user, status: :ok #user
     end
@@ -55,7 +55,7 @@ class UsersController < ApplicationController
     private
     
     def user_params #come back!
-        params.permit(:first_name, :last_name, :email, :password_digest, :password_confirmation)
+        params.permit(:first_name, :last_name, :email, :password, :password_confirmation) #do not use :password_digest for :password
     end
 
     #why not this?:

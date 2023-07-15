@@ -9,14 +9,16 @@ function Login (args) {
     //**********
     const [modal, setModal] = useState(false);
 
-    // const toggle = () => setModal(!modal); if any issues with login/signup, see if setFormData("") below had anything to do with it...
-
-    // 07/18 yes this is fucked - see JWT project to reset form on close without affecting POST
 
     const toggle = () => {
         setModal(!modal)
-        // setFormData({}) // reset formData with empty object
+        setFormData("")        //to reset form data on modal close
     };
+
+    const toggleOnLogin = () => {
+        setModal(!modal)
+    }
+
     //**********
 
     const [formData, setFormData] = useState({
@@ -38,7 +40,7 @@ function Login (args) {
         fetch("/login", { //"/auto_login"
             method: 'POST',
             headers: {
-                'content-Type': 'application/json',
+                'Content-Type': 'application/json',
                 Accept: 'application/json'
             },
             body: JSON.stringify(formData)
@@ -47,7 +49,7 @@ function Login (args) {
         .then(user => {           //here is your fucking problem: localStorage.uid = user.id should be USER.UID you dunce.
             if (!user.errors) { 
                 localStorage.uid = user.id
-                args.setCurrentUser(user.id)
+                args.setCurrentUser(user.uid)
                 history.push(`/myreviews`)
             } else {
                 user.errors.forEach(e => alert(e))
@@ -57,16 +59,13 @@ function Login (args) {
         } )
     };
 
-
+    console.log('current user:', args.currentUser)
 
     const handleChange = (e) => {
         const { name, value } = e.target
         setFormData({ ...formData, [name]: value })
     };
 
-    // const resetForm = () => {
-    //     setFormData("")
-    // }
 
 
     return (
@@ -95,14 +94,15 @@ function Login (args) {
                 </Row>
 
                 <ModalFooter>
-                    <Button id="loginButtonModal" type='submit' >Log in!</Button>{' '}
 
                     <Button id="cancelButtonModal" onClick={toggle}>Cancel</Button>
+                    <Button id="loginButtonModal" type='submit' onClick={toggleOnLogin} >Log in!</Button>
 
                     {errors ? errors.map( e => 
                         console.log(e)) //(<Alert color="danger">{e}</Alert>)) 
                         : 
                         null}
+
                 </ModalFooter>
 
             </Form>
