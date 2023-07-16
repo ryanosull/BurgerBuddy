@@ -1,5 +1,5 @@
 import React, { useState } from 'react';
-import {useHistory} from 'react-router-dom'
+// import {useHistory} from 'react-router-dom' 
 import "./Login.css"
 import { Button, Modal, ModalHeader, ModalBody, ModalFooter, Form, FormText, Row, Col, Label, Input, Alert } from 'reactstrap';
 
@@ -23,7 +23,7 @@ function Login (args) {
 
 
     const [errors, setErrors] = useState([]);
-    const history = useHistory();
+    // const history = useHistory(); probably not necessary as due to conditional rendering of landlingpage
 
     
     const [email, setEmail] = useState("");
