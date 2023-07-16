@@ -9,8 +9,6 @@ import Profile from "./Profile";
 import "./App.css";
 
 
-
-
 function App() {
 
     const [currentUser, setCurrentUser] = useState(null)
@@ -37,7 +35,7 @@ function App() {
     };
 
 
-  if (!currentUser || currentUser === null) return ( // interesting behavior: (!currentUser || currentUser === null)
+  if (!currentUser || currentUser === 'undefined') return ( // interesting behavior: (!currentUser || currentUser === null)
     //jsx 47min in lecture
     <LandingPage setCurrentUser={setCurrentUser} /> 
 )
