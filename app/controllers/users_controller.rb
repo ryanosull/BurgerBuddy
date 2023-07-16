@@ -1,7 +1,7 @@
 class UsersController < ApplicationController
 
 
-    before_action :authorize!, only: [:update, :destroy]  #keep me here! OK // 7/20 - delete now works that i have taken :destroy out of here - why is this?
+    before_action :authorize!, only: [:show, :update, :destroy]  #keep me here! OK // 7/20 - delete now works that i have taken :destroy out of here - why is this?
     # skip_before_action :authorize!, only: [:create] - probably ok
     wrap_parameters format: [] #should this belong in ApplicationController?
 
@@ -10,14 +10,44 @@ class UsersController < ApplicationController
         render json: users, status: :ok
     end
 
-    def show #7/20 maybe come back and restrict pw_dig
-        user = User.find_by(id: params[:id]) #(session[:user_id]) 7/20
-        if user
-            render json: user, status: :ok #user
-        else
-            user_not_found #7/20 working as intended
-        end
+
+
+
+
+    # def show #7/20 maybe come back and restrict pw_dig
+    #     user = User.find_by(id: params[:id]) #(session[:user_id]) 7/20
+    #     if user
+    #         render json: user, status: :ok #user
+    #     else
+    #         user_not_found #7/20 working as intended
+    #     end
+    # end
+
+
+
+
+    # def show
+    #     auth_token = request.headers['auth-token'] #DO NOT use 'auth_token' - NO UNDERSCORE
+    #     user = User.find_by(id: params[:id])
+    #     if auth_token and auth_token != 'undefined'
+    #         token = JWT.decode(auth_token, ENV['JWT_TOKEN'])[0] #pull first item from array
+    #         return user #User.find_by(id: token['user'])
+    #     else
+    #         return user_not_found
+    #     end
+    # end
+
+    def show
+        render json: current_user
     end
+
+
+
+
+
+
+
+
 
 
     def create # 7/20 good to go

@@ -1,18 +1,39 @@
-import React from "react";
+import React, {useState} from "react";
 import "./Navbar.css";
 import {NavLink, useHistory} from "react-router-dom";
 
 
 
-function Navbar ({currentUser, setCurrentUser}) {
+function Navbar (args) {
 //pass in {curentUser} ^
 
 //need users passed down here. NavBar should read: Hey, {user.first_name}
+    //make a fetch to users/:id 
+
+    const [user, setUser] = useState()
+
+    // const getUser = () => {
+    //     fetch(`/users/${args.currentUser}`,	{headers: {
+    //             'Content-Type': 'application/json',
+    //             'auth-token': localStorage.uid
+    //         } } )
+    //     .then(resp => resp.json())
+    //     .then(data => setUser(data))
+    // }
+
+        fetch(`/users/${args.currentUser}`,	{headers: {
+            'Content-Type': 'application/json',
+            'auth-token': localStorage.uid
+        } } )
+        .then(resp => resp.json())
+        .then(data => console.log(data))
+
+    console.log("navbar", user)
 
     const history = useHistory()
 
 
-    // 07/01 on logout, clear local storage - see pdawg rev. 1 2:05
+    // 07/01 on logout, remove uid local storage - see pdawg rev. 1 2:05
     function handleLogout () {
         // window.alert("test")
         fetch('/logout', {
@@ -20,9 +41,9 @@ function Navbar ({currentUser, setCurrentUser}) {
         })
         .then((res) => {
             if (res.ok){
-                setCurrentUser(null)
+                args.setCurrentUser(null)// not sure if this is necessary after storage.remove
                 history.push("/")
-                //clear local storage
+                //remove uid from local storage
             }
         })
     };
@@ -31,7 +52,7 @@ function Navbar ({currentUser, setCurrentUser}) {
 
     return (
         <div id="navbarCont">
-            <h1 className="heyBuddy">Hey, &nbsp;{currentUser.first_name}</h1>
+            <h1 className="heyBuddy">Hey, &nbsp;{"user name"}</h1>
 
             <NavLink to="/myreviews" className="navButtons" >My Reviews</NavLink>
 
