@@ -41,40 +41,40 @@ function App(args) {
 )
 
 
-  return (
-    <div className="app">
-      <Navbar currentUser={currentUser} setCurrentUser={setCurrentUser} />
-      <Switch>
+	return (
+		<div className="app">
+		<Navbar currentUser={currentUser} setCurrentUser={setCurrentUser} />
 
-      <Route exact path='/'>
-        <LandingPage currentUser={currentUser} setCurrentUser={setCurrentUser} />
-      </Route>
+		<Switch>
 
-        <Route path="/myreviews">
-          <Reviews currentUser={currentUser} setCurrentUser={setCurrentUser} />
-        </Route>
+			<Route exact path='/'>
+				<LandingPage currentUser={currentUser} setCurrentUser={setCurrentUser} />
+			</Route>
 
-        <Route path="/newreview" >
-          <NewReviewForm  />
-        </Route>
+			<Route path="/myreviews">
+				<Reviews currentUser={currentUser} setCurrentUser={setCurrentUser} />
+			</Route>
 
-        <Route path="/myprofile" >
-          <Profile currentUser={currentUser} editUserInfo={editUserInfo}  />
-        </Route>
+			<Route path="/newreview" >
+				<NewReviewForm  />
+			</Route>
 
-        <Route  path="*">
-          <center>
-            <div id="four">
-              <p id="status">404</p>
-              <p id="message">This page doesn't exist, buddy.</p>
-            </div>
-          </center>
-        </Route>
+			<Route path="/myprofile" >
+				<Profile currentUser={currentUser} editUserInfo={editUserInfo}  />
+			</Route>
 
-      </Switch>
+			<Route  path="*">
+				<center>
+					<div id="four">
+						<p id="status">404</p>
+						<p id="message">This page doesn't exist, buddy.</p>
+					</div>
+				</center>
+			</Route>
 
-    </div>
-  );
-}
+		</Switch>
+		</div>
+	);
+};
 
 export default App;
