@@ -38,20 +38,19 @@ function Navbar (args) { //currentUser (with ID) being passed in
     const history = useHistory()
 
 
-    // // 07/01 on logout, remove uid local storage - see pdawg rev. 1 2:05
-    // function handleLogout () {
-    //     // window.alert("test")
-    //     fetch('/logout', {
-    //         method: 'DELETE'
-    //     })
-    //     .then((res) => {
-    //         if (res.ok){
-    //             args.setCurrentUser(null)// not sure if this is necessary after storage.remove
-    //             history.push("/")
-    //             //remove uid from local storage
-    //         }
-    //     })
-    // };
+    // 07/01 on logout, remove uid local storage - see pdawg rev. 1 2:05
+    function handleLogout () {
+        fetch('/logout', {
+            method: 'DELETE'
+        })
+        .then((res) => {
+            if (res.ok){
+                args.setCurrentUser(null)// not sure if this is necessary after storage.remove
+                history.push("/")
+                //remove uid from local storage
+            }
+        })
+    };
 
 
 
@@ -65,7 +64,7 @@ function Navbar (args) { //currentUser (with ID) being passed in
 
             <NavLink to="/myprofile" className="navButtons" >Profile</NavLink>
             
-            {/* <NavLink onClick={handleLogout} to="/" className="navButtons" >Logout</NavLink> */}
+            <NavLink onClick={handleLogout} to="/" className="navButtons" >Logout</NavLink>
         </div>
     )
 };

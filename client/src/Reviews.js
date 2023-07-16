@@ -5,7 +5,7 @@ import "./Reviews.css"
 
 
 
-function MyReviews ({currentUser, setCurrentUser}) {
+function Reviews ({currentUser, setCurrentUser}) {
 
     const [reviews, setReviews] = useState([])
 
@@ -47,4 +47,4 @@ function MyReviews ({currentUser, setCurrentUser}) {
 };
 
 
-export default MyReviews;
+export default Reviews;
