@@ -1,6 +1,6 @@
 import React, { useState } from 'react';
 import {useHistory} from 'react-router-dom';
-import { Button, Modal, ModalHeader, ModalBody, ModalFooter, Form, Row, Col, Label, Input } from 'reactstrap'; //FormGroup?
+import { Button, Modal, ModalHeader, ModalBody, ModalFooter, Form, FormText, Row, Col, Label, Input } from 'reactstrap'; //FormGroup?
 import "./Signup.css"
 
 
@@ -104,47 +104,41 @@ function Signup (args) {
 		<ModalBody  >
 
 			<Form id='signupForm' onSubmit={onSignup}>
+
+
 				<Row className="row-cols-lg-auto g-3 align-items-center">
 					<Col>
-						<Label className="visually-hidden" for="firstName">First name</Label>
-						<h6>First name:</h6>
+						<Label className='inputLabels' for="firstName">First name:</Label>
 						<Input id="firstName" name="first_name" value={first_name} onChange={handleChange} placeholder="first name" type="text" required/>
 					</Col>
 					<Col>
-						<Label className="visually-hidden" for="lastName"> Last Name</Label>
-						<h6>Last name:</h6>
+						<Label className='inputLabels' for="lastName">Last Name:</Label>
 						<Input id="lastName"name="last_name" value={last_name} onChange={handleChange} placeholder="last name" type="text" required/>
 					</Col>
 					<Col>
-						<Label className="visually-hidden" for="exampleEmail">Email</Label>
-						<h6>Email:</h6>
-						<Input id="exampleEmail" name="email" value={email} onChange={handleChange} placeholder="email address" type="email" required/>
+						<Label className='inputLabels' for="email">Email:</Label>
+						<Input id="email" name="email" value={email} onChange={handleChange} placeholder="name@example.com" type="email" required/>
 					</Col>
 					<Col>
-						<Label className="visually-hidden" for="examplePassword">Password</Label>
-						<h6>Password:</h6>
-						<Input id="examplePassword" name="password" value={password} onChange={handleChange} placeholder="password" type="password"  minLength="5" maxLength="12" required/>
+						<Label className='inputLabels' for="password">Password:</Label>
+						<Input id="password" name="password" value={password} onChange={handleChange} placeholder="password" type="password"  minLength="8" maxLength="16" required/>
 					</Col>
 					<Col>
-						<Label className="visually-hidden" for="examplePasswordConfirmation">Confirm Password</Label>
-						<h6>Confirm Password:</h6>
-						<Input  id="examplePasswordConfirmation" name="password_confirmation" value={password_confirmation} onChange={handleChange} placeholder="re-enter password" type="password"  minLength="8" maxLength="16" required/>
+						<Label className='inputLabels' for="passwordConfirmation">Confirm Password:</Label>
+						<Input  id="passwordConfirmation" name="password_confirmation" value={password_confirmation} onChange={handleChange} placeholder="re-enter password" type="password"  minLength="8" maxLength="16" required/>
 					</Col>
 					<Col>
-						<h6>Password must:</h6>
-						<li>Be between 8 and 16 characters</li>
-						<li>Contain at least one number</li>
-						<li>Contain at least one upper case letter</li>
-						<li>Contain at least one lower case letter</li>
-						<li>Contain at least one symbol</li>
-						<li>Passwords are case sensitive!</li>
+						<FormText className='formText'>
+							Passwords must be between 8 and 16 characters and contain at least one number (9), upper case letter (Z), lower case letter (a), and symbol (!). Passwords are case sensitive!
+						</FormText>
 					</Col>
 				</Row>
-	
+				<br/>
 				<ModalFooter>
 					<Button id="cancelButtonModal" onClick={toggle}>Cancel</Button>
 					<Button id="signupButtonModal" type="submit" onClick={toggleOnSignup} >Sign up</Button>
 				</ModalFooter>
+
 
 			</Form>
 

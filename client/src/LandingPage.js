@@ -4,7 +4,7 @@ import Signup from "./Signup";
 import Login from "./Login";
 
 
-function LandingPage({setCurrentUser}) {
+function LandingPage({currentUser, setCurrentUser}) {
 
 
     return (
@@ -17,7 +17,7 @@ function LandingPage({setCurrentUser}) {
                 <Signup setCurrentUser={setCurrentUser} />
             </div>
             <div id="login">
-                <Login setCurrentUser={setCurrentUser} />
+                <Login currentUser={currentUser} setCurrentUser={setCurrentUser} />
             </div>
             
         </div>

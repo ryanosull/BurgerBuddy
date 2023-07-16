@@ -1,4 +1,4 @@
-import { useState, useEffect } from "react";
+import React, { useState, useEffect } from "react";
 import { Switch, Route } from "react-router-dom";
 
 import Navbar from "./Navbar";
@@ -13,22 +13,34 @@ import "./App.css";
 
 function App() {
 
-  const [currentUser, setCurrentUser] = useState(null)
+    const [currentUser, setCurrentUser] = useState(null)
+
+	useEffect( () => {
+    if (localStorage.uid)
+		fetch('/auto_login', {headers: {
+			'Content-Type': 'application/json',
+			'auth-token': localStorage.uid
+		} } )
+		.then(resp => resp.json())
+		.then(setCurrentUser)
+    else
+		console.log("User not found")
+	}, []);
 
 
-  console.log(currentUser, "currentUser, App")
+    console.log("app.js - currentUser:", currentUser)
   // comment the c.log above out when you come back to this. 
 
 
-  function editUserInfo (userData) {
+    function editUserInfo (userData) {
     setCurrentUser(userData)
-  }
+    };
 
 
-  if (!currentUser) return ( // interesting behavior: (!currentUser || currentUser === null)
+  if (!currentUser || currentUser === null) return ( // interesting behavior: (!currentUser || currentUser === null)
     //jsx 47min in lecture
     <LandingPage setCurrentUser={setCurrentUser} /> 
-  )
+)
 
 
   return (
@@ -37,7 +49,7 @@ function App() {
       <Switch>
 
       <Route exact path='/'>
-        <LandingPage setCurrentUser={setCurrentUser} />
+        <LandingPage currentUser={currentUser} setCurrentUser={setCurrentUser} />
       </Route>
 
         <Route path="/myreviews">
