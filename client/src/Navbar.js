@@ -24,6 +24,15 @@ function Navbar (args) { //currentUser (with ID) being passed in
     .then(data => setUser(data))
     }, []);
 
+    console.log("navbar user", user);
+
+
+    console.log("navbar currentUser:", args.currentUser) //this works
+
+
+
+
+
 
 
     const history = useHistory()
