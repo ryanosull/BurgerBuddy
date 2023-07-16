@@ -14,7 +14,6 @@ function Navbar (args) { //currentUser (with ID) being passed in
 
 
     useEffect( () => {
-        debugger
     fetch(`/users/${args.currentUser}`,	{
         headers: {
         'Content-Type': 'application/json',
@@ -22,17 +21,8 @@ function Navbar (args) { //currentUser (with ID) being passed in
         } 
     } )
     .then(resp => resp.json())
-    .then(data => console.log("fetchedData:", data))
+    .then(data => setUser(data))
     }, []);
-
-    console.log("navbar user", user);
-
-
-    console.log("navbar currentUser:", args.currentUser) //this works
-
-
-
-
 
 
 
@@ -58,7 +48,7 @@ function Navbar (args) { //currentUser (with ID) being passed in
 
     return (
         <div id="navbarCont">
-            <h1 className="heyBuddy">Hey, &nbsp;{"user.first_name"}</h1>
+            <h1 className="heyBuddy">Hey, &nbsp;{user.first_name}</h1>
 
             <NavLink to="/myreviews" className="navButtons" >My Reviews</NavLink>
 

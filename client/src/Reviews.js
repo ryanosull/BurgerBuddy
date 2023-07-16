@@ -40,7 +40,7 @@ function MyReviews ({currentUser, setCurrentUser}) {
     return (
 
         <div id="reviewContainer" >
-            {currentUser.reviews.length > 0 ? renderReviewCard : <h1 id="noBurger">Go get yourself a burger, {currentUser.first_name}.</h1>}
+            {/* {currentUser.reviews.length > 0 ? renderReviewCard : <h1 id="noBurger">Go get yourself a burger, {currentUser.first_name}.</h1>} */}
         </div>
     
     );
