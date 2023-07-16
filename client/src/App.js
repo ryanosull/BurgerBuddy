@@ -35,8 +35,7 @@ function App() { // 7/21 likely do not needs App(args)
     };
 
 
-  if (!currentUser || currentUser === 'undefined') return ( // interesting behavior: (!currentUser || currentUser === null)
-    //jsx 47min in lecture
+  if (currentUser === null) return ( // interesting behavior: (!currentUser || currentUser === null)
     <LandingPage setCurrentUser={setCurrentUser} /> 
 )
 

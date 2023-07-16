@@ -4,8 +4,8 @@ import {NavLink, useHistory} from "react-router-dom";
 
 
 
-function Navbar (args) {
-//pass in {curentUser} ^
+function Navbar (args) { //currentUser (with ID) being passed in
+
 
 //need users passed down here. NavBar should read: Hey, {user.first_name}
     //make a fetch to users/:id 
@@ -14,6 +14,7 @@ function Navbar (args) {
 
 
     useEffect( () => {
+        debugger
     fetch(`/users/${args.currentUser}`,	{
         headers: {
         'Content-Type': 'application/json',
@@ -27,7 +28,7 @@ function Navbar (args) {
     console.log("navbar user", user);
 
 
-    console.log("navbar currentUser:", args.currentUser)
+    console.log("navbar currentUser:", args.currentUser) //this works
 
 
 
@@ -67,7 +68,7 @@ function Navbar (args) {
             
             {/* <NavLink onClick={handleLogout} to="/" className="navButtons" >Logout</NavLink> */}
         </div>
-    );
+    )
 };
 
 export default Navbar;
