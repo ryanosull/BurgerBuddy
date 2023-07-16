@@ -12,6 +12,19 @@ import "./App.css";
 function App() { // 7/21 likely do not needs App(args)
 
     const [currentUser, setCurrentUser] = useState(null)
+	const [userInfo, setUserInfo] = useState(null) // user state initialized as null
+
+	useEffect( () => {
+		fetch(`/users/${currentUser}`,	{
+			headers: {
+			'Content-Type': 'application/json',
+			'auth-token': localStorage.uid
+			} 
+		} )
+		.then(resp => resp.json())
+		.then(data => setUserInfo(data))
+		}, [currentUser]);
+	
 
 	useEffect( () => {
     if (localStorage.uid)
@@ -35,19 +48,19 @@ function App() { // 7/21 likely do not needs App(args)
     };
 
 
-  if (currentUser === null) return ( // interesting behavior: (!currentUser || currentUser === null)
-    <LandingPage setCurrentUser={setCurrentUser} /> 
+  if (currentUser === null) return ( // looks like these props need to be passed
+    <LandingPage currentUser={currentUser} setCurrentUser={setCurrentUser} /> 
 )
 
 
 	return (
 		<div className="app">
-		<Navbar currentUser={currentUser} setCurrentUser={setCurrentUser} />
+		<Navbar userInfo={userInfo} currentUser={currentUser} setCurrentUser={setCurrentUser} />
 
 		<Switch>
 
 			<Route exact path='/'>
-				<LandingPage currentUser={currentUser} setCurrentUser={setCurrentUser} />
+				{!currentUser && <LandingPage currentUser={currentUser} setCurrentUser={setCurrentUser} />}
 			</Route>
 
 			<Route path="/myreviews">
@@ -66,7 +79,7 @@ function App() { // 7/21 likely do not needs App(args)
 				<center>
 					<div id="four">
 						<p id="status">404</p>
-						<p id="message">This page doesn't exist, buddy.</p>
+						<p id="message">This page doesn't exist, {userInfo.first_name}.</p>
 					</div>
 				</center>
 			</Route>

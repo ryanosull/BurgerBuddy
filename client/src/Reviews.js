@@ -30,8 +30,8 @@ function Reviews (args) {
         } 
     } )
     .then(resp => resp.json())
-    .then(data => console.log(data))
-    }, []);
+    .then(data => setUser(data))
+    }, [args.currentUser]);
 
 
     const modifiedArray = (id) => setReviews(current => current.filter(review => review.id !== id)) 

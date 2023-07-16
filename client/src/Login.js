@@ -15,9 +15,9 @@ function Login (args) {
         resetForm()        //to reset form data on modal close
     };
 
-    const toggleOnLogin = () => {
-        setModal(!modal)
-    }
+    // const toggleOnLogin = () => {    //not sure if necessary, working on error handling - onClick @ id=loginButtonModal
+    //     setModal(!modal)
+    // }
 
     //**********
 
@@ -59,8 +59,8 @@ function Login (args) {
             if (!user.errors) {
                 localStorage.uid = user.uid
                 args.setCurrentUser(user.id)
-                window.alert(`User # ${user.id} successfully logged in!`)
-            } else user.errors.forEach(error => (window.alert(error)))
+                console.log(`User # ${user.id} successfully logged in!`)
+            } else setErrors(user.errors) //user.errors.forEach(error => (window.alert(error)))
         }); 
     };
 
@@ -92,7 +92,7 @@ function Login (args) {
                 </Col>
                 <Col>
 						<FormText className='formText'>
-                            BurgerBuddy will never™ share your email or password.
+                            BurgerBuddy™ will never share your email or password.
 						</FormText>
 					</Col>
                 </Row>
@@ -100,12 +100,10 @@ function Login (args) {
                 <ModalFooter>
 
                     <Button id="cancelButtonModal" onClick={toggle}>Cancel</Button>
-                    <Button id="loginButtonModal" type='submit' onClick={toggleOnLogin} >Log in!</Button>
+                    <Button id="loginButtonModal" type='submit' >Log in!</Button>
 
-                    {errors ? errors.map( e => 
-                        console.log(e)) //(<Alert color="danger">{e}</Alert>)) 
-                        : 
-                        null}
+                    {errors && errors.map((error, index) => (
+                        <Alert key={index} color="danger">{error}</Alert>))}
 
                 </ModalFooter>
 

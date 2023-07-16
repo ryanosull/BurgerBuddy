@@ -7,27 +7,27 @@ import {NavLink, useHistory} from "react-router-dom";
 function Navbar (args) { //currentUser (with ID) being passed in
 
 
-//need users passed down here. NavBar should read: Hey, {user.first_name}
-    //make a fetch to users/:id 
+    //README
+    // this code commented out because i fetched user info in app, and passed user down. which is the best way to go about this? 
 
-    const [user, setUser] = useState(null) // user state initialized as null
-
-
-    useEffect( () => {
-    fetch(`/users/${args.currentUser}`,	{
-        headers: {
-        'Content-Type': 'application/json',
-        'auth-token': localStorage.uid
-        } 
-    } )
-    .then(resp => resp.json())
-    .then(data => setUser(data))
-    }, [args.currentUser]);
-
-    console.log("navbar user", user);
+    // const [user, setUser] = useState(null) // user state initialized as null
 
 
-    console.log("navbar currentUser:", args.currentUser) //this works
+    // useEffect( () => {
+    // fetch(`/users/${args.currentUser}`,	{
+    //     headers: {
+    //     'Content-Type': 'application/json',
+    //     'auth-token': localStorage.uid
+    //     } 
+    // } )
+    // .then(resp => resp.json())
+    // .then(data => setUser(data))
+    // }, [args.currentUser]);
+
+    // console.log("navbar user", user);
+
+
+    // console.log("navbar currentUser:", args.currentUser) //this works
 
 
 
@@ -57,7 +57,7 @@ function Navbar (args) { //currentUser (with ID) being passed in
     return (
         <div id="navbarCont">
             {/* <h1 className="heyBuddy">Hey, &nbsp;{user.first_name}</h1> */}
-            {user && <h1 className="heyBuddy">Hey, &nbsp;{user.first_name}</h1>}
+            {args.userInfo && <h1 className="heyBuddy">Hey, &nbsp;{args.userInfo.first_name}</h1>}
 
             <NavLink to="/myreviews" className="navButtons" >My Reviews</NavLink>
 
