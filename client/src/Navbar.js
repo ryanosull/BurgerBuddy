@@ -24,10 +24,10 @@ function Navbar (args) {
     .then(data => setUser(data))
     }, []);
 
-    console.log("navbar", user);
+    console.log("navbar user", user);
 
 
-
+    console.log("navbar currentUser:", args.currentUser)
 
 
 

@@ -37,13 +37,27 @@ class UsersController < ApplicationController
     #     end
     # end
 
+    # def show
+    #     if current_user
+    #         user = User.find_by(id: params[:id])
+    #         render json: user
+    #     else
+    #         user_not_found
+    #     end
+    # end
+
+
+
     def show
-        render json: current_user
-    end
-
-
-
-
+        user = User.find_by(id: params[:id])
+      
+        if user && current_user && current_user.id == user.id
+          render json: user
+        else
+          user_not_found
+        end
+      end
+      
 
 
 
@@ -90,7 +104,7 @@ class UsersController < ApplicationController
 
 
     def user_not_found
-        render json: {errors: ["User does not exist!"]}
+        render json: {errors: ["User not found! ⚆_⚆"]}
     end
 
 

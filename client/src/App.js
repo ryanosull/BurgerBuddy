@@ -9,7 +9,7 @@ import Profile from "./Profile";
 import "./App.css";
 
 
-function App() {
+function App(args) {
 
     const [currentUser, setCurrentUser] = useState(null)
 
