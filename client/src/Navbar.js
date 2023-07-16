@@ -21,7 +21,7 @@ function Navbar (args) {
         } 
     } )
     .then(resp => resp.json())
-    .then(data => setUser(data))
+    .then(data => console.log("fetchedData:", data))
     }, []);
 
     console.log("navbar user", user);

@@ -9,7 +9,7 @@ import Profile from "./Profile";
 import "./App.css";
 
 
-function App(args) {
+function App() { // 7/21 likely do not needs App(args)
 
     const [currentUser, setCurrentUser] = useState(null)
 
