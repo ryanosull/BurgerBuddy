@@ -73,7 +73,7 @@ function App() { // 7/21 likely do not needs App(args)
 
 		</Switch>
 		</div>
-	);
+	)
 };
 
 export default App;

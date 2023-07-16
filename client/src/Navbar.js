@@ -22,7 +22,7 @@ function Navbar (args) { //currentUser (with ID) being passed in
     } )
     .then(resp => resp.json())
     .then(data => setUser(data))
-    }, []);
+    }, [args.currentUser]);
 
     console.log("navbar user", user);
 
@@ -56,7 +56,8 @@ function Navbar (args) { //currentUser (with ID) being passed in
 
     return (
         <div id="navbarCont">
-            <h1 className="heyBuddy">Hey, &nbsp;{user.first_name}</h1>
+            {/* <h1 className="heyBuddy">Hey, &nbsp;{user.first_name}</h1> */}
+            {user && <h1 className="heyBuddy">Hey, &nbsp;{user.first_name}</h1>}
 
             <NavLink to="/myreviews" className="navButtons" >My Reviews</NavLink>
 
