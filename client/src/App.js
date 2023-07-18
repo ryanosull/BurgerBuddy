@@ -11,7 +11,7 @@ import "./App.css";
 
 function App() { // 7/21 likely do not needs App(args)
 
-    const [currentUser, setCurrentUser] = useState(null)
+    const [currentUser, setCurrentUser] = useState(null)   //8/4 this may be an issue, maybe use ""
 	const [userInfo, setUserInfo] = useState(null) // user state initialized as null
 
 	useEffect( () => {
