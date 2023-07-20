@@ -25,7 +25,7 @@ function Navbar ({currentUser, setCurrentUser}) {
                 //clear local storage
             }
         })
-    }
+    };
 
 
 
