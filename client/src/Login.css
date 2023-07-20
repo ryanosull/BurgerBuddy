@@ -28,3 +28,12 @@
     #cancelButtonModal {
         font-family: 'Rubik Vinyl', cursive;
     }
+
+
+.inputLabels{
+    font-weight: bold;
+}
+
+.formText{
+    font-style: italic;
+}

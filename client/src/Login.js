@@ -1,7 +1,7 @@
 import React, { useState } from 'react';
 import {useHistory} from 'react-router-dom'
 import "./Login.css"
-import { Button, Modal, ModalHeader, ModalBody, ModalFooter, Form, Row, Col, Label, Input, Alert } from 'reactstrap';
+import { Button, Modal, ModalHeader, ModalBody, ModalFooter, Form, FormText, Row, Col, Label, Input, Alert } from 'reactstrap';
 
 
 function Login (args) {
@@ -12,7 +12,7 @@ function Login (args) {
 
     const toggle = () => {
         setModal(!modal)
-        setFormData("")        //to reset form data on modal close
+        resetForm()        //to reset form data on modal close
     };
 
     const toggleOnLogin = () => {
@@ -21,51 +21,51 @@ function Login (args) {
 
     //**********
 
-    const [formData, setFormData] = useState({
-        email:'',
-        password:''
-    });
 
     const [errors, setErrors] = useState([]);
     const history = useHistory();
 
-    const {email, password} = formData;
-    // const loginInfo = {email, password}
+    
+    const [email, setEmail] = useState("");
+    const [password, setPassword] = useState("");
 
+    const resetForm = () => {    //don't think we need this
+        setEmail("")
+        setPassword("")
+    };
 
+    const handleLogin = (e) => {
 
-    const onLogin = (e) => {
         e.preventDefault()
 
-        fetch("/login", { //"/auto_login"
+        let loginInfo = {      //loginInfo object
+            email: email,
+            password: password,
+        };
+
+        setEmail("")     //reset of state
+        setPassword("")  //reset of state
+
+        fetch('/login', {
             method: 'POST',
             headers: {
                 'Content-Type': 'application/json',
                 Accept: 'application/json'
             },
-            body: JSON.stringify(formData)
+            body: JSON.stringify(loginInfo)
         })
-        .then(r => r.json())
-        .then(user => {           //here is your fucking problem: localStorage.uid = user.id should be USER.UID you dunce.
-            if (!user.errors) { 
-                localStorage.uid = user.id
-                args.setCurrentUser(user.uid)
-                history.push(`/myreviews`)
-            } else {
-                user.errors.forEach(e => alert(e))
-                // user.json().then(errors => setErrors(errors.errors))
-                setFormData("")
-            }
-        } )
+        .then(resp => resp.json())
+        .then(user => {
+            if (!user.errors) {
+                localStorage.uid = user.uid
+                args.setCurrentUser(user.id)
+                window.alert(`User # ${user.id} successfully logged in!`)
+            } else user.errors.forEach(error => (window.alert(error)))
+        }); 
     };
 
-    console.log('current user:', args.currentUser)
 
-    const handleChange = (e) => {
-        const { name, value } = e.target
-        setFormData({ ...formData, [name]: value })
-    };
-
+    // console.log('login.js - current user :', args.currentUser);   //working
 
 
     return (
@@ -79,20 +79,24 @@ function Login (args) {
         </ModalHeader>
 
         <ModalBody>
-            <Form onSubmit={onLogin} >
+            <Form onSubmit={handleLogin} >
+
                 <Row className="row-cols-lg-auto g-3 align-items-center">
                 <Col>
-                    <Label className="visually-hidden"for="exampleEmail">Email</Label>
-                    <h6>Email:</h6>
-                    <Input type='email' name='email' value={email} onChange={handleChange} required placeholder="email" />
+                    <Label className='inputLabels' for="inputEmail">Email:</Label>
+                    <Input id="inputEmail" type="email" name="email" value={email} onChange={(e) => setEmail(e.target.value)} required placeholder="name@example.com" />
                 </Col>
                 <Col>
-                    {/* <Label className="visually-hidden"for="examplePassword">Password</Label> */}
-                    <h6>Password:</h6>
-                    <Input type='password' name='password' value={password} onChange={handleChange} required minLength="8" maxLength="16" placeholder="password"/>
+                    <Label className='inputLabels' for="inputPassword">Password:</Label>
+                    <Input id="inputPassword" type="password" name="password" value={password} onChange={(e) => setPassword(e.target.value)} required minLength="8" maxLength="16" placeholder="password"/>
                 </Col>
+                <Col>
+						<FormText className='formText'>
+                            BurgerBuddy will never share your email or password.
+						</FormText>
+					</Col>
                 </Row>
-
+                <br/>
                 <ModalFooter>
 
                     <Button id="cancelButtonModal" onClick={toggle}>Cancel</Button>
