@@ -55,10 +55,11 @@ function Profile(args) {
     }
 
 
-    //hmmmm
+    //hmmmm 7/20 need to send auth-token with delete
     function handleDeleteAcct() {
         fetch(`/users/${args.currentUser.id}`, {
-            method: 'DELETE'
+            method: 'DELETE',
+            // 'auth-token': localStorage.uid   this should work lmao 7/20
         })
         history.push(`/`)
     }
