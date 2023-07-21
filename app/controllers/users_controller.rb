@@ -48,16 +48,15 @@ class UsersController < ApplicationController
 
 
 
-    def show
+    def show #7/21 keep me
         user = User.find_by(id: params[:id])
-      
         if user && current_user && current_user.id == user.id
-          render json: user
+            render json: user
         else
-          user_not_found
+            user_not_found
         end
-      end
-      
+    end
+
 
 
 
