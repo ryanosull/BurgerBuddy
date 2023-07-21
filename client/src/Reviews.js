@@ -5,19 +5,34 @@ import "./Reviews.css"
 
 
 
-function MyReviews ({currentUser, setCurrentUser}) {
+function Reviews (args) {
 
     const [reviews, setReviews] = useState([])
 
-    useEffect(() => fetchReviews(), [])
+    // useEffect(() => fetchReviews(), [])
 
-    function fetchReviews () {
-        fetch("/reviews")
-        .then(r => r.json())
-        .then(setReviews)
-    }
+    // function fetchReviews () {
+    //     fetch("/reviews")
+    //     .then(r => r.json())
+    //     .then(setReviews)
+    // }
 
-    
+
+
+    const [user, setUser] = useState(null) // user state initialized as null
+
+
+    useEffect( () => {
+    fetch(`/users/${args.currentUser}`,	{
+        headers: {
+        'Content-Type': 'application/json',
+        'auth-token': localStorage.uid
+        } 
+    } )
+    .then(resp => resp.json())
+    .then(data => console.log(data))
+    }, []);
+
 
     const modifiedArray = (id) => setReviews(current => current.filter(review => review.id !== id)) 
 
@@ -26,7 +41,7 @@ function MyReviews ({currentUser, setCurrentUser}) {
     }
 
 
-    const renderReviewCard = reviews.filter(review => review.user.id === currentUser.id).map (review =>
+    const renderReviewCard = reviews.filter(review => review.user.id === args.currentUser.id).map (review =>
         <ReviewCard
         review={review}
         key={review.id}
@@ -40,11 +55,11 @@ function MyReviews ({currentUser, setCurrentUser}) {
     return (
 
         <div id="reviewContainer" >
-            {currentUser.reviews.length > 0 ? renderReviewCard : <h1 id="noBurger">Go get yourself a burger, {currentUser.first_name}.</h1>}
+            {user.reviews.length > 0 ? renderReviewCard : <h1 id="noBurger">Go get yourself a burger, {user.first_name}.</h1>}
         </div>
     
     );
 };
 
 
-export default MyReviews;
+export default Reviews;
