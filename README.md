@@ -6,9 +6,9 @@ Welcome to **BurgerBuddy**, the ultimate app for hamburger enthusiasts! Experien
 
 **Project Update: BurgerBuddy Refactoring in Progress** 
 
-Please be aware that BurgerBuddy is currently undergoing exciting refactoring. In a recent blog post, I showcased the revamped User authentication, now utilizing JWT for enhanced security and efficiency. Check out the blog post [here](https://medium.com/@wrosullivan88/backend-authentication-and-encryption-using-rails-bcrypt-jwt-react-localstorage-and-react-401c472d762b) to learn more about the improvements.
+Please be aware that BurgerBuddy is currently undergoing a bit of refactoring. In a recent blog post, I showcased the revamped user authentication, now utilizing JWT for enhanced security and efficiency. Check out the blog post [here](https://medium.com/@wrosullivan88/backend-authentication-and-encryption-using-rails-bcrypt-jwt-react-localstorage-and-react-401c472d762b) to learn more about the improvements.
 
-Stay tuned for upcoming updates, as more exciting enhancements are on the horizon! I appreciate your patience and support as I strive to make BurgerBuddy an even more delightful experience.
+Stay tuned for upcoming updates, as more enhancements are on the horizon! I appreciate your patience and support as I strive to make BurgerBuddy an even more delightful experience.
 
 &nbsp;
 
