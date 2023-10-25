@@ -92,7 +92,7 @@ function Login (args) {
                 </Col>
                 <Col>
 						<FormText className='formText'>
-                            BurgerBuddy™ will never share your email or password.
+                            BurgerBuddy™ will never share your email or password with third parties.
 						</FormText>
 					</Col>
                 </Row>

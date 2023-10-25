@@ -50,7 +50,7 @@ function Signup (args) {
 
 	
 
-	const {first_name, last_name, email, password, password_confirmation} = formData //sanke_case for backend
+	const {first_name, last_name, email, password, password_confirmation} = formData //snake_case for backend
 	
 
 	function onSignup(e) {
