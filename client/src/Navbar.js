@@ -31,27 +31,28 @@ function Navbar (args) { //currentUser (with ID) being passed in
 
 
 
-
-
-
-
     const history = useHistory()
 
 
-    // 07/01 on logout, remove uid local storage - see pdawg rev. 1 2:05
-    function handleLogout () {
-        fetch('/logout', {
-            method: 'DELETE'
-        })
-        .then((res) => {
-            if (res.ok){
-                args.setCurrentUser(null)// not sure if this is necessary after storage.remove
-                history.push("/")
-                //remove uid from local storage
-            }
-        })
-    };
+    // function handleLogout () {              //10/25
+    //     fetch('/logout', {
+    //         method: 'DELETE'
+    //     })
+    //     .then((res) => {
+    //         if (res.ok){
+    //             args.setCurrentUser(null)// not sure if this is necessary after storage.remove
+    //             history.push("/")
+    //             //remove uid from local storage
+    //         }
+    //     })
+    // };
 
+
+    const handleLogout = () => {
+		localStorage.removeItem('uid') // remove 'uid' from localStorage
+		// setCurrentUser(null) // reset user state to 'null'
+        //then history to landing page
+	}
 
 
     return (

@@ -8,11 +8,17 @@ import LandingPage from "./LandingPage";
 import Profile from "./Profile";
 import "./App.css";
 
+//10/25 current issue: userInfo is throwing user_not_found > users_controller
+//my thinking is that the interpolation of currentUser in the useEffect (line 21) is not being set in time for that fetch to happen - error is user does not exist. however whe we c.log, we see that currentUser === 1, so we should then fetch user 1 data. runtime bullshit. 
+
+
 
 function App() { // 7/21 likely do not needs App(args)
 
     const [currentUser, setCurrentUser] = useState(null)   //8/4 this may be an issue, maybe use ""
 	const [userInfo, setUserInfo] = useState(null) // user state initialized as null
+
+
 
 	useEffect( () => {
 		fetch(`/users/${currentUser}`,	{
@@ -24,8 +30,11 @@ function App() { // 7/21 likely do not needs App(args)
 		.then(resp => resp.json())
 		.then(data => setUserInfo(data))
 		}, [currentUser]);
+
+		console.log(currentUser, "test")
 	
 
+	//auto-login functionality
 	useEffect( () => {
     if (localStorage.uid)
 		fetch('/auto_login', {headers: {
